@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Butaca</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    $(window).scroll(function() {
+    if ($(this).scrollTop() >= 180)
+    {
+       $('nav').addClass('tm-navbar-small');
+       $('#languagebar').css('margin-top','20px');
+	}
+	if ($(this).scrollTop() === 0) { 
+       $('nav').removeClass('tm-navbar-small');
+       $('#languagebar').css('margin-top','45px');
+    }
+	});
+  </script>
+</head>
+<body class="tm-isblog  tm-navbar-fixed tm-article-blog">
+   
+   <%=render "shared/header"%>
+   
+   
+   <%= yield %>
+   
+   <%=render "shared/footer"%>
+
+</body>
+</html>

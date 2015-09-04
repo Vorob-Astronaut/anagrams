@@ -1,0 +1,92 @@
+
+<div class="tm-block tm-block-main">
+  <div class="uk-container uk-container-center">
+    <div class="tm-middle uk-grid" data-uk-grid-margin="" data-uk-grid-match="">
+      <div class="tm-main uk-width-medium-1-1">
+        <main class="tm-content">
+          <div class="system-message-container">
+		   <%if notice.present? %>
+		   <div class="uk-alert uk-alert-large uk-alert-success"><%= notice %></div>
+		   <%end%>
+		   <%if alert.present? %>
+		   <div class="uk-alert uk-alert-large uk-alert-success"><%= alert %></div>
+		   <%end%>
+		   </div>
+             
+             
+
+					<div id="details_1_34" class="fabrikForm fabrikDetails">
+					  <div style="" id="group1" class="fabrikGroup form-horizontal">
+					    <div class="uk-grid filmstrip-detail detail">
+					      <div class="uk-width-3-10 film-img">
+					        <div id="titles___keyArt_ro">
+					          <div class="fabrikSubElementContainer">
+					            <img alt="" src="<%=@title.keyArt.url(:medium)%>" class="fabrikLightBoxImage">
+					          </div>
+					        </div>
+					      </div>
+					      <div class="uk-width-7-10">
+					        <h1 class="uk-heading-large uk-clearfix">
+					          <div class="uk-float-left">
+					            <div id="titles___filmTitle_ro"><%=@title.filmTitle%></div>
+					          </div>
+					          <div class="uk-float-left year"><%if @title.yearProduced.present?%>(<%=@title.yearProduced%>)<%end%></div>
+					          <div class="detail_rating">
+					            <!--<span><strong></strong></span>-->
+					          </div>
+					        </h1>
+					        <div class="year_action">
+					          <div id="titles___Genres_ro">
+					            Documental, Drama 
+					          </div>
+					        </div>
+					        <div class="detail_director">
+					          <span><strong>director:</strong></span>
+					          <div id="titles___Director_ro"><%=@title.Director%></div>
+					        </div><%if !@title.Director.present?%><br/><%end%>
+					        <div class="detail_Actors">
+					          <span><strong>Elenco:</strong></span>
+					          <div id="titles___Actors_ro"><%=@title.Actors%></div>
+					        </div>
+					        <div class="detail_description">
+					          <div id="titles___shortDescriptionEspanol_ro"><%=@title.longDescriptionEspanol%></div>
+					        </div>
+					        <%if !@title.longDescriptionEspanol.present?%><br/><br/><br/><br/><%end%>
+					        <!--				<div class="detail_rating">
+					          <span><strong></strong></span>
+					           
+					          
+					          </div>-->
+					        <div class="addToFav">
+					          <a onclick="return AddtoFav(id)" id="add_" title="Agregar a mis favoritos" data-uk-tooltip="{pos:'top-right'}" class="btn uk-button  add_favourite">Agregar a mis favoritos</a>
+					          <a onclick="return RemoveFromView(id)" id="film_" title="Eliminar de la vista" data-uk-tooltip="{pos:'top-right'}" class="btn uk-button Remove_view add_favourite">Eliminar de la vista</a>
+					          <a onclick="return MyQueue(id)" id="addqueue_" title="Want To Watch" data-uk-tooltip="{pos:'top-right'}" class="btn uk-button myqueue add_favourite">AÑADIR A myQueue</a>
+					        </div>
+					      </div>
+					      <div class="detail_platform uk-width-1-1">
+					        <div class="uk-panel uk-panel-box uk-width-medium-10-10">
+					          <span><strong>Donde la puedes ver online</strong></span>
+					          <div id="titles___platform_ro go-watch">
+					            <div class="platform_detail"><a href="http://www.netflix.com/Movie/Y_Tu_Mama_Tambien/60023237" title="netflix_instant" class="uk-thumbnail" target="_blank"><img height="100px" width="200px" alt="netflix_instant" src="/assets/fabriklogo/netflix_instant.jpeg"></a><span class="uk-thumbnail price_platform"><a href="http://www.netflix.com/Movie/Y_Tu_Mama_Tambien/60023237">View</a></span></div>
+					            <div class="platform_detail"><a href="http://www.amazon.com/tu-mam%C3%A1-tambi%C3%A9n-Diego-Luna/dp/B00KE3B6H4%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KE3B6H4" title="amazon_dvd" class="uk-thumbnail" target="_blank"><img height="100px" width="200px" alt="amazon_dvd" src="/assets/fabriklogo/amazon_dvd3.jpg"></a><span class="uk-thumbnail price_platform"><a href="http://www.amazon.com/tu-mam%C3%A1-tambi%C3%A9n-Diego-Luna/dp/B00KE3B6H4%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KE3B6H4">View</a></span></div>
+					            <div class="platform_detail"><a href="http://www.amazon.com/Tu-Mama-Tambien-English-Subtitled/dp/B0057ASPP0%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0057ASPP0" title="amazon_video_rental" class="uk-thumbnail" target="_blank"><img height="100px" width="200px" alt="amazon_video_rental" src="/assets/fabriklogo/amazon_video_rental.jpg"></a><span class="uk-thumbnail price_platform"><a href="http://www.amazon.com/Tu-Mama-Tambien-English-Subtitled/dp/B0057ASPP0%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0057ASPP0">View</a></span></div>
+					            <div class="platform_detail"><a href="http://www.amazon.com/Tu-Mama-Tambien-English-Subtitled/dp/B0057ASPP0%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0057ASPP0" title="amazon_video_purchase" class="uk-thumbnail" target="_blank"><img height="100px" width="200px" alt="amazon_video_purchase" src="/assets/fabriklogo/amazon_video_purchase_.jpg"></a><span class="uk-thumbnail price_platform"><a href="http://www.amazon.com/Tu-Mama-Tambien-English-Subtitled/dp/B0057ASPP0%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0057ASPP0">View</a></span></div>
+					            <div class="platform_detail"><a href="http://www.netflix.com/Movie/Y_Tu_Mama_Tambien/60023237" title="netflix_dvd" class="uk-thumbnail" target="_blank"><img height="100px" width="200px" alt="netflix_dvd" src="/assets/fabriklogo/netflix_dvd_1.jpeg"></a><span class="uk-thumbnail price_platform"><a href="http://www.netflix.com/Movie/Y_Tu_Mama_Tambien/60023237">View</a></span></div>
+					            <div class="platform_detail"><a href="http://www.amazon.com/mam%C3%A1-tambi%C3%A9n-Blu-ray-DVD/dp/B00KE3B8HC%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KE3B8HC" title="amazon_bluray" class="uk-thumbnail" target="_blank"><img height="100px" width="200px" alt="amazon_bluray" src="/assets/fabriklogo/amazon_bluray_2.jpg"></a><span class="uk-thumbnail price_platform"><a href="http://www.amazon.com/mam%C3%A1-tambi%C3%A9n-Blu-ray-DVD/dp/B00KE3B8HC%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KE3B8HC">View</a></span></div>
+					            <div class="platform_detail"><a href="https://itunes.apple.com/us/movie/y-tu-mama-tambien/id571312202?uo=4&amp;at=10lcsB" title="apple_itunes_rental" class="uk-thumbnail" target="_blank"><img height="100px" width="200px" alt="apple_itunes_rental" src="/assets/fabriklogo/apple_itunes_rental1.png"></a><span class="uk-thumbnail price_platform"><a href="https://itunes.apple.com/us/movie/y-tu-mama-tambien/id571312202?uo=4&amp;at=10lcsB">View</a></span></div>
+					            <div class="platform_detail"><a href="https://itunes.apple.com/us/movie/y-tu-mama-tambien/id571312202?uo=4&amp;at=10lcsB" title="apple_itunes_purchase" class="uk-thumbnail" target="_blank"><img height="100px" width="200px" alt="apple_itunes_purchase" src="/assets/fabriklogo/apple_itunes_purchase2.png"></a><span class="uk-thumbnail price_platform"><a href="https://itunes.apple.com/us/movie/y-tu-mama-tambien/id571312202?uo=4&amp;at=10lcsB">View</a></span></div>
+					          </div>
+					        </div>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+
+             
+           
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
+

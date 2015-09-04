@@ -1,0 +1,7 @@
+es:
+  time:
+   formats:
+     long: "%Y-%m-%d %H:%M:%S"
+  collections:
+    index:
+      title: "Coleccions"

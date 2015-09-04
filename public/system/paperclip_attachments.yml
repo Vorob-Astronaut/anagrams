@@ -1,0 +1,14 @@
+---
+:User:
+  :avatar:
+  - :medium
+  - :thumb
+:Collection:
+  :image:
+  - :custom
+  - :medium
+  - :thumb
+:Profile:
+  :avatar:
+  - :medium
+  - :thumb
