@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830125919) do
+ActiveRecord::Schema.define(version: 20150906103527) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -89,10 +89,36 @@ ActiveRecord::Schema.define(version: 20150830125919) do
   add_index "country_titles", ["country_id"], name: "fb_repeat_el_country_INDEX", using: :btree
   add_index "country_titles", ["title_id"], name: "fb_parent_fk_parent_id_INDEX", using: :btree
 
+  create_table "genre_titles", force: :cascade do |t|
+    t.integer "title_id", limit: 4
+    t.integer "genre_id", limit: 4
+    t.text    "params",   limit: 65535
+  end
+
+  add_index "genre_titles", ["genre_id"], name: "fb_repeat_el_Genres_INDEX", using: :btree
+  add_index "genre_titles", ["title_id"], name: "fb_parent_fk_parent_id_INDEX", using: :btree
+
+  create_table "genres", force: :cascade do |t|
+    t.datetime "date_time"
+    t.string   "genreEnglish", limit: 255
+    t.string   "genreEspanol", limit: 255
+    t.text     "active",       limit: 65535
+  end
+
+  create_table "movie_streams", force: :cascade do |t|
+    t.string  "typel",       limit: 255
+    t.string  "link",        limit: 255
+    t.string  "link_type",   limit: 255
+    t.decimal "price",                     precision: 10, scale: 2
+    t.integer "title_id",    limit: 4,                                           null: false
+    t.string  "external_id", limit: 255,                            default: "", null: false
+    t.text    "logo",        limit: 65535
+  end
+
   create_table "playlists", force: :cascade do |t|
     t.datetime "date_time"
     t.integer  "collection_id", limit: 4
-    t.integer  "movie_id",      limit: 4
+    t.integer  "title_id",      limit: 4
   end
 
   add_index "playlists", ["collection_id"], name: "fb_join_fk_Playlist_name_INDEX", using: :btree
@@ -133,6 +159,27 @@ ActiveRecord::Schema.define(version: 20150830125919) do
   end
 
   add_index "titles", ["filmTitle"], name: "filmTitle", using: :btree
+
+  create_table "user_favorites", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "title_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "user_queues", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "title_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "user_removals", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "title_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     resources :home
     root to: 'home#index'
   end
+  get 'user_queues/add/:title_id' => 'user_queues#add', as: :add_to_que
+  get 'user_favorites/add/:title_id' => 'user_favorites#add', as: :add_to_favorite
+  get 'user_removals/add/:title_id' => 'user_removals#add', as: :add_to_removal
   get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
   get '', to: redirect("/#{I18n.default_locale}")
   get '/:locale' => "home#index"
