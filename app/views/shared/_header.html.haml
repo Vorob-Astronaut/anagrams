@@ -1,0 +1,65 @@
+%nav.tm-navbar.uk-navbar.uk-position-z-index.top-navbar
+  .uk-container.uk-container-center.padding0
+    .uk-grid
+      .uk-width-medium-1-3.text-left.user-info
+        %a.tm-logo.uk-hidden-small{:href => "/", :style => "text-decoration:none;"}
+          %p
+            %img{:alt => "logo", :height => "60", :src => "/assets/butacaChairOnly.png", :width => "60"}>/
+               Butaca
+      .uk-width-medium-1-3
+        .tm-nav-search
+          .uk-navbar-content.uk-hidden-small
+            %form.uk-search{:action => "/", :method => "post", :role => "search"}
+              %input.uk-search-field{:name => "searchword", :placeholder => "Búsqueda", :type => "search"}/
+              %input{:name => "task", :type => "hidden", :value => "search"}/
+              %input{:name => "option", :type => "hidden", :value => "com_search"}/
+              %input{:name => "Itemid", :type => "hidden", :value => "655"}/
+      .uk-width-medium-1-3
+        .text-right
+          %div
+            #languagebar{:style => "float:left;margin-left:100px;margin-top:45px;color: #fff;"}
+              = link_to_unless I18n.locale == :en, "English", locale: "en"
+              |
+              \#{link_to_unless I18n.locale == :es, "Spanish", locale: "es"}
+            / BEGIN: Custom advanced (www.pluginaria.com)
+            .uk-button-dropdown{"aria-expanded" => "false", "aria-haspopup" => "true", "data-uk-dropdown" => "", :onmouseout => "$('.uk-dropdown').hide();", :onmouseover => "$('.uk-dropdown').show();"}
+              %button.uk-button{:onmouseout => "$('.uk-dropdown').hide();", :onmouseover => "$('.uk-dropdown').show();"}
+                %i.uk-icon-navicon
+              .uk-dropdown.uk-dropdown-small.uk-dropdown-center{:style => "margin-left: -49px;"}
+                %ul.uk-nav.uk-nav-dropdown
+                  - if current_user
+                    %li
+                      = link_to 'Profile',edit_user_registration_path
+                    %li
+                      %a{:href => "/logout"} Logout
+                  - else
+                    %li
+                      %a{:href => "/login"} Login
+            / END: Custom advanced (www.pluginaria.com)
+    %a.uk-navbar-toggle.uk-visible-small{"data-uk-offcanvas" => "", :href => "#offcanvas"}
+    .uk-navbar-content.uk-navbar-center.uk-visible-small
+      %a.tm-logo-small{:href => "/"}
+        %p
+          %img{:alt => "logo", :height => "45", :src => "/assets/butacaChairOnly.png", :width => "45"}/
+        %p
+          %img{:alt => "butaca", :src => "/assets/butaca-name.png", :width => "120"}/
+.tm-block.tm-block-top-a.tm-block-alt
+  .uk-container.uk-container-center
+    %section.tm-top-a.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => "{target:'> div > .uk-panel'}"}
+      - if request.fullpath == '/collections'
+        .uk-width-1-1.uk-width-medium-1-2
+          .uk-panel.uk-panel-box.breadnav{:style => "min-height: 28px;"}
+            %ul.uk-breadcrumb
+              %li
+                %a{:href => "/"} Inicio
+              %li.uk-active
+                %span Colección
+      .uk-width-1-1.uk-grid-margin
+        .uk-panel.uk-panel-box.filter-menu.uk-container.uk-container-center
+          %ul.uk-nav.uk-nav-parent-icon.uk-nav-side{"data-uk-nav" => "{}"}
+            %li
+              %a{:href => "/collections"} Colección
+            %li
+              %a{:href => "/country_titles"} País
+            %li
+              %a{:href => "/genre"} Género

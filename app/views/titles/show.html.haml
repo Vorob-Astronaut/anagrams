@@ -1,0 +1,101 @@
+.tm-block.tm-block-main
+  .uk-container.uk-container-center
+    .tm-middle.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => ""}
+      .tm-main.uk-width-medium-1-1
+        %main.tm-content
+          .system-message-container
+            - if notice.present?
+              .uk-alert.uk-alert-large.uk-alert-success= notice
+            - if alert.present?
+              .uk-alert.uk-alert-large.uk-alert-success= alert
+          #details_1_34.fabrikForm.fabrikDetails
+            #group1.fabrikGroup.form-horizontal{:style => ""}
+              .uk-grid.filmstrip-detail.detail
+                .uk-width-3-10.film-img
+                  #titles___keyArt_ro
+                    .fabrikSubElementContainer
+                      %img.fabrikLightBoxImage{:alt => "", :src => "#{@title.keyArt.url(:medium)}"}/
+                .uk-width-7-10
+                  %h1.uk-heading-large.uk-clearfix
+                    .uk-float-left
+                      #titles___filmTitle_ro= @title.filmTitle
+                    .uk-float-left.year
+                      - if @title.yearProduced.present?
+                        (#{@title.yearProduced})
+                    .detail_rating
+                      / <span><strong></strong></span>
+                  .year_action
+                    #titles___Genres_ro
+                      Documental, Drama
+                  .detail_director
+                    %span
+                      %strong director:
+                    #titles___Director_ro= @title.Director
+                  - if !@title.Director.present?
+                    %br/
+                  .detail_Actors
+                    %span
+                      %strong Elenco:
+                    #titles___Actors_ro= @title.Actors
+                  .detail_description
+                    #titles___shortDescriptionEspanol_ro= @title.longDescriptionEspanol
+                  - if !@title.longDescriptionEspanol.present?
+                    %br/
+                    %br/
+                    %br/
+                    %br/
+                  /
+                    <div class="detail_rating">
+                    <span><strong></strong></span>
+                    
+                    
+                    </div>
+                  .addToFav
+                    %a#add_.btn.uk-button.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return AddtoFav(id)", :title => "Agregar a mis favoritos"} Agregar a mis favoritos
+                    %a#film_.btn.uk-button.Remove_view.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"} Eliminar de la vista
+                    %a#addqueue_.btn.uk-button.myqueue.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)", :title => "Want To Watch"} AÑADIR A myQueue
+                .detail_platform.uk-width-1-1
+                  .uk-panel.uk-panel-box.uk-width-medium-10-10
+                    %span
+                      %strong Donde la puedes ver online
+                    %div{:id => "titles___platform_ro go-watch"}
+                      .platform_detail
+                        %a.uk-thumbnail{:href => "http://www.netflix.com/Movie/Y_Tu_Mama_Tambien/60023237", :target => "_blank", :title => "netflix_instant"}
+                          %img{:alt => "netflix_instant", :height => "100px", :src => "/assets/fabriklogo/netflix_instant.jpeg", :width => "200px"}/
+                        %span.uk-thumbnail.price_platform
+                          %a{:href => "http://www.netflix.com/Movie/Y_Tu_Mama_Tambien/60023237"} View
+                      .platform_detail
+                        %a.uk-thumbnail{:href => "http://www.amazon.com/tu-mam%C3%A1-tambi%C3%A9n-Diego-Luna/dp/B00KE3B6H4%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KE3B6H4", :target => "_blank", :title => "amazon_dvd"}
+                          %img{:alt => "amazon_dvd", :height => "100px", :src => "/assets/fabriklogo/amazon_dvd3.jpg", :width => "200px"}/
+                        %span.uk-thumbnail.price_platform
+                          %a{:href => "http://www.amazon.com/tu-mam%C3%A1-tambi%C3%A9n-Diego-Luna/dp/B00KE3B6H4%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KE3B6H4"} View
+                      .platform_detail
+                        %a.uk-thumbnail{:href => "http://www.amazon.com/Tu-Mama-Tambien-English-Subtitled/dp/B0057ASPP0%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0057ASPP0", :target => "_blank", :title => "amazon_video_rental"}
+                          %img{:alt => "amazon_video_rental", :height => "100px", :src => "/assets/fabriklogo/amazon_video_rental.jpg", :width => "200px"}/
+                        %span.uk-thumbnail.price_platform
+                          %a{:href => "http://www.amazon.com/Tu-Mama-Tambien-English-Subtitled/dp/B0057ASPP0%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0057ASPP0"} View
+                      .platform_detail
+                        %a.uk-thumbnail{:href => "http://www.amazon.com/Tu-Mama-Tambien-English-Subtitled/dp/B0057ASPP0%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0057ASPP0", :target => "_blank", :title => "amazon_video_purchase"}
+                          %img{:alt => "amazon_video_purchase", :height => "100px", :src => "/assets/fabriklogo/amazon_video_purchase_.jpg", :width => "200px"}/
+                        %span.uk-thumbnail.price_platform
+                          %a{:href => "http://www.amazon.com/Tu-Mama-Tambien-English-Subtitled/dp/B0057ASPP0%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0057ASPP0"} View
+                      .platform_detail
+                        %a.uk-thumbnail{:href => "http://www.netflix.com/Movie/Y_Tu_Mama_Tambien/60023237", :target => "_blank", :title => "netflix_dvd"}
+                          %img{:alt => "netflix_dvd", :height => "100px", :src => "/assets/fabriklogo/netflix_dvd_1.jpeg", :width => "200px"}/
+                        %span.uk-thumbnail.price_platform
+                          %a{:href => "http://www.netflix.com/Movie/Y_Tu_Mama_Tambien/60023237"} View
+                      .platform_detail
+                        %a.uk-thumbnail{:href => "http://www.amazon.com/mam%C3%A1-tambi%C3%A9n-Blu-ray-DVD/dp/B00KE3B8HC%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KE3B8HC", :target => "_blank", :title => "amazon_bluray"}
+                          %img{:alt => "amazon_bluray", :height => "100px", :src => "/assets/fabriklogo/amazon_bluray_2.jpg", :width => "200px"}/
+                        %span.uk-thumbnail.price_platform
+                          %a{:href => "http://www.amazon.com/mam%C3%A1-tambi%C3%A9n-Blu-ray-DVD/dp/B00KE3B8HC%3FSubscriptionId%3DAKIAI2NU2USSCM2WKKVA%26tag%3Dcaistit-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KE3B8HC"} View
+                      .platform_detail
+                        %a.uk-thumbnail{:href => "https://itunes.apple.com/us/movie/y-tu-mama-tambien/id571312202?uo=4&at=10lcsB", :target => "_blank", :title => "apple_itunes_rental"}
+                          %img{:alt => "apple_itunes_rental", :height => "100px", :src => "/assets/fabriklogo/apple_itunes_rental1.png", :width => "200px"}/
+                        %span.uk-thumbnail.price_platform
+                          %a{:href => "https://itunes.apple.com/us/movie/y-tu-mama-tambien/id571312202?uo=4&at=10lcsB"} View
+                      .platform_detail
+                        %a.uk-thumbnail{:href => "https://itunes.apple.com/us/movie/y-tu-mama-tambien/id571312202?uo=4&at=10lcsB", :target => "_blank", :title => "apple_itunes_purchase"}
+                          %img{:alt => "apple_itunes_purchase", :height => "100px", :src => "/assets/fabriklogo/apple_itunes_purchase2.png", :width => "200px"}/
+                        %span.uk-thumbnail.price_platform
+                          %a{:href => "https://itunes.apple.com/us/movie/y-tu-mama-tambien/id571312202?uo=4&at=10lcsB"} View

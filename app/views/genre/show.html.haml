@@ -1,0 +1,129 @@
+:javascript
+  /*jQuery time*/
+  $(document).ready(function(){
+  	$("#accordian h3").click(function(){
+  		//slide up all the link lists
+  		$("#accordian ul ul").slideUp();
+  		//slide down the link list below the h3 clicked - only if its closed
+  		if(!$(this).next().is(":visible"))
+  		{
+  			$(this).next().slideDown();
+  		}
+  	})
+  });
+.tm-block.tm-block-main
+  .uk-container.uk-container-center
+    .tm-middle.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => ""}
+      .tm-main.uk-width-medium-1-1
+        %main.tm-content
+          .system-message-container
+            - if notice.present?
+              .uk-alert.uk-alert-large.uk-alert-success= notice
+            - if alert.present?
+              .uk-alert.uk-alert-large.uk-alert-success= alert
+          %article.uk-article
+            %div
+              .uk-grid
+                - i = 0
+                #showless.uk-width-medium-9-10
+                  - @titles = @connection.connection.execute(" select * from titles where id in (select title_id from genre_titles where genre_id in (select id from genres where id = #{params[:id]})) " )
+                  %p
+                    %span.uk-h2
+                      = @genres.genreEspanol
+                  .fabrikDataContainer.filmstrip
+                    #list_1_com_content_1
+                      .fabrik_groupdata
+                        .uk-grid
+                          - @titles.each do |film|
+                            - if (film[6].present?) && (film[6].include? '1')
+                              - if i < 4
+                                %br/
+                              .uk-width-1-2.uk-width-medium-1-4.uk-width-large-1-5.uk-width-small-1-3.box_130
+                                / <div class="uk-width-1-1 uk-width-medium-1-5">
+                                .strip-container
+                                  %a{:href => "/titles/#{film[0]}"}
+                                    %img.fabrikLightBoxImage{:alt => "No-image.jpg", :src => "#{Title.find(film[0]).keyArt.url(:medium)}"}/
+                                  .strip-conainer-hover{:style => "text-align:justify"}
+                                    %h1= truncate(film[2],:length => 20)
+                                    %i= film[3]
+                                    %h3
+                                    %div
+                                      %span= truncate(film[2],:length => 20)
+                                      %br/
+                                      %br/
+                                      %span
+                                        %small
+                                        %small= film[3]
+                                      %br/
+                                      %br/
+                                      = truncate(film[5],:length => 160)
+                                      %br/
+                                      %br/
+                                    / Add To Favourite
+                                    %a#add_130.round-icon.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return AddtoFav(id)", :title => "Agregar a mis favoritos"}
+                                      %img{:src => "/assets/heart.png"}/
+                                    / Remove From View
+                                    %a#film_130.round-icon.Remove_view{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"}
+                                      %img{:src => "/assets/cross.png"}/
+                                    / Add To Queue
+                                    %a#addqueue_130.round-icon.myqueue{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)"}
+                                      %img{:src => "/assets/edit.png"}/
+                #showall.uk-width-medium-9-10{:style => "display:none;"}
+                  - @titles = @connection.connection.execute(" select * from titles where id in (select title_id from genre_titles where genre_id in (select id from genres where id = #{@genres.id}))" )
+                  %p
+                    %span.uk-h2
+                      = @genres.genreEspanol
+                  .fabrikDataContainer.filmstrip
+                    #list_1_com_content_1
+                      .fabrik_groupdata
+                        .uk-grid
+                          - @titles.each do |film|
+                            - if (film[6].present?) && (film[6].include? '1')
+                              .uk-width-1-2.uk-width-medium-1-4.uk-width-large-1-5.uk-width-small-1-3.box_130
+                                / <div class="uk-width-1-1 uk-width-medium-1-5">
+                                .strip-container
+                                  %a{:href => "/titles/#{film[0]}"}
+                                    %img.fabrikLightBoxImage{:alt => "No-image.jpg", :src => "#{Title.find(film[0]).keyArt.url(:medium)}"}/
+                                  .strip-conainer-hover{:style => "text-align:justify"}
+                                    %h1= truncate(film[2],:length => 20)
+                                    %i= film[3]
+                                    %h3
+                                    %div
+                                      %span= truncate(film[2],:length => 20)
+                                      %br/
+                                      %br/
+                                      %span
+                                        %small
+                                        %small= film[3]
+                                      %br/
+                                      %br/
+                                      = truncate(film[5],:length => 160)
+                                      %br/
+                                      %br/
+                                    / Add To Favourite
+                                    %a#add_130.round-icon.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return AddtoFav(id)", :title => "Agregar a mis favoritos"}
+                                      %img{:src => "/assets/heart.png"}/
+                                    / Remove From View
+                                    %a#film_130.round-icon.Remove_view{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"}
+                                      %img{:src => "/assets/cross.png"}/
+                                    / Add To Queue
+                                    %a#addqueue_130.round-icon.myqueue{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)"}
+                                      %img{:src => "/assets/edit.png"}/
+                .uk-width-medium-1-10
+                  - if i < 1
+                    #accordian.uk-width-medium-1-10
+                      %ul{:style => "display:block;"}
+                        %li
+                          %h3 Pais
+                          %ul{:style => "display:block;"}
+                            - Country.all.each do |genre|
+                              - if genre.active == '["1"]'
+                                %li
+                                  %a{:href => "/country_titles/#{genre.id}"}= genre.country
+                        %li
+                          %h3 Genro
+                          %ul
+                            - Genre.all.each do |genre|
+                              %li
+                                %a{:href => "/genre/#{genre.id}"}= genre.genreEspanol
+                  - i= i+1

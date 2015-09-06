@@ -11,3 +11,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( active_admin/active_admin_globalize.css )
 Rails.application.config.assets.precompile += %w( active_admin/active_admin_globalize.js )
+Rails.application.config.assets.precompile += %w( *.svg *.eot *.woff *.ttf *.png *.js *.css) 

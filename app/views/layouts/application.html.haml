@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %title Butaca
+    = stylesheet_link_tag 'base'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'base', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+    = csrf_meta_tags
+    :javascript
+      $(window).scroll(function() {
+          if ($(this).scrollTop() >= 180)
+          {
+             $('.top-navbar').addClass('tm-navbar-small');
+             $('#languagebar').css('margin-top','20px');
+      	}
+      	if ($(this).scrollTop() === 0) {
+             $('.top-navbar').removeClass('tm-navbar-small');
+             $('#languagebar').css('margin-top','45px');
+          }
+      	});
+  %body.tm-isblog.tm-navbar-fixed.tm-article-blog
+    .wrapper
+      = render "shared/header"
+      .container
+        = yield
+      = render "shared/footer"

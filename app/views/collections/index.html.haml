@@ -1,0 +1,35 @@
+%main.tm-content
+  .system-message-container
+    - if notice.present?
+      .uk-alert.uk-alert-large.uk-alert-success= notice
+    - if alert.present?
+      .uk-alert.uk-alert-large.uk-alert-success= alert
+  %article.uk-article
+    %div.row
+      .col-md-10
+        %p
+          %h4.main-heading Collections
+          .row
+            - @collections.each do |coll|
+              .col-md-6
+                - if coll.image.present?
+                  %p.uk-text-left.mtop
+                    %a{:href => "/collections/#{coll.id}"}
+                      %img.fabrikLightBoxImage{:alt => "#{coll.image.name}", :src => "#{coll.image.url(:custom)}"}/
+                  %h3.uk-text-left.bottom-heading
+                    %a{:href => "/"}
+                      = t coll.collection_name
+                      %small
+                        by #{User.find(coll.user_id).email}
+                    %a#collection_11.addCollection.follow_btn{:onclick => ""} Sígueme
+        .filmstrip_footer
+          .fabrik___heading
+            %span
+              .fabrikNav
+        %p
+      .col-md-2
+        =render 'layouts/partials/sidebar'
+      %br/
+      %br/
+      %br/
+      %br/
