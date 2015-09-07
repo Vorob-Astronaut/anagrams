@@ -4,8 +4,8 @@
       .uk-width-medium-1-3.text-left.user-info
         %a.tm-logo.uk-hidden-small{:href => "/", :style => "text-decoration:none;"}
           %p
-            %img{:alt => "logo", :height => "60", :src => "/assets/butacaChairOnly.png", :width => "60"}>/
-               Butaca
+            =image_tag('butacaChairOnly.png', :alt => "logo", :height => "60", :width => "60")
+            Butaca
       .uk-width-medium-1-3
         .tm-nav-search
           .uk-navbar-content.uk-hidden-small
@@ -40,9 +40,9 @@
     .uk-navbar-content.uk-navbar-center.uk-visible-small
       %a.tm-logo-small{:href => "/"}
         %p
-          %img{:alt => "logo", :height => "45", :src => "/assets/butacaChairOnly.png", :width => "45"}/
+          =image_tag('butacaChairOnly.png', :alt => "logo", :height => "45", :width => "45")
         %p
-          %img{:alt => "butaca", :src => "/assets/butaca-name.png", :width => "120"}/
+          =image_tag('butaca-name.png', :alt => "butaca", :width => "120")
 .tm-block.tm-block-top-a.tm-block-alt
   .uk-container.uk-container-center
     %section.tm-top-a.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => "{target:'> div > .uk-panel'}"}
