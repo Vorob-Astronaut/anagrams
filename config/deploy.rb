@@ -1,4 +1,3 @@
-require 'capistrano/local_precompile'
 # Change these
 server '45.55.45.45', roles: [:web, :app, :db], primary: true
 

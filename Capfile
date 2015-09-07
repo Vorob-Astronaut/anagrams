@@ -1,6 +1,8 @@
 # Load DSL and Setup Up Stages
 require 'capistrano/setup'
 require 'capistrano/deploy'
+require 'capistrano/bower'
+require 'capistrano/local_precompile'
 
 require 'capistrano/rails'
 require 'capistrano/bundler'
