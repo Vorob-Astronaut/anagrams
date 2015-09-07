@@ -1,12 +1,12 @@
 /*!
- * 
+ *
  * Angle - Bootstrap Admin App + Ruby on Rails
- * 
+ *
  * Version: 3.0.0
  * Author: @themicon_co
  * Website: http://themicon.co
  * License: https://wrapbootstrap.com/help/licenses
- * 
+ *
  */
 
 
@@ -70,7 +70,7 @@
   8.8 vector-map / vector-map
   8.9 portlets / .portlet
 
-9. Utilities 
+9. Utilities
   9.1 utils
 
 10. Print CSS
@@ -91,7 +91,7 @@
 
 // Global definition of media queries
 @import "app/media-queries";
-// Utilities 
+// Utilities
 @import "app/utils-definitions";
 
 // Bootstrap reset
@@ -145,7 +145,7 @@
 // Plugins
 @import "app/plugins";
 @import "app/slim-scroll";
-@import "app/alerts";
+
 @import "app/notify";
 @import "app/calendar";
 @import "app/spinner";
@@ -156,7 +156,7 @@
 // Mailbox
 @import "app/mailbox";
 
-// Utilities 
+// Utilities
 @import "app/utils";
 
 // Print CSS
