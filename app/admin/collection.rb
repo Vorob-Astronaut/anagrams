@@ -18,21 +18,21 @@ permit_params :collection_name, :collection_description_,:_destroy, :featured, :
 
 form do |f|
   f.inputs
-  
-  f.inputs "Image"  do 
+
+  f.inputs "Image"  do
     f.input :image, :required => false, :as => :file , :hint => image_tag(f.object.image.url(:thumb))
   end
-  
+
    f.has_many :playlists ,  new_record: true,:allow_destroy => true do |p|
     p.input :title_id, label: 'Film Title', as: :select, collection: Title.all.map{|u| ["#{u.filmTitle}", u.id]}
 
   end
-  
+
   f.actions
  end
 
 
-  
+
 index do
     translation_status
     column :collection_name
@@ -44,10 +44,10 @@ index do
     column :image do |coll|
       link_to image_tag(coll.image.url(:thumb)), "/admin/collections/#{coll.id}"
     end
-    
+
     actions
 end
-  
+
 show do |ad|
   attributes_table do
     row :collection_name
@@ -59,16 +59,16 @@ show do |ad|
     row :image do
       image_tag(ad.image.url(:thumb))
     end
-    
+
     ad.titles.each do |title|
-      row :film_title do 
+      row :film_title do
          title.filmTitle
       end
-      row :film do 
-             link_to image_tag(title.keyArt.url(:thumb)), "/admin/titles/#{title.id}"
+      row :film do
+             link_to image_tag(title.key_art.url(:thumb)), "/admin/titles/#{title.id}"
        end
     end
-    
+
     # Will display the image on show object page
   end
  end

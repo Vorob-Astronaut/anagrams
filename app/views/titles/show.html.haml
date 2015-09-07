@@ -12,16 +12,16 @@
             #group1.fabrikGroup.form-horizontal{:style => ""}
               .uk-grid.filmstrip-detail.detail
                 .uk-width-3-10.film-img
-                  #titles___keyArt_ro
+                  #titles___key_art_ro
                     .fabrikSubElementContainer
-                      %img.fabrikLightBoxImage{:alt => "", :src => "#{@title.keyArt.url(:medium)}"}/
+                      %img.fabrikLightBoxImage{:alt => "", :src => "#{@title.key_art.url(:medium)}"}/
                 .uk-width-7-10
                   %h1.uk-heading-large.uk-clearfix
                     .uk-float-left
-                      #titles___filmTitle_ro= @title.filmTitle
+                      #titles___filmTitle_ro= @title.film_title
                     .uk-float-left.year
-                      - if @title.yearProduced.present?
-                        (#{@title.yearProduced})
+                      - if @title.year_produced.present?
+                        (#{@title.year_produced})
                     .detail_rating
                       / <span><strong></strong></span>
                   .year_action
@@ -30,16 +30,16 @@
                   .detail_director
                     %span
                       %strong director:
-                    #titles___Director_ro= @title.Director
-                  - if !@title.Director.present?
+                    #titles___Director_ro= @title.director
+                  - if !@title.director.present?
                     %br/
                   .detail_Actors
                     %span
                       %strong Elenco:
-                    #titles___Actors_ro= @title.Actors
+                    #titles___Actors_ro= @title.actors
                   .detail_description
-                    #titles___shortDescriptionEspanol_ro= @title.longDescriptionEspanol
-                  - if !@title.longDescriptionEspanol.present?
+                    #titles___shortDescriptionEspanol_ro= @title.long_description_espanol
+                  - if !@title.long_description_espanol.present?
                     %br/
                     %br/
                     %br/
@@ -47,8 +47,8 @@
                   /
                     <div class="detail_rating">
                     <span><strong></strong></span>
-                    
-                    
+
+
                     </div>
                   .addToFav
                     %a#add_.btn.uk-button.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return AddtoFav(id)", :title => "Agregar a mis favoritos"} Agregar a mis favoritos

@@ -41,7 +41,7 @@
                <%end%>
             </ul>
          </li>
-         <li class="<%= 'active' if controller?('country_titles')%>">
+         <li class="<%= 'active' if controller?('countries')%>">
             <a href="#forms" title="Pais" data-toggle="collapse">
                <em class="icon-note"></em>
                <span data-localize="sidebar.nav.form.FORM">Pais</span>
@@ -50,7 +50,7 @@
                <li class="sidebar-subnav-header">Pais</li>
                <%@country_list.each do |pais|%>
                  <li>
-                   <%=link_to pais.country, country_titles_path%>
+                   <%=link_to pais.country, countries_path%>
                  </li>
                <%end%>
             </ul>
@@ -64,7 +64,7 @@
                <li class="sidebar-subnav-header">Charts</li>
                <%@genre_list.each do |genre|%>
                <li>
-                 <%=link_to genre.genreEspanol, genre_path(genre)%>
+                 <%=link_to genre.genre_espanol, genre_path(genre)%>
                </li>
                <%end%>
             </ul>

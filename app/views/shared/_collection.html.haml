@@ -1,0 +1,11 @@
+
+%p.uk-text-left.mtop
+  - if collection.image.present?
+    %a{:href => "/collections/#{collection.id}"}
+      %img.fabrikLightBoxImage{:alt => "#{collection.image.name}", :src => "#{collection.image.url(:custom)}"}/
+%h3.uk-text-left.bottom-heading
+  %a{:href => "/"}
+    = collection.collection_name
+    %small
+      by #{User.find(collection.user_id).email}
+  %a#collection_11.addCollection.follow_btn{:onclick => ""} Sígueme

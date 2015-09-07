@@ -1,0 +1,24 @@
+%main.tm-content
+  .system-message-container
+    - if notice.present?
+      .uk-alert.uk-alert-large.uk-alert-success= notice
+    - if alert.present?
+      .uk-alert.uk-alert-large.uk-alert-success= alert
+  %article.uk-article
+    %div
+      .row
+        .col-md-10
+          - i = 0
+          - @countries.each do |country|
+            .uk-width-medium-9-10
+              - if country.active == '["1"]' && country.titles.any?
+                %p
+                  %span.uk-h2
+                    = country.country
+                    .row
+                      - country.titles.each do |title|
+                        .col-md-3
+                          =render 'shared/title', title: title
+
+        .col-md-2
+          =render 'layouts/partials/sidebar'

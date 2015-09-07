@@ -44,7 +44,7 @@
                                   / <div class="uk-width-1-1 uk-width-medium-1-5">
                                   .strip-container
                                     %a{:href => "/titles/#{film[0]}"}
-                                      %img.fabrikLightBoxImage{:alt => "No-image.jpg", :src => "#{Title.find(film[0]).keyArt.url(:medium)}"}/
+                                      %img.fabrikLightBoxImage{:alt => "No-image.jpg", :src => "#{Title.find(film[0]).key_art.url(:medium)}"}/
                                     .strip-conainer-hover{:style => "text-align:justify"}
                                       %h1= truncate(film[2],:length => 20)
                                       %i= film[3]

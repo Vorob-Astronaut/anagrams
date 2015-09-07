@@ -1,0 +1,22 @@
+%div
+  .strip-container
+    =link_to image_tag(title.key_art.url(:medium)), title
+    .strip-conainer-hover{:style => "text-align:justify"}
+      %h1= truncate(title.film_title, :length => 20)
+      %i= title.year_produced
+      %h3
+      %div
+        %span= truncate(title.film_title, :length => 20)
+        %br/
+        %br/
+        %span
+          %small
+          %small= title.year_produced
+        %br/
+        %br/
+        = truncate(title.long_description_espanol, :length => 160)
+        %br/
+        %br/
+      =link_to image_tag('heart.png'), add_to_favorite_path(title.id), class: "round-icon add_favourite"
+      =link_to image_tag('cross.png'), add_to_removal_path(title.id), class: "round-icon Remove_view"
+      =link_to image_tag('edit.png'), add_to_que_path(title.id), class: "round-icon myqueue"

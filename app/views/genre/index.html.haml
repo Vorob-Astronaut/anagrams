@@ -10,42 +10,13 @@
         .col-md-10
           - i = 0
           - @genres.each do |genre|
-            - @titles = @connection.connection.execute(" select * from titles where id in (select title_id from genre_titles where genre_id in (select id from genres where id = #{genre.id})) limit 5" )
             %p
               %span.uk-h2
-                = genre.genreEspanol
+                = genre.genre_espanol
             .row
-              - @titles.each do |film|
+              - genre.titles.each do |title|
                 .col-md-3
-                  - if (film[6].present?) && (film[6].include? '1')
-                    .strip-container
-                      %a{:href => "/titles/#{film[0]}"}
-                        %img.fabrikLightBoxImage{:alt => "No-image.jpg", :src => "#{Title.find(film[0]).keyArt.url(:medium)}"}/
-                      .strip-conainer-hover{:style => "text-align:justify"}
-                        %h1= truncate(film[2],:length => 20)
-                        %i= film[3]
-                        %h3
-                        %div
-                          %span= truncate(film[2],:length => 20)
-                          %br/
-                          %br/
-                          %span
-                            %small
-                            %small= film[3]
-                          %br/
-                          %br/
-                          = truncate(film[5],:length => 160)
-                          %br/
-                          %br/
-                        / Add To Favourite
-                        %a#add_130.round-icon.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return AddtoFav(id)", :title => "Agregar a mis favoritos"}
-                          %img{:src => "/assets/heart.png"}/
-                        / Remove From View
-                        %a#film_130.round-icon.Remove_view{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"}
-                          %img{:src => "/assets/cross.png"}/
-                        / Add To Queue
-                        %a#addqueue_130.round-icon.myqueue{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)"}
-                          %img{:src => "/assets/edit.png"}/
+                  =render 'shared/title', title: title
 
         .col-md-2
           =render 'layouts/partials/sidebar'

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
  scope ':locale', locale: /es|en/ do
     resources :collections
     resources :genre
-    resources :country_titles
+    resources :countries
     resources :titles
     resources :home
     root to: 'home#index'

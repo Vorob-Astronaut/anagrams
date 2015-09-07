@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906103527) do
+ActiveRecord::Schema.define(version: 20150906133348) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -72,10 +72,10 @@ ActiveRecord::Schema.define(version: 20150906103527) do
   end
 
   create_table "countries", force: :cascade do |t|
-    t.string "countryCode",      limit: 255
-    t.string "geographicRegion", limit: 255
-    t.string "country",          limit: 100
-    t.text   "active",           limit: 65535
+    t.string "country_code",      limit: 255
+    t.string "geographic_region", limit: 255
+    t.string "country",           limit: 100
+    t.text   "active",            limit: 65535
   end
 
   add_index "countries", ["country"], name: "fb_join_fk_country_INDEX", using: :btree
@@ -100,9 +100,9 @@ ActiveRecord::Schema.define(version: 20150906103527) do
 
   create_table "genres", force: :cascade do |t|
     t.datetime "date_time"
-    t.string   "genreEnglish", limit: 255
-    t.string   "genreEspanol", limit: 255
-    t.text     "active",       limit: 65535
+    t.string   "genre_english", limit: 255
+    t.string   "genre_espanol", limit: 255
+    t.text     "active",        limit: 65535
   end
 
   create_table "movie_streams", force: :cascade do |t|
@@ -136,29 +136,29 @@ ActiveRecord::Schema.define(version: 20150906103527) do
 
   create_table "titles", force: :cascade do |t|
     t.datetime "date_time"
-    t.string   "filmTitle",               limit: 255
-    t.string   "yearProduced",            limit: 255
-    t.text     "snappySummary",           limit: 65535
-    t.text     "longDescriptionEspanol",  limit: 65535
-    t.text     "keyArt",                  limit: 65535
-    t.text     "Actors",                  limit: 65535
-    t.string   "Director",                limit: 255
-    t.text     "imdb",                    limit: 65535
-    t.string   "internalComments",        limit: 255
-    t.text     "butacaOwned",             limit: 65535
-    t.text     "shortDescriptionEspanol", limit: 65535
-    t.string   "duration",                limit: 255
-    t.string   "FilmRating",              limit: 255
-    t.text     "active",                  limit: 65535
-    t.integer  "MetaVerified",            limit: 4
-    t.datetime "dateUpdatedCanIstream"
-    t.string   "keyArt_file_name",        limit: 255
-    t.string   "keyArt_content_type",     limit: 255
-    t.integer  "keyArt_file_size",        limit: 4
-    t.datetime "keyArt_updated_at"
+    t.string   "film_title",                limit: 255
+    t.string   "year_produced",             limit: 255
+    t.text     "snappy_summary",            limit: 65535
+    t.text     "long_description_espanol",  limit: 65535
+    t.text     "key_art",                   limit: 65535
+    t.text     "actors",                    limit: 65535
+    t.string   "director",                  limit: 255
+    t.text     "imdb",                      limit: 65535
+    t.string   "internal_comments",         limit: 255
+    t.text     "butaca_owned",              limit: 65535
+    t.text     "short_description_espanol", limit: 65535
+    t.string   "duration",                  limit: 255
+    t.string   "film_rating",               limit: 255
+    t.text     "active",                    limit: 65535
+    t.integer  "meta_verified",             limit: 4
+    t.datetime "date_updated_can_istream"
+    t.string   "key_art_file_name",         limit: 255
+    t.string   "key_art_content_type",      limit: 255
+    t.integer  "key_art_file_size",         limit: 4
+    t.datetime "key_art_updated_at"
   end
 
-  add_index "titles", ["filmTitle"], name: "filmTitle", using: :btree
+  add_index "titles", ["film_title"], name: "filmTitle", using: :btree
 
   create_table "user_favorites", force: :cascade do |t|
     t.integer  "user_id",    limit: 4

@@ -10,18 +10,10 @@
         %p
           %h4.main-heading Collections
           .row
-            - @collections.each do |coll|
+            - @collections.each do |collection|
               .col-md-6
-                - if coll.image.present?
-                  %p.uk-text-left.mtop
-                    %a{:href => "/collections/#{coll.id}"}
-                      %img.fabrikLightBoxImage{:alt => "#{coll.image.name}", :src => "#{coll.image.url(:custom)}"}/
-                  %h3.uk-text-left.bottom-heading
-                    %a{:href => "/"}
-                      = t coll.collection_name
-                      %small
-                        by #{User.find(coll.user_id).email}
-                    %a#collection_11.addCollection.follow_btn{:onclick => ""} Sígueme
+                - if collection.image.present?
+                  =render 'shared/collection', collection: collection
         .filmstrip_footer
           .fabrik___heading
             %span

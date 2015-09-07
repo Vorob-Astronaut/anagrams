@@ -1,6 +1,7 @@
 class Genre < ActiveRecord::Base
   
-   belongs_to :title
-  
-  
+  has_many :genre_titles, :dependent => :destroy
+  has_many :titles, :through => :genre_titles
+
+
 end
