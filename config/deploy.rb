@@ -58,6 +58,14 @@ namespace :deploy do
     end
   end
 
+  desc "Applying symlinks"
+  task :apply_symlinks do
+    on roles(:app) do
+      run "rm -rf #{latest_release}/config/database.yml"
+      run "ln -s #{shared_path}/config/database.yml #{latest_release}/config/database.yml"
+    end
+  end
+
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
