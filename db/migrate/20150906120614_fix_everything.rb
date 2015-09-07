@@ -1,16 +1,6 @@
 class FixEverything < ActiveRecord::Migration
   def change
     #rename section
-    rename_column :countries, :countryCode, :country_code
-    rename_column :countries, :geographicRegion, :geographic_region
-
-    rename_column :genres, :genreEnglish, :genre_english
-    rename_column :genres, :genreEspanol, :genre_espanol
-
-    rename_column :titles, :filmTitle, :film_title
-    rename_column :titles, :yearProduced, :year_produced
-    rename_column :titles, :snappySummary, :snappy_summary
-    rename_column :titles, :longDescriptionEspanol, :long_description_espanol
     rename_column :titles, :keyArt, :key_art
     rename_column :titles, :internalComments, :internal_comments
     rename_column :titles, :butacaOwned, :butaca_owned
