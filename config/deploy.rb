@@ -1,3 +1,4 @@
+require 'capistrano/local_precompile'
 # Change these
 server '45.55.45.45', roles: [:web, :app, :db], primary: true
 
@@ -22,6 +23,7 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+set :turbosprockets_enabled, true
 
 ## Defaults:
 # set :scm,           :git
@@ -58,22 +60,6 @@ namespace :deploy do
     end
   end
 
-  desc "Applying symlinks"
-  task :apply_symlinks do
-    exec "rm -rf #{release_path}/config/database.yml"
-    exec "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  end
-
-  desc "Instaling deps"
-  task :bower_install do
-    exec "cd #{release_path} && bundle exec rake bower:instal"
-  end
-
-  desc "Compile all the assets named in config.assets.precompile."
-  task :precompile_assets do
-    exec "cd #{release_path} && bundle exec rake assets:precompile"
-  end
-
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
@@ -90,9 +76,7 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
-  after  :finishing,    :apply_symlinks
-  after  :finishing,    :bower_install
-  after  :finishing,    :precompile_assets
+  after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
