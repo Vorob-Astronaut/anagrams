@@ -23,8 +23,8 @@ form do |f|
     f.input :image, :required => false, :as => :file , :hint => image_tag(f.object.image.url(:thumb))
   end
 
-   f.has_many :playlists ,  new_record: true,:allow_destroy => true do |p|
-    p.input :title_id, label: 'Film Title', as: :select, collection: Title.all.map{|u| ["#{u.filmTitle}", u.id]}
+   f.has_many :playlists ,  new_record: true, :allow_destroy => true do |p|
+    p.input :title_id, label: 'Film Title', as: :select, collection: Title.all.map{|u| ["#{u.film_title}", u.id]}
 
   end
 
@@ -62,7 +62,7 @@ show do |ad|
 
     ad.titles.each do |title|
       row :film_title do
-         title.filmTitle
+         title.film_title
       end
       row :film do
              link_to image_tag(title.key_art.url(:thumb)), "/admin/titles/#{title.id}"
