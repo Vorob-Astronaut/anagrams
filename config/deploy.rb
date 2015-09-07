@@ -60,23 +60,18 @@ namespace :deploy do
 
   desc "Applying symlinks"
   task :apply_symlinks do
-      run "rm -rf #{release_path}/config/database.yml"
-      run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    exec "rm -rf #{release_path}/config/database.yml"
+    exec "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 
   desc "Instaling deps"
   task :bower_install do
-    on roles(:app) do
-      run "cd #{release_path} && bundle exec rake bower:instal"
-    end
+    exec "cd #{release_path} && bundle exec rake bower:instal"
   end
 
   desc "Compile all the assets named in config.assets.precompile."
   task :precompile_assets do
-    on roles(:app) do
-      raise "Rails environment not set" unless rails_env
-      run "cd #{release_path} && bundle exec rake assets:precompile"
-    end
+    exec "cd #{release_path} && bundle exec rake assets:precompile"
   end
 
   desc 'Initial Deploy'
