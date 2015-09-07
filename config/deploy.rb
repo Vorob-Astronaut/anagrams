@@ -66,6 +66,13 @@ namespace :deploy do
     end
   end
 
+  desc "Instaling deps"
+  task :bower_install do
+    on roles(:app) do
+      run "rake bower:instal"
+    end
+  end
+
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
@@ -82,6 +89,8 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
+  after  :finishing,    :apply_symlinks
+  after  :finishing,    :bower_install
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
