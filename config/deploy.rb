@@ -73,6 +73,12 @@ namespace :deploy do
     end
   end
 
+  desc "Compile all the assets named in config.assets.precompile."
+  task :precompile_assets, :roles => :web do
+    raise "Rails environment not set" unless rails_env
+    run "cd #{release_path} && bundle exec rake assets:precompile RAILS_ENV=#{rails_env}"
+  end
+
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
@@ -91,7 +97,7 @@ namespace :deploy do
   before :starting,     :check_revision
   after  :finishing,    :apply_symlinks
   after  :finishing,    :bower_install
-  after  :finishing,    :compile_assets
+  after  :finishing,    :precompile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
