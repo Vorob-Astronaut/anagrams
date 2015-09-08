@@ -30,10 +30,10 @@
                   .fabrik_groupdata
                     .uk-grid
                       .uk-width-1-1.uk-h2.main-heading
-                        = @collections.first.collection_name
+                        = @collections.where(is_featured?: true).first.collection_name
                         by
-                        %span.auth= @collections.first.user.name
-                      -@collections.first.titles.each do |title|
+                        %span.auth= @collections.where(is_featured?: true).first.user.name
+                      -@collections.where(is_featured?: true).first.titles.each do |title|
                         =render 'shared/title', title: title
 
               .fabrikDataContainer.filmstrip.homefilmstrip

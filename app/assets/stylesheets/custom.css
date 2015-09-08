@@ -382,6 +382,7 @@ p.mtop {
     display: none;
 }
 .strip-container {
+    width: 20%;
     margin-bottom: 10px !important;
     position: relative;
 }
@@ -625,13 +626,13 @@ div.uk-grid.filmstrip-detail.detail div.uk-width-7-10 h1.uk-heading-large.uk-cle
 
 
 #accordian {
-	
+
 	width: 250px;
 	float: right;
     margin-top: 45px;
 	color: black;
 	/*Some cool shadow and glow effect*/
-	
+
 }
 /*heading styles*/
 #accordian h3 {
@@ -641,7 +642,7 @@ div.uk-grid.filmstrip-detail.detail div.uk-width-7-10 h1.uk-heading-large.uk-cle
 	//padding: 0 10px;
 	cursor: pointer;
 	/*fallback for browsers not supporting gradients*/
-	
+
 }
 /*heading hover effect*/
 #accordian h3:hover {
@@ -669,7 +670,7 @@ div.uk-grid.filmstrip-detail.detail div.uk-width-7-10 h1.uk-heading-large.uk-cle
 }
 /*hover effect on links*/
 #accordian ul ul li a:hover {
-	
+
 	//border-left: 5px solid lightgreen;
 }
 /*Lets hide the non active LIs by default*/
