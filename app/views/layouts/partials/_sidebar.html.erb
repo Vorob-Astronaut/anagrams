@@ -50,7 +50,7 @@
                <li class="sidebar-subnav-header">Pais</li>
                <%@country_list.each do |pais|%>
                  <li>
-                   <%=link_to pais.country, countries_path%>
+                   <%=link_to pais.country, country_path(pais)%>
                  </li>
                <%end%>
             </ul>

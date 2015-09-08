@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908091125) do
+ActiveRecord::Schema.define(version: 20150908102700) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150908091125) do
     t.string  "country",           limit: 100
     t.boolean "active",            limit: 1
     t.boolean "is_active?",        limit: 1
+    t.string  "slug",              limit: 255
   end
 
   add_index "countries", ["country"], name: "fb_join_fk_country_INDEX", using: :btree

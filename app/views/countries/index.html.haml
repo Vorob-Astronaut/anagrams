@@ -13,7 +13,7 @@
               - if country.is_active? && country.titles.any?
                 %p
                   %span.uk-h2
-                    = country.country
+                    = link_to country.country, country_path(country)
                     - country.titles.first(4).each do |title|
                       =render 'shared/title', title: title
 

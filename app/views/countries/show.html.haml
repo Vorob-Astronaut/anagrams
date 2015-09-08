@@ -15,8 +15,7 @@
                   = @country.country
                   .row
                     - @country.titles.each do |title|
-                      .col-md-3
-                        =render 'shared/title', title: title
+                      =render 'shared/title', title: title
 
         .col-md-2
           =render 'layouts/partials/sidebar'

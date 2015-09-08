@@ -1,21 +1,20 @@
 .tm-block.tm-block-top-b.tm-block-padding-collapse.tm-block-fullwidth
   .uk-container.uk-container-center
     %section.tm-top-b.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => "{target:'> div > .uk-panel'}"}
-      .uk-width-1-1
-        .uk-panel.uk-panel-box.ui-text-left.hide_tag_line
-          %h2.uk-h1{:style => "text-align: center;"}
-            %br>/
-            Porque nos gustan las películas en español,
-            = succeed "te" do
-              %br/
-            = succeed "\u{a1}Mira" do
-              %br/
+      .uk-panel.uk-panel-box.ui-text-left.hide_tag_line
+        %h2.uk-h1{:style => "text-align: center;"}
+          %br>/
+          Porque nos gustan las películas en español,
+          = succeed "te" do
             %br/
+          = succeed "\u{a1}Mira" do
             %br/
+          %br/
+          %br/
 .tm-block.tm-block-main
   .uk-container.uk-container-center
     .tm-middle.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => ""}
-      .tm-main.uk-width-medium-1-1
+      .col-md-12
         %main.tm-content
           .system-message-container
             - if notice.present?
@@ -27,8 +26,8 @@
               %p
               .fabrikDataContainer.homefilmstrip
                 #list_34_com_content_34
-                  .fabrik_groupdata
-                    .uk-grid
+                  .fabrik_groupdata.row
+                    .uk-grid.col-md-12
                       .uk-width-1-1.uk-h2.main-heading
                         = @collections.where(is_featured?: true).first.collection_name
                         by
@@ -38,9 +37,9 @@
 
               .fabrikDataContainer.filmstrip.homefilmstrip
                 #list_34_com_content_34
-                  .fabrik_groupdata
+                  .fabrik_groupdata.row
                     %h4.main-heading Collections
-                    .uk-grid.by-butaca
+                    .uk-grid.by-butaca.col-md-12.row
                       - @collections.each do |collection|
                         .col-md-6
                           - if collection.image.present?

@@ -11,6 +11,8 @@
 #
 
 class Country < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :country, use: :slugged
 
   has_many :country_titles, :dependent => :destroy
   has_many :titles , :through => :country_titles

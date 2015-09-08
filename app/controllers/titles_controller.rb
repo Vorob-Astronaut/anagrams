@@ -2,17 +2,15 @@ class TitlesController < ApplicationController
 
 
   # GET /titles
- 
+
 
   # GET /titles/1
   def show
-    @title = Title.find(params[:id])
-    
+    @title = Title.friendly.find(params[:id])
   end
 
- 
 
 
- 
+
+
 end
-
