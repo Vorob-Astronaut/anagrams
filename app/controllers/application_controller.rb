@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   def set_menu_variables
     @genre_list = Genre.all
-    @country_list = Country.where('active' == '["1"]')
+    @country_list = Country.where(is_active?: true)
     @collection_list = Collection.all
   end
 

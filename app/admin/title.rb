@@ -73,7 +73,7 @@ show do |ad|
     row :butaca_owned
     row :actors
     row :duration
-    row :active
+    row :is_active?
     row :internal_comments
     row :meta_verified
 

@@ -3,7 +3,7 @@ class CountriesController < ApplicationController
 
   # GET /countrytitles
   def index
-    @countries = Country.where('active' == '["1"]')
+    @countries = Country.where(is_active?: true)
   end
 
   # GET /countrytitles/1

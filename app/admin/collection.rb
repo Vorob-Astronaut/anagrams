@@ -52,8 +52,8 @@ show do |ad|
   attributes_table do
     row :collection_name
     row :collection_description_
-    row :featured
-    row :home
+    row :is_featured?
+    row :is_home?
     row :date_time
     row :user_id
     row :image do

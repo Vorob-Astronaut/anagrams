@@ -9,7 +9,7 @@
       .row
         .col-md-10
           .uk-width-medium-9-10
-            - if @country.active == '["1"]' && @country.titles.any?
+            - if @country.is_active? && @country.titles.any?
               %p
                 %span.uk-h2
                   = @country.country
