@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906133348) do
+ActiveRecord::Schema.define(version: 20150908060829) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -63,19 +63,22 @@ ActiveRecord::Schema.define(version: 20150906133348) do
     t.string   "collection_name",         limit: 255
     t.text     "collection_description_", limit: 65535
     t.string   "user_id",                 limit: 255
-    t.text     "featured",                limit: 65535
-    t.text     "home",                    limit: 65535
+    t.boolean  "featured",                limit: 1
+    t.boolean  "home",                    limit: 1
     t.string   "image_file_name",         limit: 255
     t.string   "image_content_type",      limit: 255
     t.integer  "image_file_size",         limit: 4
     t.datetime "image_updated_at"
+    t.boolean  "is_featured?",            limit: 1
+    t.boolean  "is_home?",                limit: 1
   end
 
   create_table "countries", force: :cascade do |t|
-    t.string "country_code",      limit: 255
-    t.string "geographic_region", limit: 255
-    t.string "country",           limit: 100
-    t.text   "active",            limit: 65535
+    t.string  "country_code",      limit: 255
+    t.string  "geographic_region", limit: 255
+    t.string  "country",           limit: 100
+    t.boolean "active",            limit: 1
+    t.boolean "is_active?",        limit: 1
   end
 
   add_index "countries", ["country"], name: "fb_join_fk_country_INDEX", using: :btree
@@ -102,7 +105,8 @@ ActiveRecord::Schema.define(version: 20150906133348) do
     t.datetime "date_time"
     t.string   "genre_english", limit: 255
     t.string   "genre_espanol", limit: 255
-    t.text     "active",        limit: 65535
+    t.boolean  "active",        limit: 1
+    t.boolean  "is_active?",    limit: 1
   end
 
   create_table "movie_streams", force: :cascade do |t|
@@ -149,13 +153,14 @@ ActiveRecord::Schema.define(version: 20150906133348) do
     t.text     "short_description_espanol", limit: 65535
     t.string   "duration",                  limit: 255
     t.string   "film_rating",               limit: 255
-    t.text     "active",                    limit: 65535
+    t.boolean  "active",                    limit: 1
     t.integer  "meta_verified",             limit: 4
     t.datetime "date_updated_can_istream"
     t.string   "key_art_file_name",         limit: 255
     t.string   "key_art_content_type",      limit: 255
     t.integer  "key_art_file_size",         limit: 4
     t.datetime "key_art_updated_at"
+    t.boolean  "is_active?",                limit: 1
   end
 
   add_index "titles", ["film_title"], name: "filmTitle", using: :btree
