@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908060829) do
+ActiveRecord::Schema.define(version: 20150908091125) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150908060829) do
     t.datetime "image_updated_at"
     t.boolean  "is_featured?",            limit: 1
     t.boolean  "is_home?",                limit: 1
+    t.string   "slug",                    limit: 255
   end
 
   create_table "countries", force: :cascade do |t|
@@ -91,6 +92,19 @@ ActiveRecord::Schema.define(version: 20150908060829) do
 
   add_index "country_titles", ["country_id"], name: "fb_repeat_el_country_INDEX", using: :btree
   add_index "country_titles", ["title_id"], name: "fb_parent_fk_parent_id_INDEX", using: :btree
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",           limit: 255, null: false
+    t.integer  "sluggable_id",   limit: 4,   null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope",          limit: 255
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "genre_titles", force: :cascade do |t|
     t.integer "title_id", limit: 4
@@ -161,6 +175,7 @@ ActiveRecord::Schema.define(version: 20150908060829) do
     t.integer  "key_art_file_size",         limit: 4
     t.datetime "key_art_updated_at"
     t.boolean  "is_active?",                limit: 1
+    t.string   "slug",                      limit: 255
   end
 
   add_index "titles", ["film_title"], name: "filmTitle", using: :btree

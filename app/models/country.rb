@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: countries
+#
+#  id                :integer          not null, primary key
+#  country_code      :string(255)
+#  geographic_region :string(255)
+#  country           :string(100)
+#  active            :boolean
+#  is_active?        :boolean
+#
+
 class Country < ActiveRecord::Base
 
   has_many :country_titles, :dependent => :destroy

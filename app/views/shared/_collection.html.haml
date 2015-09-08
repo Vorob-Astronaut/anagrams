@@ -1,8 +1,7 @@
 
 %p.uk-text-left.mtop
   - if collection.image.present?
-    %a{:href => "/collections/#{collection.id}"}
-      %img.fabrikLightBoxImage{:alt => "#{collection.image.name}", :src => "#{collection.image.url(:custom)}"}/
+    =link_to image_tag(collection.image.url(:custom), alt: collection.image.name), collection_path(collection)
 %h3.uk-text-left.bottom-heading
   %a{:href => "/"}
     = collection.collection_name

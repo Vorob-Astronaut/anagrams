@@ -8,7 +8,7 @@ class CollectionsController < ApplicationController
 
   # GET /collections/1
   def show
-    @collection = Collection.find(params[:id])
+    @collection = Collection.friendly.find(params[:id])
   end
 
 
