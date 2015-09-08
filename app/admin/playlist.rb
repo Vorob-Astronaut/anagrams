@@ -14,4 +14,14 @@ ActiveAdmin.register Playlist do
 # end
 permit_params :collection_id , :date_time , :title_id
 
+index do
+  column :title do |col|
+    col.title.film_title if col.title
+  end
+  column :collection do |col|
+    col.collection.collection_name if col.collection
+  end
+  actions
+end
+
 end
