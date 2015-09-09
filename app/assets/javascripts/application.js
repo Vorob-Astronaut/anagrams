@@ -7,3 +7,4 @@
 //= require jquery_ujs
 //= require_tree ./angle/
 //= require active_admin
+//= require jquery-ui

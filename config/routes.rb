@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     resources :user_queues
     root to: 'home#index'
   end
-  get 'search' => 'search#search', as: :search 
+  get 'search' => 'search#search', as: :search
+  get 'ac' => 'search#ac'
   get 'user_queues/add/:title_id' => 'user_queues#add', as: :add_to_que
   get 'user_favorites/add/:title_id' => 'user_favorites#add', as: :add_to_favorite
   get 'user_removals/add/:title_id' => 'user_removals#add', as: :add_to_removal
