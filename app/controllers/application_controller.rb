@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
    before_filter :configure_permitted_parameters, if: :devise_controller?
    before_filter :set_locale
-   before_filter :set_menu_variables
+   before_filter :set_variables
 
 
     protected
@@ -17,10 +17,11 @@ class ApplicationController < ActionController::Base
 
     private
 
-  def set_menu_variables
+  def set_variables
     @genre_list = Genre.all
     @country_list = Country.where(is_active?: true)
     @collection_list = Collection.all
+    @q = Title.ransack params[:q]
   end
 
   def set_locale
