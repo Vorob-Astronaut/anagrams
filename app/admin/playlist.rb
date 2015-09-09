@@ -14,6 +14,9 @@ ActiveAdmin.register Playlist do
 # end
 permit_params :collection_id , :date_time , :title_id
 
+filter :title_film_title_cont, as: :select, collection: -> {Title.all.collect(&:film_title)}, label: "Title"
+filter :collection_collection_name_eq, as: :select, collection: -> {Collection.all.collect(&:collection_name)}, label: "Collection"
+
 index do
   column :title do |col|
     col.title.film_title if col.title
