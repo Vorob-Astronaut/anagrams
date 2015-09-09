@@ -1,6 +1,10 @@
 class UserQueuesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @user_queues = current_user.user_queues
+  end
+
   def add
     @user_queue = UserQueue.where(user_id: current_user.id, title_id: params[:title_id])
     if @user_queue.any? then

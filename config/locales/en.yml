@@ -8,3 +8,8 @@ en:
   collections:
     index:
       title: "Collections"
+  favorites: My favortes
+  queue: My queue
+  genre: Genre
+  collection: Collecton
+  country: Country

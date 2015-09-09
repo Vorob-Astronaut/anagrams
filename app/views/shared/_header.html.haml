@@ -29,6 +29,10 @@
                 %ul.uk-nav.uk-nav-dropdown
                   - if current_user
                     %li
+                      =link_to t('favorites'), user_favorites_path
+                    %li
+                      =link_to t('queue'), user_queues_path
+                    %li
                       = link_to 'Profile',edit_user_registration_path
                     %li
                       %a{:href => "/logout"} Logout
@@ -58,8 +62,8 @@
         .uk-panel.uk-panel-box.filter-menu.uk-container.uk-container-center
           %ul.uk-nav.uk-nav-parent-icon.uk-nav-side{"data-uk-nav" => "{}"}
             %li
-              %a{:href => "/collections"} Colección
+              =link_to t('collection'), collections_path
             %li
-              %a{:href => "/countries"} País
+              =link_to t('country'), countries_path
             %li
-              %a{:href => "/genre"} Género
+              =link_to t('genre'), genre_index_path

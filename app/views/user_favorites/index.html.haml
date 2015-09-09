@@ -1,0 +1,29 @@
+.tm-block.tm-block-main
+  .uk-container.uk-container-center
+    .tm-middle.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => ""}
+      .tm-main.uk-width-medium-1-1
+        %main.tm-content
+          .system-message-container
+            - if notice.present?
+              .uk-alert.uk-alert-large.uk-alert-success= notice
+            - if alert.present?
+              .uk-alert.uk-alert-large.uk-alert-success= alert
+          %article.uk-article
+            %div
+              %p
+              .fabrikDataContainer.filmstrip.homefilmstrip
+                #list_34_com_content_34
+                  .fabrik_groupdata
+                    .uk-grid
+                      - @user_favorites.each do |favorite|
+                        =render 'shared/title', title: favorite.title
+                    %br/
+                  .filmstrip_footer
+                    .fabrik___heading
+                      %span
+                        .fabrikNav
+              %p
+              %br/
+              %br/
+              %br/
+              %br/

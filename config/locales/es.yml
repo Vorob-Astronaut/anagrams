@@ -5,3 +5,8 @@ es:
   collections:
     index:
       title: "Coleccions"
+  favorites: Mis favoritos
+  queue: Mi cola
+  genre: Género
+  collection: Colección
+  country: País

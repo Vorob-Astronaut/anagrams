@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :countries
     resources :titles
     resources :home
+    resources :user_favorites
+    resources :user_queues
     root to: 'home#index'
   end
   get 'user_queues/add/:title_id' => 'user_queues#add', as: :add_to_que

@@ -1,6 +1,10 @@
 class UserFavoritesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @user_favorites = current_user.user_favorites
+  end
+
   def add
     @user_favorites = UserFavorite.where(user_id: current_user.id, title_id: params[:title_id])
     if @user_favorites.any? then
