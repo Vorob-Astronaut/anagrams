@@ -326,7 +326,7 @@ pre {
   /* 1 */
   overflow: auto;
 }
-/* Selection pseudo-element 
+/* Selection pseudo-element
  ========================================================================== */
 ::-moz-selection {
   background: rgba(173, 101, 95, 0.7);

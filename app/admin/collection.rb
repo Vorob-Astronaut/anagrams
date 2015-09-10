@@ -14,11 +14,11 @@ ActiveAdmin.register Collection do
 # end
 
 permit_params :collection_name, :collection_description_,:_destroy, :featured, :home,:date_time,:user_id,:image,translations_attributes:
- [:locale, :collection_name, :collection_description_, :id],:playlists_attributes => [:id,:title_id ,:_destroy]
+ [:locale, :collection_name_, :collection_description_, :id],:playlists_attributes => [:id,:title_id ,:_destroy]
 
 form do |f|
+  f.input :collection_name
   f.inputs
-
   f.inputs "Image"  do
     f.input :image, :required => false, :as => :file , :hint => image_tag(f.object.image.url(:thumb))
   end
@@ -50,7 +50,7 @@ end
 
 show do |ad|
   attributes_table do
-    row :collection_name
+    column :collection_name
     row :collection_description_
     row :is_featured?
     row :is_home?

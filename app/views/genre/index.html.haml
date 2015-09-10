@@ -3,7 +3,6 @@
     %div
       .row
         .col-md-10
-          - i = 0
           - @genres.each do |genre|
             %p
               %span.uk-h2
@@ -11,6 +10,5 @@
             .row
               - genre.titles.first(4).each do |title|
                 =render 'shared/title', title: title
-
         .col-md-2
           =render 'layouts/partials/sidebar'
