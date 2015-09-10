@@ -27,8 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bower-rails'
 gem 'rails_serve_static_assets'
-gem 'friendly_id', '~> 5.1.0' 
+gem 'friendly_id', '~> 5.1.0'
+gem "sprockets", "< 3.0.0"
 gem 'annotate', '~> 2.6.10'
+gem 'emcee'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -29,7 +29,6 @@
          </li>
          <li class="<%= 'active' if controller?('collections') %>">
             <a href="#elements" title="Collections" data-toggle="collapse">
-               <em class="icon-chemistry"></em>
                <span data-localize="sidebar.nav.element.ELEMENTS">Collections</span>
             </a>
             <ul id="elements" class="nav sidebar-subnav collapse">
@@ -43,7 +42,7 @@
          </li>
          <li class="<%= 'active' if controller?('countries')%>">
             <a href="#forms" title="Pais" data-toggle="collapse">
-               <em class="icon-note"></em>
+              <%=image_tag("country.png", style: "width: 20px;")%>
                <span data-localize="sidebar.nav.form.FORM">Pais</span>
             </a>
             <ul id="forms" class="nav sidebar-subnav collapse">
@@ -57,7 +56,7 @@
          </li>
          <li class="<%= 'active' if controller?('genre') %>">
             <a href="#charts" title="Genero" data-toggle="collapse">
-               <em class="icon-graph"></em>
+              <%=image_tag("genre.png", style: "width: 20px;")%>
                <span data-localize="sidebar.nav.chart.CHART">Genero</span>
             </a>
             <ul id="charts" class="nav sidebar-subnav collapse">
