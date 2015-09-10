@@ -16,11 +16,6 @@
     .tm-middle.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => ""}
       .col-md-12
         %main.tm-content
-          .system-message-container
-            - if notice.present?
-              .uk-alert.uk-alert-large.uk-alert-success= notice
-            - if alert.present?
-              .uk-alert.uk-alert-large.uk-alert-success= alert
           %article.uk-article
             %div
               %p

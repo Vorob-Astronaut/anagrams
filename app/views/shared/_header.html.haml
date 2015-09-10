@@ -14,11 +14,6 @@
       .uk-width-medium-1-3
         .text-right
           %div
-            #languagebar{:style => "float:left;margin-left:100px;margin-top:45px;color: #fff;"}
-              = link_to_unless I18n.locale == :en, "English", locale: "en"
-              |
-              \#{link_to_unless I18n.locale == :es, "Spanish", locale: "es"}
-            / BEGIN: Custom advanced (www.pluginaria.com)
             .uk-button-dropdown{"aria-expanded" => "false", "aria-haspopup" => "true", "data-uk-dropdown" => "", :onmouseout => "$('.uk-dropdown').hide();", :onmouseover => "$('.uk-dropdown').show();"}
               %button.uk-button{:onmouseout => "$('.uk-dropdown').hide();", :onmouseover => "$('.uk-dropdown').show();"}
                 %i.uk-icon-navicon
@@ -57,7 +52,7 @@
                 %span Colección
       .uk-width-1-1.uk-grid-margin
         .uk-panel.uk-panel-box.filter-menu.uk-container.uk-container-center
-          %ul.uk-nav.uk-nav-parent-icon.uk-nav-side{"data-uk-nav" => "{}"}
+          %ul.uk-nav.uk-nav-parent-icon.uk-nav-side
             %li
               =link_to t('collection'), collections_path
             %li

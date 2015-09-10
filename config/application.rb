@@ -24,5 +24,6 @@ module Butaca
     config.active_record.raise_in_transactional_callbacks = true
     config.i18n.fallbacks = true
     config.i18n.available_locales = [:en, :es]
+    config.i18n.default_locale = :es
   end
 end
