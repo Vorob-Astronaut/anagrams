@@ -27,8 +27,8 @@
   %body.tm-navbar-fixed.tm-article-blog
     .wrapper
       = render "shared/header"
-      .container
-        #alert-container
-          = render "shared/alert"
-        = yield
-      = render "shared/footer"
+  .container
+    #alert-container
+      = render "shared/alert"
+    = yield
+  = render "shared/footer"
