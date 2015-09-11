@@ -6,9 +6,15 @@ class ApplicationController < ActionController::Base
    before_filter :configure_permitted_parameters, if: :devise_controller?
    before_filter :set_locale
    before_filter :set_variables
+   after_filter :clear_notice
 
 
     protected
+
+    def clear_notice
+      flash[:notice] = ''
+      flash[:alert] = ''
+    end
 
     def configure_permitted_parameters
         devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password) }
