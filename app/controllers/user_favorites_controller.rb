@@ -15,7 +15,7 @@ class UserFavoritesController < ApplicationController
       notice = "Title added to favorites"
     end
     respond_to do |format|
-      format.js {render json: notice}
+      format.js
       format.html {redirect_to(:back, :notice => notice) }
     end
   end

@@ -10,7 +10,8 @@
                   %span.uk-h2
                     = link_to country.country, country_path(country)
                     - country.titles.first(4).each do |title|
-                      =render 'shared/title', title: title
+                      .block{id: "title-#{title.id}"}
+                        =render 'shared/title', title: title
 
         .col-md-2
           =render 'layouts/partials/sidebar'

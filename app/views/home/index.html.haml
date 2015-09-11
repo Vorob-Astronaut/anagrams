@@ -28,7 +28,8 @@
                         by
                         %span.auth= @collections.where(is_featured?: true).first.user.name
                       -@collections.where(is_featured?: true).first.titles.each do |title|
-                        =render 'shared/title', title: title
+                        .block{id: "title-#{title.id}"}
+                          =render 'shared/title', title: title
 
               .fabrikDataContainer.filmstrip.homefilmstrip
                 #list_34_com_content_34

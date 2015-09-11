@@ -19,7 +19,8 @@
                         %a#critic_11.uk-button.addCritics Sígueme
                     .uk-grid
                       - @collection.titles.each do |title|
-                        =render 'shared/title', title: title
+                        .block{id: "title-#{title.id}"}
+                          =render 'shared/title', title: title
                     %br/
                     %h4.main-heading.uk-width-1-1 Other Collections you might like
                     .uk-grid

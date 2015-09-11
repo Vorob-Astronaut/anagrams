@@ -14,7 +14,10 @@ class UserQueuesController < ApplicationController
       UserQueue.create(user: current_user, title_id: params[:title_id])
       notice = "Title added to queue"
     end
-    redirect_to(:back, :notice => notice)
+    respond_to do |format|
+      format.js
+      format.html {redirect_to(:back, :notice => notice) }
+    end
   end
 
 end

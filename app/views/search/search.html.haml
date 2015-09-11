@@ -13,7 +13,8 @@
                   .fabrik_groupdata
                     .uk-grid
                       - @titles.each do |title|
-                        =render 'shared/title', title: title
+                        .block{id: "title-#{title.id}"}
+                          =render 'shared/title', title: title
                     %br/
                   .filmstrip_footer
                     .fabrik___heading

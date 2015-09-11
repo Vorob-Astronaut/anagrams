@@ -1,0 +1,1 @@
+$("#title-<%=escape_javascript(params[:title_id])%>").html("<%= escape_javascript(render partial: 'shared/title', locals: { title: Title.find(params[:title_id]) } ) %>"); 

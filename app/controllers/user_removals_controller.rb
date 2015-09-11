@@ -10,7 +10,10 @@ class UserRemovalsController < ApplicationController
       UserRemoval.create(user: current_user, title_id: params[:title_id])
       notice = "Title added to removals"
     end
-    redirect_to(:back, :notice => notice)
+    respond_to do |format|
+      format.js
+      format.html {redirect_to(:back, :notice => notice) }
+    end
   end
 
 end

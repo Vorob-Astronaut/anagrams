@@ -1,20 +1,19 @@
-.block
-  .product
-    =link_to image_tag(title.key_art.url(:medium)), title
-  .info
-    %h5= truncate(title.film_title, :length => 20)
-    .icon
-      -if current_user and current_user.user_favorites.collect(&:title_id).include?(title.id) then
-        =link_to image_tag('heart-red.png', style: "width: 38px;"), add_to_favorite_path(title.id)
-      -else
-        =link_to image_tag('heart.png'), add_to_favorite_path(title.id), class: "round-icon add_favourite"
-    .icon
-      -if current_user and current_user.user_removals.collect(&:title_id).include?(title.id) then
-        =link_to image_tag('cross-red.png', style: "width: 38px;"), add_to_removal_path(title.id)
-      -else
-        =link_to image_tag('cross.png'), add_to_removal_path(title.id), class: "round-icon Remove_view"
-    .icon
-      -if current_user and current_user.user_queues.collect(&:title_id).include?(title.id) then
-        =link_to image_tag('edit-red.png', style: "width: 38px;"), add_to_que_path(title.id)
-      -else
-        =link_to image_tag('edit.png'), add_to_que_path(title.id), class: "round-icon myqueue"
+.product
+  =link_to image_tag(title.key_art.url(:medium)), title
+.info
+  %h5= truncate(title.film_title, :length => 20)
+  .icon
+    -if current_user and current_user.user_favorites.collect(&:title_id).include?(title.id) then
+      =link_to image_tag('heart-red.png', style: "width: 38px;"), add_to_favorite_path(title.id), remote: true
+    -else
+      =link_to image_tag('heart.png'), add_to_favorite_path(title.id), class: "round-icon add_favourite", remote: true
+  .icon
+    -if current_user and current_user.user_removals.collect(&:title_id).include?(title.id) then
+      =link_to image_tag('cross-red.png', style: "width: 38px;"), add_to_removal_path(title.id), remote: true
+    -else
+      =link_to image_tag('cross.png'), add_to_removal_path(title.id), class: "round-icon Remove_view", remote: true
+  .icon
+    -if current_user and current_user.user_queues.collect(&:title_id).include?(title.id) then
+      =link_to image_tag('edit-red.png', style: "width: 38px;"), add_to_que_path(title.id), remote: true
+    -else
+      =link_to image_tag('edit.png'), add_to_que_path(title.id), class: "round-icon myqueue", remote: true
