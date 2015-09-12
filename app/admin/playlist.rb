@@ -18,7 +18,6 @@ filter :title_film_title_cont, as: :select, collection: -> {Title.all.collect(&:
 filter :collection_collection_name_eq, as: :select, collection: -> {Collection.all.collect(&:collection_name)}, label: "Collection"
 
 index do
-  binding.pry
   column :title do |col|
     col.title.film_title if col.title
   end
