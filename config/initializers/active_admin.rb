@@ -192,9 +192,13 @@ ActiveAdmin.setup do |config|
   #   config.register_javascript 'my_javascript.js'
   config.clear_stylesheets!
   config.register_stylesheet 'admin/active_admin.css'
+  config.register_stylesheet 'jquery-ui.css'
+  config.register_stylesheet 'search.css'
 
   config.clear_javascripts!
   config.register_javascript 'admin/active_admin.js'
+  config.register_javascript 'jquery-ui.js'
+  config.register_javascript 'search.js'
 
   # == CSV options
   #

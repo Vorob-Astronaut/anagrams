@@ -20,10 +20,11 @@ ActiveAdmin.register Title do
    # params.require(:title).permit(:id,:date_time, :filmTitle, :yearProduced, :snappySummary,:longDescriptionEspanol,:key_art,:Actors,:Director,:imdb,:internalComments,:butacaOwned,:shortDescriptionEspanol,:duration,:FilmRating,:active,:MetaVerified,:dateUpdatedCanIstream, :locale,:key_art_file_name, :key_art_content_type, :key_art_file_size, :key_art_updated_at,:country_titles_attributes => [:id,:country_id , :_destroy])
   #end
 #end
-filter :film_title
+filter :film_title_cont
 filter :countries_country_cont, as: :select, collection: -> {Country.all.collect(&:country)}, label: "Country"
 filter :genres_genre_espanol_cont, as: :select, collection: -> {Genre.all.collect(&:genre_espanol)}, label: "Genre es"
 filter :genres_genre_english_cont, as: :select, collection: -> {Genre.all.collect(&:genre_english)}, label: "Genre en"
+
 
 
 
