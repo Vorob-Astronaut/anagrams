@@ -46,4 +46,13 @@ class Title < ActiveRecord::Base
   accepts_nested_attributes_for :genre_titles, :allow_destroy => true
 
 
+  def self.in_removals(user)
+    if user then
+      includes(:user_removals).where(:user_removals => {user_id: user.id})
+    else
+      return []
+    end
+  end
+
+
 end

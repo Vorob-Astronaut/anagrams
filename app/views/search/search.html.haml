@@ -12,7 +12,7 @@
                 #list_34_com_content_34
                   .fabrik_groupdata
                     .uk-grid
-                      - @titles.each do |title|
+                      - (@titles.each-Title.in_removals(current_user)) do |title|
                         .block{id: "title-#{title.id}"}
                           =render 'shared/title', title: title
                     %br/

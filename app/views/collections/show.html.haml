@@ -18,7 +18,7 @@
                         %br/
                         %a#critic_11.uk-button.addCritics Sígueme
                     .uk-grid
-                      - @collection.titles.each do |title|
+                      - (@collection.titles-Title.in_removals(current_user)).each do |title|
                         .block{id: "title-#{title.id}"}
                           =render 'shared/title', title: title
                     %br/
