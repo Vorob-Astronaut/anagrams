@@ -4,14 +4,14 @@
       .tm-main.uk-width-medium-1-1
         %main.tm-content
           %article.uk-article
-            %h4=t('queue')
+            %h4=t('removals')
             %div
               %p
               .fabrikDataContainer.filmstrip.homefilmstrip
                 #list_34_com_content_34
                   .fabrik_groupdata
                     .uk-grid
-                      - @user_queues.each do |queue|
+                      - @user_removals.each do |queue|
                         .block{id: "title-#{queue.title.id}"}
                           =render 'shared/title', title: queue.title
                     %br/

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :titles
     resources :home
     resources :user_favorites
+    resources :user_removals
     resources :user_queues
     get 'message' => 'user_activity_logs#send_message'
     root to: 'home#index'

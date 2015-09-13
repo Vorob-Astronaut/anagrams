@@ -1,6 +1,10 @@
 class UserRemovalsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @user_removals = current_user.user_removals
+  end
+
   def add
     if current_user then
       @user_removal = UserRemoval.where(user_id: current_user.id, title_id: params[:title_id])
