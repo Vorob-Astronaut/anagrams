@@ -1,0 +1,71 @@
+// @import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100&subset=latin,latin-ext);
+
+.uk-h1 p, h4.main-heading {
+  font-family: "Roboto";
+  font-weight: 200;
+  font-size: 40px;
+  text-transform: lowercase;
+  &:first-letter {
+    text-transform: uppercase;
+  }
+}
+h3.title{
+  font-size: 30px;
+  font-family: "Roboto";
+  font-weight: 200;
+  text-transform: lowercase;
+  &:first-letter {
+    text-transform: uppercase;
+  }
+}
+body{
+  font-family: "Roboto";
+  font-weight: 300;
+}
+
+.container-fluid.margin{
+  margin-top: 130px;
+}
+// .tm-navbar{
+//   height:100px;
+// }
+.container-fluid{
+  max-width:1200px;
+}
+
+.home-collection img {
+  width: 100%;
+}
+
+.element-5-padding{
+  padding: 0 10px;;
+}
+.col-33{
+  padding:5px;
+
+  .product{
+    z-index:5;
+  }
+  .info{
+    position:relative;
+    top:-10px;
+    z-index: 1;
+    h5{
+      font-family: "Roboto";
+      font-weight: 200;
+    }
+  }
+}
+
+.uk-text-left.mtop img{
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.follow_btn{
+  top: -37px;
+}
