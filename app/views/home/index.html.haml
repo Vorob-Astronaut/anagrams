@@ -1,51 +1,42 @@
-.tm-block.tm-block-top-b.tm-block-padding-collapse.tm-block-fullwidth
-  .uk-container.uk-container-center
-    %section.tm-top-b.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => "{target:'> div > .uk-panel'}"}
-      .uk-panel.uk-panel-box.ui-text-left.hide_tag_line
-        %h2.uk-h1{:style => "text-align: center;"}
-          %br>/
-          %p
-            PORQUE NOS GUSTAN LAS PELÍCULAS EN ESPAÑOL,
-          %p
-            TE AYUDAMOS A DESCUBRIRLAS.
-            ¡MIRA Y DISFRUTA!
-          %br/
-          %br/
-.tm-block.tm-block-main
-  .uk-container.uk-container-center
-    .tm-middle.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => ""}
+.row
+  %h2.uk-h1
+    %br>/
+    %p
+      PORQUE NOS GUSTAN LAS PELÍCULAS EN ESPAÑOL,
+    %p
+      TE AYUDAMOS A DESCUBRIRLAS.
+    %p
+      ¡MIRA Y DISFRUTA!
+.row
+  .col-md-12
+    .row
       .col-md-12
-        %main.tm-content
-          %article.uk-article
-            %div
-              %p
-              .fabrikDataContainer.homefilmstrip
-                #list_34_com_content_34
-                  .fabrik_groupdata.row
-                    .uk-grid.col-md-12
-                      .uk-width-1-1.uk-h2.main-heading
-                        = @collections.where(is_featured?: true).first.collection_name
-                        by
-                        %span.auth= @collections.where(is_featured?: true).first.user.name
-                      -(@collections.where(is_featured?: true).first.titles-Title.in_removals(current_user)).each do |title|
-                        .block{id: "title-#{title.id}"}
-                          =render 'shared/title', title: title
+        %section
+          .uk-width-1-1
+            .uk-panel.uk-panel-box.filter-menu
+              %ul.uk-nav.uk-nav-parent-icon.uk-nav-side
+                %li
+                  =link_to t('collection'), collections_path
+                %li
+                  =link_to t('country'), countries_path
+                %li
+                  =link_to t('genre'), genre_index_path
+        %h3.title
+          = @collections.where(is_featured?: true).first.collection_name
+          by
+          %span.auth= @collections.where(is_featured?: true).first.user.name
+      .element-5-padding
+        -(@collections.where(is_featured?: true).first.titles-Title.in_removals(current_user)).each do |title|
+          .col-sm-4.col-lg-2.col-md-2.col-33{id: "title-#{title.id}"}
+            =render 'shared/title', title: title
+.row.home-collection
+  .col-md-12
+    .row
+      .col-md-12
+        %h4.main-heading Collections
+      - @collections.each do |collection|
+        .col-md-6
+          - if collection.image.present?
+            =render 'shared/collection', collection: collection
 
-              .fabrikDataContainer.filmstrip.homefilmstrip
-                #list_34_com_content_34
-                  .fabrik_groupdata.row
-                    %h4.main-heading Collections
-                    .uk-grid.by-butaca.col-md-12.row
-                      - @collections.each do |collection|
-                        .col-md-6
-                          - if collection.image.present?
-                            =render 'shared/collection', collection: collection
-                  .filmstrip_footer
-                    .fabrik___heading
-                      %span
-                        .fabrikNav
-              %p
-              %br/
-              %br/
-              %br/
-              %br/
+

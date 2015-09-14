@@ -24,11 +24,11 @@
              $('#languagebar').css('margin-top','45px');
           }
       	});
-  %body.tm-navbar-fixed.tm-article-blog
-    .wrapper
-      = render "shared/header"
-      .container
-        #alert-container
-          = render "shared/alert"
-        = yield
-      = render "shared/footer"
+  %body.tm-navbar-fixed
+    = render "shared/header"
+    .container-fluid
+      #alert-container
+        = render "shared/alert"
+  .container-fluid.margin
+    = yield
+  = render "shared/footer"
