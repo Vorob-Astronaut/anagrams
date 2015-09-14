@@ -9,7 +9,7 @@
                 %span.uk-h2
                   = @country.country
                   .row
-                    - (@country.titles.each-Title.in_removals(current_user)) do |title|
+                    - (@country.titles-Title.in_removals(current_user)).each do |title|
                       .block{id: "title-#{title.id}"}
                         =render 'shared/title', title: title
 
