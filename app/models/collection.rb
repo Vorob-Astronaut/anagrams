@@ -22,6 +22,7 @@ class Collection < ActiveRecord::Base
   friendly_id :collection_name, use: :slugged
 
   belongs_to :user
+  has_and_belongs_to_many :followers, class_name: "User", :uniq => true
   has_many :playlists, :dependent => :destroy
   has_many :titles , :through => :playlists
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100#", :custom => "600x338#"}, :default_url => "/noimage/:style/missing.png"
@@ -39,5 +40,10 @@ class Collection < ActiveRecord::Base
 
   accepts_nested_attributes_for :translations
   accepts_nested_attributes_for :playlists, :allow_destroy => true
+
+  def follow(user)
+    self.followers << user
+    save!
+  end
 
 end

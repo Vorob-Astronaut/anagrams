@@ -1,0 +1,9 @@
+.fabrikDataContainer.filmstrip.homefilmstrip
+  #list_34_com_content_34
+    .fabrik_groupdata.row
+      %h4.main-heading Followed collections
+      .uk-grid.by-butaca.col-md-12.row
+        - @collections.each do |collection|
+          .col-md-6
+            - if collection.image.present?
+              =render 'shared/collection', collection: collection

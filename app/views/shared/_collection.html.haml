@@ -6,4 +6,4 @@
     = collection.collection_name
     %small
       by #{User.find(collection.user_id).email}
-  %a#collection_11.addCollection.follow_btn{:onclick => ""} Sígueme
+  =link_to 'Sígueme', follow_collection_path(collection), id: "collection_11 follow-button-#{collection.id}", class: "addCollection follow_btn", remote: true

@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :collections
+  has_and_belongs_to_many :followed_collections, class_name: "Collection", :uniq => true
   has_many :user_favorites
   has_many :user_removals
   has_many :user_queues

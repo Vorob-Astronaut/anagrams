@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908102700) do
+ActiveRecord::Schema.define(version: 20150914080204) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -73,6 +73,14 @@ ActiveRecord::Schema.define(version: 20150908102700) do
     t.boolean  "is_home?",                limit: 1
     t.string   "slug",                    limit: 255
   end
+
+  create_table "collections_users", force: :cascade do |t|
+    t.integer "user_id",       limit: 4
+    t.integer "collection_id", limit: 4
+  end
+
+  add_index "collections_users", ["collection_id"], name: "index_collections_users_on_collection_id", using: :btree
+  add_index "collections_users", ["user_id"], name: "index_collections_users_on_user_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.string  "country_code",      limit: 255

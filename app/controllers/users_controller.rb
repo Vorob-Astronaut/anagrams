@@ -5,8 +5,12 @@ class UsersController < ApplicationController
   def show
   end
 
-  
-  
+  def followed_collections
+    @collections = current_user.followed_collections
+  end
+
+
+
   private
 
     def set_user

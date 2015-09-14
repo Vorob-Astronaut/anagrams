@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
   get '/account' => 'users#show', as: :user_profile
  scope ':locale', locale: /es|en/ do
-    resources :collections
+    resources :collections do
+      get :follow, on: :member
+    end
     resources :genre
     resources :countries
     resources :titles
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
     root to: 'home#index'
   end
   get 'search' => 'search#search', as: :search
+  get 'user/followed_collections' => 'users#followed_collections', as: :followed_collections
   get 'ac' => 'search#ac'
   get 'user_queues/add/:title_id' => 'user_queues#add', as: :add_to_que
   get 'user_favorites/add/:title_id' => 'user_favorites#add', as: :add_to_favorite
