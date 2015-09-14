@@ -12,7 +12,14 @@ class CollectionsController < ApplicationController
   end
 
   def follow
-    Collection.friendly.find(params[:id]).follow(current_user) if current_user
+    if current_user
+      @collection = Collection.friendly.find(params[:id])
+      if @collection.followers.where(id: current_user.id).any? then
+        @collection.unfollow(current_user)
+      else
+        @collection.follow(current_user)
+      end
+    end
     respond_to do |format|
       format.js
     end

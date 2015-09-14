@@ -46,4 +46,8 @@ class Collection < ActiveRecord::Base
     save!
   end
 
+  def unfollow(user)
+    self.followers.delete(user)
+  end
+
 end

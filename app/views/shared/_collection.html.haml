@@ -6,4 +6,4 @@
     = collection.collection_name
     %small
       by #{User.find(collection.user_id).email}
-  =link_to 'Sígueme', follow_collection_path(collection), id: "collection_11 follow-button-#{collection.id}", class: "addCollection follow_btn", remote: true
+  =link_to 'Sígueme', follow_collection_path(collection), id: "collection_11", class: "#{'followed' if current_user.followed_collection_ids.include?(collection.id)} addCollection follow_btn follow-button-#{collection.slug}", remote: true
