@@ -24,11 +24,10 @@
              $('#languagebar').css('margin-top','45px');
           }
       	});
-  %body.tm-navbar-fixed
+  %body
     = render "shared/header"
-    .container-fluid
-      #alert-container
-        = render "shared/alert"
+    #alert-container
+      = render "shared/alert"
   .container-fluid.margin
     = yield
   = render "shared/footer"
