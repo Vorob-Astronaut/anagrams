@@ -35,7 +35,10 @@
                               = coll.collection_name
                               %small
                                 by #{User.find(coll.user_id).email}
-                            %a#collection_11.follow_btn_small{:onclick => ""} Follow
+                            -if current_user
+                              =link_to 'Sígueme', follow_collection_path(coll), id: "collection_11", class: "#{'followed' if current_user.followed_collection_ids.include?(coll.id)} follow_btn_small follow-button-#{coll.slug}", remote: true
+                            -else
+                              =link_to 'Sígueme', follow_collection_path(coll), id: "collection_11", class: "follow_btn_small follow-button-#{coll.slug}", remote: true
                   .filmstrip_footer
                     .fabrik___heading
                       %span
