@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     end
     resources :genre
     resources :countries
-    resources :titles
+    resources :titles do
+      get :follow, on: :member
+    end
     resources :home
     resources :user_favorites
     resources :user_removals

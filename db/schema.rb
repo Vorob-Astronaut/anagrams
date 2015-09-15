@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914080204) do
+ActiveRecord::Schema.define(version: 20150915075109) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -142,6 +142,18 @@ ActiveRecord::Schema.define(version: 20150914080204) do
     t.text    "logo",        limit: 65535
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "notifier_id",         limit: 4
+    t.string   "notifier_type",       limit: 255
+    t.boolean  "email",               limit: 1
+    t.string   "notification_period", limit: 255
+    t.integer  "user_id",             limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "notifications", ["notifier_type", "notifier_id"], name: "index_notifications_on_notifier_type_and_notifier_id", using: :btree
+
   create_table "playlists", force: :cascade do |t|
     t.datetime "date_time"
     t.integer  "collection_id", limit: 4
@@ -194,6 +206,14 @@ ActiveRecord::Schema.define(version: 20150914080204) do
     t.integer  "title_id",   limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "user_log_activities", force: :cascade do |t|
+    t.string   "message",         limit: 255
+    t.integer  "notification_id", limit: 4
+    t.integer  "user_id",         limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "user_queues", force: :cascade do |t|

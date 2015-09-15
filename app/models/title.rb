@@ -35,6 +35,7 @@ class Title < ActiveRecord::Base
   has_attached_file :key_art, :styles => { :medium => "300x300>", :thumb => "100x100#", :custom => "600x338#"}, :default_url => "/noimage/:style/missing.png"
   validates_attachment_content_type :key_art, :content_type => /\Aimage\/.*\Z/
   has_many :movie_streams
+  has_many :notifications, as: :notifier
   has_many :country_titles, :dependent => :destroy
   has_many :countries , :through => :country_titles
   has_many :genre_titles, :dependent => :destroy
@@ -45,6 +46,7 @@ class Title < ActiveRecord::Base
   accepts_nested_attributes_for :country_titles, :allow_destroy => true
   accepts_nested_attributes_for :genre_titles, :allow_destroy => true
 
+  after_save :notify
 
   def self.in_removals(user)
     if user then
@@ -54,5 +56,20 @@ class Title < ActiveRecord::Base
     end
   end
 
+  def follow(user)
+    self.notifications.build(user: user)
+    save!
+  end
+
+  def unfollow(user)
+    self.notifications.where(user: user).first.destroy
+    save!
+  end
+
+  protected
+
+  def notify(*args)
+    self.notifications.each {|n| n.notify("Title #{self.film_title} was updated!")}
+  end
 
 end

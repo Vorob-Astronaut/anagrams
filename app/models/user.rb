@@ -28,9 +28,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :collections
   has_and_belongs_to_many :followed_collections, class_name: "Collection", :uniq => true
+  has_many :notifications
   has_many :user_favorites
   has_many :user_removals
   has_many :user_queues
+  has_many :user_log_activities
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/noimage/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/

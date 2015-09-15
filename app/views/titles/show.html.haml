@@ -62,7 +62,7 @@
                               =link_to "View", stream.link
                       -else
                         This film is not available.
-                        =link_to ('notify me!')
+                        =link_to ('notify me!'), follow_title_path(@title), class: "btn", remote: true
                         %br
                         %br
                         %br

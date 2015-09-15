@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'redis-rails'
+
 gem 'bower-rails'
 gem 'rails_serve_static_assets'
 gem 'friendly_id', '~> 5.1.0'

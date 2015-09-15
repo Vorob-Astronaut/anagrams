@@ -3,16 +3,16 @@ class UserActivityLogsController < ApplicationController
   include ActionController::Live
 
   def send_message
-    if current_user
-      response.headers['Content-Type'] = 'text/event-stream'
-      sse = ServerSide::SSE.new(response.stream)
-      begin
-        sse.write("Live message should be here")
-      rescue IOError
-      ensure
-        sse.close
+    response.headers['Content-Type'] = 'text/event-stream'
+    redis = Redis.new
+    redis.subscribe('crier:transitions') do |on|
+      on.message do |event, data|
+        response.stream.write "data: #{JSON.dump(data)}"
+        response.stream.write "\n\n"
       end
     end
+  ensure
+    response.stream.close
   end
 
 end
