@@ -73,7 +73,15 @@ namespace :deploy do
     end
   end
 
+  desc 'Movie static'
+  task :setup_static do
+    on roles(:app) do
+      system "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    end
+  end
+
   before :starting,     :check_revision
+  after  :finishing,    :setup_static
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
