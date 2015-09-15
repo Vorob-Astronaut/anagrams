@@ -20,7 +20,7 @@ class TitlesController < ApplicationController
       end
     end
     respond_to do |format|
-      format.js {render json: "ok"}
+      format.js
     end
   end
 

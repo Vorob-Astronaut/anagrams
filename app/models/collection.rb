@@ -43,6 +43,7 @@ class Collection < ActiveRecord::Base
   accepts_nested_attributes_for :playlists, :allow_destroy => true
 
   after_save :notify
+  after_create :notify_all
 
   def follow(user)
     self.followers << user
@@ -56,6 +57,12 @@ class Collection < ActiveRecord::Base
   end
 
   protected
+
+  def notify_all(*args)
+    User.all.each do |u|
+      UserLogActivity.create(message: "New collection #{self.collection_name} added!", user: u)
+    end
+  end
 
   def notify(*args)
     self.notifications.each {|n| n.notify("Collection #{self.collection_name} was updated!")}
