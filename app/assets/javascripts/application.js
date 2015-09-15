@@ -7,4 +7,3 @@
 //= require jquery_ujs
 //= require_tree ./angle/
 //= require jquery-ui
-//= require live_messaging

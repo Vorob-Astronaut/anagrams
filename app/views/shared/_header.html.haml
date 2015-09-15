@@ -33,6 +33,9 @@
                     %li
                       %a{:href => "/logout"} Logout
                     %li#livemessage
+                      -@last_notification.each do |l|
+                        %p
+                          =l
                   - else
                     %li
                       %a{:href => "/login"} Login
@@ -44,4 +47,3 @@
           =image_tag('butacaChairOnly.png', :alt => "logo", :height => "45", :width => "45")
         %p
           =image_tag('butaca-name.png', :alt => "butaca", :width => "120")
-
