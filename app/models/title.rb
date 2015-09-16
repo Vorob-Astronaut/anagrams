@@ -46,7 +46,6 @@ class Title < ActiveRecord::Base
   accepts_nested_attributes_for :country_titles, :allow_destroy => true
   accepts_nested_attributes_for :genre_titles, :allow_destroy => true
 
-  after_save :notify
 
   def self.in_removals(user)
     if user then
@@ -69,7 +68,8 @@ class Title < ActiveRecord::Base
   protected
 
   def notify(*args)
-    self.notifications.each {|n| n.notify("Title #{self.film_title} was updated!")}
+    self.notifications.each {|n| n.notify("A new platform added to title #{self.film_title}")}
   end
+
 
 end

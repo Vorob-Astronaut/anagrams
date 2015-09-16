@@ -25,7 +25,7 @@ class Collection < ActiveRecord::Base
   has_many :notifications, as: :notifier
   has_and_belongs_to_many :followers, class_name: "User", :uniq => true
   has_many :playlists, :dependent => :destroy, after_add: :notify
-  has_many :titles , :through => :playlists, after_add: :notify
+  has_many :titles , :through => :playlists
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100#", :custom => "600x338#"}, :default_url => "/noimage/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
@@ -42,7 +42,6 @@ class Collection < ActiveRecord::Base
   accepts_nested_attributes_for :translations
   accepts_nested_attributes_for :playlists, :allow_destroy => true
 
-  after_save :notify
   after_create :notify_all
 
   def follow(user)
@@ -65,7 +64,7 @@ class Collection < ActiveRecord::Base
   end
 
   def notify(*args)
-    self.notifications.each {|n| n.notify("Collection #{self.collection_name} was updated!")}
+    self.notifications.each {|n| n.notify("A film #{args.first.title.film_title} added to collection #{self.collection_name}")}
   end
 
 end

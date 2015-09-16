@@ -13,7 +13,7 @@
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-left
       = search_form_for @q, url: search_path, class: 'uk-search' do |f|
-        = f.search_field :film_title_or_actors_or_director_cont, class: "uk-search-field", placeholder: "Búsqueda", id: "search_field"
+        = f.search_field :film_title_or_actors_or_director_cont, class: "uk-search-field", placeholder: t('search'), id: "search_field"
       - if current_user
         %ul.nav.navbar-nav.navbar-right
           %li.bell.dropdown.main
