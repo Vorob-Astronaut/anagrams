@@ -23,19 +23,27 @@ body{
   font-family: "Roboto";
   font-weight: 300;
 }
-
 .container-fluid.margin{
-  margin-top: 130px;
+  margin-top:100px;
 }
-// .tm-navbar{
-//   height:100px;
-// }
+
 .container-fluid{
-  max-width:1200px;
+  max-width:1300px;
+}
+@media(min-width: 991px){
+  .home-collection{
+    .col-md-6:nth-child(2n){
+      padding-right:5px;
+    }
+    .col-md-6:nth-child(2n+1){
+      padding-left:5px;
+    }
+  }
 }
 
 .home-collection img {
   width: 100%;
+
 }
 
 .element-5-padding{
@@ -55,6 +63,15 @@ body{
       font-family: "Roboto";
       font-weight: 200;
     }
+    .icon{
+      height: 38px;
+      .round-icon{
+        img{
+          padding-bottom:10px;
+          padding-top:10px;
+        }
+      }
+    }
   }
 }
 
@@ -68,4 +85,79 @@ body{
 }
 .follow_btn{
   top: -37px;
+}
+//nav
+.img-circle.img-responsive.nav{
+  width: 65px;
+  height: 65px;
+}
+
+
+.navbar.navbar-default.navbar-inverse{
+  height:90px;
+  background-color: #262c31;
+  a.navbar-brand span.name{
+    font-size:26px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+  }
+  #search_field{
+    position:relative;
+    top:3px;
+    left:40%;
+  }
+  .container-fluid{
+    padding: 0px;
+    #title_search{
+      position: absolute;
+      top: 28px;
+
+    }
+    ul.nav.navbar-nav.navbar-right{
+      a.padding{
+        padding: 34px 20px;
+        font-weight: 100;
+        font-family: Roboto;
+      }
+      .bell{
+        padding: 31px 30px;
+        border-left:3px solid #2E3337;
+        .number{
+          position: absolute;
+          top: 15px;
+          right:22px;
+          color: white;
+          font-weight: 100;
+          font-size: 14px;
+        }
+      }
+      .avatar{
+        padding:12px 0px;
+      }
+      .name{
+        padding: 31px 20px 31px 10px;
+        color: white;
+        font-family: Roboto;
+        font-weight: 200;
+        font-size: 15px;
+      }
+      .dropdown.main{
+        padding: 24px 0px;
+
+        .dropdown-menu{
+          background-color: #262c31;
+          border:2px solid #262c31;
+          &:after{
+            z-index: -1;
+            display: none;
+            visibility: hidden;
+          }
+          li a{
+            color: white;
+          }
+        }
+      }
+    }
+  }
 }
