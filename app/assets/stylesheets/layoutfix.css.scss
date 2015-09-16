@@ -1,6 +1,18 @@
 // @import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100&subset=latin,latin-ext);
 
+.container-fluid{
+  max-width:1300px;
+  // padding: 0px 20px;
+}
+
+.back-ground{
+  background-color: #eeeeee;
+}
+
+.tagline{
+  font-weight: 200;
+}
 .uk-h1 p, h4.main-heading {
   font-family: "Roboto";
   font-weight: 200;
@@ -27,9 +39,6 @@ body{
   margin-top:100px;
 }
 
-.container-fluid{
-  max-width:1300px;
-}
 @media(min-width: 991px){
   .home-collection{
     .col-md-6:nth-child(2n){
@@ -49,7 +58,7 @@ body{
 .element-5-padding{
   padding: 0 10px;;
 }
-.col-33{
+.col-33, .col-md-3{
   padding:5px;
 
   .product{
@@ -59,6 +68,7 @@ body{
     position:relative;
     top:-10px;
     z-index: 1;
+    max-height: 150px;
     h5{
       font-family: "Roboto";
       font-weight: 200;
@@ -92,15 +102,52 @@ body{
   height: 65px;
 }
 
+@media(max-width:767px){
+  .navbar-toggle{
+    right: 40px;
+    top: 20px;
+  }
+  .navbar-brand{
+    position:relative;
+    left: 50vw;
+    top: -10px;
+    img{
+      width: 50px;
+    }
+    span.name{
+      position: absolute !important;
+      top: 65px !important;
+      right: -5px !important;
+      font-size: 24px !important;
+    }
+  }
 
+  .navbar-collapse{
+    background-color: #262c31;
+    position: relative;
+    top:30px;
+    .nav.navbar-nav.navbar-right{
+      float: right;
+    }
+  }
+}
 .navbar.navbar-default.navbar-inverse{
   height:90px;
   background-color: #262c31;
-  a.navbar-brand span.name{
+  a.navbar-brand {
+    z-index:999;
+    position:relative;
+    height: 50px;
+    span{
+      z-index:99;
+    }
+    span.name {
     font-size:26px;
     position: relative;
     top: 5px;
     left: 5px;
+    z-index:99;
+    }
   }
   #search_field{
     position:relative;
@@ -108,7 +155,7 @@ body{
     left:40%;
   }
   .container-fluid{
-    padding: 0px;
+
     #title_search{
       position: absolute;
       top: 28px;
@@ -160,4 +207,55 @@ body{
       }
     }
   }
+}
+.navbar.navbar-default.navbar-inverse input#search_field.uk-search-field{
+  padding: 0px;
+  width: 300px !important;
+  left: 20vw;
+  position: absolute;
+}
+@media(max-width:979px){
+  .navbar.navbar-default.navbar-inverse input#search_field.uk-search-field{
+    padding: 0px;
+    width: 180px !important;
+    left: 20vw;
+    position: absolute;
+  }
+  ul.dropdown-menu{
+    position:absolute;
+    right: 200px;
+  }
+}
+@media(max-width:767px){
+  .navbar.navbar-default.navbar-inverse input#search_field.uk-search-field{
+    padding: 0px;
+    width: 180px !important;
+    left: 15vw;
+    position: absolute;
+  }
+}
+@media(max-width:680px){
+  .navbar.navbar-default.navbar-inverse input#search_field.uk-search-field{
+    padding: 0px;
+    width: 180px !important;
+    left: 10vw;
+    position: absolute;
+  }
+}
+
+#bs-example-navbar-collapse-1{
+  z-index:999;
+}
+
+.row.collection-4{
+  .col-md-3{
+    padding: 0px 5px;
+    margin-left: 20%;
+  }
+}
+.padding-10{
+  padding:0px 10px;
+}
+.padding-5{
+  padding:5px;
 }

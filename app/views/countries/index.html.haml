@@ -1,17 +1,14 @@
-%main.tm-content
-  %article.uk-article
-    %div
-      .row
-        .col-md-10
-          - @countries.each do |country|
-            .uk-width-medium-9-10.counrty
-              - if country.is_active? && country.titles.any?
-                %p
-                  %span.uk-h2
-                    = link_to country.country, country_path(country)
-                    - country.titles.first(4).each do |title|
-                      .block{id: "title-#{title.id}"}
-                        =render 'shared/title', title: title
+%div
+  .row
+    .col-md-3
+      =render 'layouts/partials/sidebar'
+    .col-md-9.back-ground
+      - @countries.each do |country|
+        - if country.is_active? && country.titles.any?
+          = link_to country.country, country_path(country)
+          .row
+            .col-md-12
+              - country.titles.first(4).each do |title|
+                .col-md-3.padding-5{id: "title-#{title.id}"}
+                  =render 'shared/title', title: title
 
-        .col-md-2
-          =render 'layouts/partials/sidebar'
