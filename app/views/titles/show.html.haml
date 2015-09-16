@@ -53,6 +53,7 @@
                   .uk-panel.uk-panel-box.uk-width-medium-10-10
                     %span
                       %strong=t('platforms')
+                      =social_share_button_tag(@title.film_title, :popup => true)
                     %div{:id => "titles___platform_ro go-watch"}
                       -if @title.movie_streams.any? then
                         -@title.movie_streams.each do |stream|

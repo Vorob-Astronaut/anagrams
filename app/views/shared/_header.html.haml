@@ -44,6 +44,8 @@
                 = link_to 'Profile',edit_user_registration_path
               %li
                 %a{:href => "/logout"} Logout
+          %li.social_buttons
+            =social_share_button_tag()
       - else
         %ul.nav.navbar-nav.navbar-right
           %li

@@ -33,6 +33,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem "sprockets", "< 3.0.0"
 gem 'annotate', '~> 2.6.10'
 gem 'emcee'
+gem 'social-share-button'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
