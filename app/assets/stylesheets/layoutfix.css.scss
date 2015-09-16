@@ -135,11 +135,11 @@ body{
   height:90px;
   background-color: #262c31;
   a.navbar-brand {
-    z-index:999;
+    z-index:9999;
     position:relative;
     height: 50px;
     span{
-      z-index:99;
+      z-index:999;
     }
     span.name {
     font-size:26px;
@@ -213,6 +213,7 @@ body{
   width: 300px !important;
   left: 20vw;
   position: absolute;
+  z-index:9;
 }
 @media(max-width:979px){
   .navbar.navbar-default.navbar-inverse input#search_field.uk-search-field{
