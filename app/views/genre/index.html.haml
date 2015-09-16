@@ -1,15 +1,15 @@
-%main.tm-content
-  %article.uk-article
-    %div
+.row
+  .col-md-3
+    =render 'layouts/partials/sidebar'
+  .col-md-9.back-ground
+    - @genres.each do |genre|
+      %p
+        %span.uk-h2
+          = genre.genre_espanol
       .row
-        .col-md-10
-          - @genres.each do |genre|
-            %p
-              %span.uk-h2
-                = genre.genre_espanol
-            .row
-              - genre.titles.first(4).each do |title|
-                .block{id: "title-#{title.id}"}
-                  =render 'shared/title', title: title
-        .col-md-2
-          =render 'layouts/partials/sidebar'
+        .col-md-12
+          - genre.titles.first(4).each do |title|
+            .col-md-3.padding-5{id: "title-#{title.id}"}
+              =render 'shared/title', title: title
+
+

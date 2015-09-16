@@ -1,16 +1,13 @@
-%main.tm-content
-  %article.uk-article
-    %div
-      .row
-        .col-md-10
-          %p
-            %span.uk-h2
-              = @genre.genre_espanol
-          .row
-            - @genre.titles.in_groups_of(4, false).each do |group|
-              -group.each do |title|
-                .block{id: "title-#{title.id}"}
-                  =render 'shared/title', title: title
-
-        .col-md-2
-          =render 'layouts/partials/sidebar'
+.row
+  .col-md-3
+    =render 'layouts/partials/sidebar'
+  .col-md-9.back-ground
+    %p
+      %span.uk-h2
+        = @genre.genre_espanol
+    .row
+      .col-md-12
+        - @genre.titles.in_groups_of(4, false).each do |group|
+          -group.each do |title|
+            .col-md-3.padding-5{id: "title-#{title.id}"}
+              =render 'shared/title', title: title

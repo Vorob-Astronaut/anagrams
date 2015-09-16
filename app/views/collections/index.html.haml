@@ -1,22 +1,14 @@
 %main.tm-content
   %article.uk-article
     %div.row
-      .col-md-10
-        %p
-          %h4.main-heading Collections
-          .row
-            - @collections.each do |collection|
-              .col-md-6
-                - if collection.image.present?
-                  =render 'shared/collection', collection: collection
-        .filmstrip_footer
-          .fabrik___heading
-            %span
-              .fabrikNav
-        %p
-      .col-md-2
+      .col-md-3
         =render 'layouts/partials/sidebar'
-      %br/
-      %br/
-      %br/
-      %br/
+      .col-md-9
+        %h4.main-heading Collections
+        .row.padding-10
+          - @collections.each do |collection|
+            .col-md-6.padding-5
+              - if collection.image.present?
+                =render 'shared/collection', collection: collection
+
+

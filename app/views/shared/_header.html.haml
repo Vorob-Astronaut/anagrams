@@ -12,7 +12,7 @@
         %span.name Butaca
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-left
-      = search_form_for @q, url: search_path, class: 'uk-search' do |f|
+      = search_form_for @q, url: search_path, class: 'search' do |f|
         = f.search_field :film_title_or_actors_or_director_cont, class: "uk-search-field", placeholder: t('search'), id: "search_field"
       - if current_user
         %ul.nav.navbar-nav.navbar-right
@@ -44,8 +44,8 @@
                 = link_to 'Profile',edit_user_registration_path
               %li
                 %a{:href => "/logout"} Logout
-          %li.social_buttons
-            =social_share_button_tag()
+          / %li.social_buttons
+          /   =social_share_button_tag()
       - else
         %ul.nav.navbar-nav.navbar-right
           %li
