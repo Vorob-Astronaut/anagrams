@@ -48,12 +48,12 @@ group :development do
     gem 'capistrano-rvm',     require: false
     gem 'capistrano-rails',   require: false
     gem 'capistrano-bundler', require: false
-    gem 'capistrano-passenger', require: false
+    gem 'capistrano-puma', require: false
     gem 'capistrano-local-precompile', require: false
     gem 'capistrano-bower', require: false
 end
 
-gem "passenger"
+gem "puma"
 # Authentication
 gem 'devise'
 
