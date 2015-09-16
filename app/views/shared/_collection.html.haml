@@ -7,6 +7,6 @@
     %small
       by #{User.find(collection.user_id).email}
   -if current_user
-    =link_to 'Sígueme', follow_collection_path(collection), id: "collection_11", class: "#{'followed' if current_user.followed_collection_ids.include?(collection.id)} addCollection follow_btn follow-button-#{collection.slug}", remote: true
+    =link_to t('follow'), follow_collection_path(collection), id: "collection_11", class: "#{'followed' if current_user.followed_collection_ids.include?(collection.id)} addCollection follow_btn follow-button-#{collection.slug}", remote: true
   -else
-    =link_to 'Sígueme', follow_collection_path(collection), id: "collection_11", class: "addCollection follow_btn follow-button-#{collection.slug}", remote: true
+    =link_to t('follow'), follow_collection_path(collection), id: "collection_11", class: "addCollection follow_btn follow-button-#{collection.slug}", remote: true

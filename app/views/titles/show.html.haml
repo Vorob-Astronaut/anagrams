@@ -46,13 +46,13 @@
 
                     </div>
                   .addToFav
-                    %a#add_.btn.uk-button.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return AddtoFav(id)", :title => "Agregar a mis favoritos"} Agregar a mis favoritos
-                    %a#film_.btn.uk-button.Remove_view.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"} Eliminar de la vista
-                    %a#addqueue_.btn.uk-button.myqueue.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)", :title => "Want To Watch"} AÑADIR A myQueue
+                    %a#add_.btn.uk-button.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return AddtoFav(id)", :title => "Agregar a mis favoritos"}=t('add_to_favorite')
+                    %a#film_.btn.uk-button.Remove_view.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"}=t('remove_from_view')
+                    %a#addqueue_.btn.uk-button.myqueue.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)", :title => "Want To Watch"}=t('add_to_queue')
                 .detail_platform.uk-width-1-1
                   .uk-panel.uk-panel-box.uk-width-medium-10-10
                     %span
-                      %strong Donde la puedes ver online
+                      %strong=t('platforms')
                     %div{:id => "titles___platform_ro go-watch"}
                       -if @title.movie_streams.any? then
                         -@title.movie_streams.each do |stream|
@@ -61,8 +61,8 @@
                             %span.uk-thumbnail.price_platform
                               =link_to "View", stream.link
                       -else
-                        This film is not available.
-                        =link_to ('notify me!'), follow_title_path(@title), class: "follow-btn btn", remote: true
+                        =t('platfrom_not_avalible')
+                        =link_to t('notify_me'), follow_title_path(@title), class: "follow-btn btn", remote: true
                         %br
                         %br
                         %br

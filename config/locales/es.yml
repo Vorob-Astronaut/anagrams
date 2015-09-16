@@ -8,6 +8,14 @@ es:
   favorites: Mis favoritos
   queue: Mi cola
   removals: My removals
+  add_to_favorite: Agregar a mis favoritos
+  remove_from_view: Eliminar de la vista
+  add_to_queue: AÑADIR A myQueue
   genre: Género
   collection: Colección
   country: País
+  tagline: PORQUE NOS GUSTAN LAS PELÍCULAS EN ESPAÑOL, TE AYUDAMOS A DESCUBRIRLAS. ¡MIRA Y DISFRUTA!
+  platforms: Donde la puedes ver online
+  platfrom_not_avalible: esta película no está disponible
+  notify_me: notificarme!
+  follow: Sígueme

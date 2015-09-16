@@ -1,12 +1,7 @@
 .row
   %h2.uk-h1
     %br>/
-    %p
-      PORQUE NOS GUSTAN LAS PELÍCULAS EN ESPAÑOL,
-    %p
-      TE AYUDAMOS A DESCUBRIRLAS.
-    %p
-      ¡MIRA Y DISFRUTA!
+    =t('tagline')
 .row
   .col-md-12
     .row
@@ -33,10 +28,8 @@
   .col-md-12
     .row
       .col-md-12
-        %h4.main-heading Collections
+        %h4.main-heading=t('collection')
       - @collections.each do |collection|
         .col-md-6
           - if collection.image.present?
             =render 'shared/collection', collection: collection
-
-

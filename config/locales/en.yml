@@ -1,6 +1,3 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
   time:
    formats:
@@ -11,6 +8,14 @@ en:
   favorites: My favortes
   queue: My queue
   removals: My removals
+  add_to_favorite: Add to favorite
+  remove_from_view: Remove from view
+  add_to_queue: Add to queue
   genre: Genre
   collection: Collecton
   country: Country
+  tagline: BECAUSE WE LIKE MOVIES IN SPANISH, WE HELP YOU DISCOVER THEM. WATCH AND ENJOY!
+  platforms: Where you can watch online
+  platfrom_not_avalible: this film is not available
+  notify_me: notify me!
+  follow: Follow

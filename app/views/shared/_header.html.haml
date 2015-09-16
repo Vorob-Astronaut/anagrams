@@ -16,10 +16,14 @@
         = f.search_field :film_title_or_actors_or_director_cont, class: "uk-search-field", placeholder: "Búsqueda", id: "search_field"
       - if current_user
         %ul.nav.navbar-nav.navbar-right
-          %li.bell
-            =image_tag('bell.png')
+          %li.bell.dropdown.main
+            =link_to image_tag('bell.png'), "#", class: "dropdown-toggle", 'data-toggle' => "dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"
             .number
               5
+            %ul.dropdown-menu
+              -@last_notification.each do |l|
+                %li
+                  =l
           %li.avatar
             =image_tag current_user.avatar.url(:thumb), class: "img-circle img-responsive nav"
           %li.name
@@ -40,10 +44,6 @@
                 = link_to 'Profile',edit_user_registration_path
               %li
                 %a{:href => "/logout"} Logout
-              %li#livemessage
-                -@last_notification.each do |l|
-                  %p
-                    =l
       - else
         %ul.nav.navbar-nav.navbar-right
           %li

@@ -16,7 +16,10 @@
                         = @collection.collection_description_
                         %br/
                         %br/
-                        %a#critic_11.uk-button.addCritics Sígueme
+                        -if current_user
+                          =link_to t('follow'), follow_collection_path(@collection), id: "critic_11", class: "#{'followed' if current_user.followed_collection_ids.include?(@collection.id)} uk-button addCritics follow-button-#{@collection.slug}", remote: true
+                        -else
+                          =link_to t('follow'), follow_collection_path(@collection), id: "critic_11", class: "uk-button addCritics follow-button-#{@collection.slug}", remote: true
                     .uk-grid
                       - (@collection.titles-Title.in_removals(current_user)).each do |title|
                         .block{id: "title-#{title.id}"}
@@ -36,9 +39,9 @@
                               %small
                                 by #{User.find(coll.user_id).email}
                             -if current_user
-                              =link_to 'Sígueme', follow_collection_path(coll), id: "collection_11", class: "#{'followed' if current_user.followed_collection_ids.include?(coll.id)} follow_btn_small follow-button-#{coll.slug}", remote: true
+                              =link_to t('follow'), follow_collection_path(coll), id: "collection_11", class: "#{'followed' if current_user.followed_collection_ids.include?(coll.id)} follow_btn_small follow-button-#{coll.slug}", remote: true
                             -else
-                              =link_to 'Sígueme', follow_collection_path(coll), id: "collection_11", class: "follow_btn_small follow-button-#{coll.slug}", remote: true
+                              =link_to t('follow'), follow_collection_path(coll), id: "collection_11", class: "follow_btn_small follow-button-#{coll.slug}", remote: true
                   .filmstrip_footer
                     .fabrik___heading
                       %span
