@@ -1,5 +1,6 @@
 class CountriesController < ApplicationController
-
+  add_breadcrumb "home", :root_path
+  add_breadcrumb "countries", :countries_path
 
   # GET /countrytitles
   def index
@@ -9,6 +10,7 @@ class CountriesController < ApplicationController
   # GET /countrytitles/1
   def show
     @country = Country.friendly.find(params[:id])
+    add_breadcrumb @country.country, country_path(@country)
   end
 
 

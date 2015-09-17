@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
-
+  add_breadcrumb "home", :root_path
+  add_breadcrumb "collections", :collections_path
 
   # GET /collections
   def index
@@ -9,6 +10,7 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   def show
     @collection = Collection.friendly.find(params[:id])
+    add_breadcrumb @collection.collection_name, collection_path(@collection)
   end
 
   def follow

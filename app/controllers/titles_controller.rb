@@ -1,5 +1,5 @@
 class TitlesController < ApplicationController
-
+  add_breadcrumb "home", :root_path
 
   # GET /titles
 
@@ -7,6 +7,7 @@ class TitlesController < ApplicationController
   # GET /titles/1
   def show
     @title = Title.friendly.find(params[:id])
+    add_breadcrumb @title.film_title, title_path(@title)
   end
 
 
