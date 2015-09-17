@@ -8,6 +8,6 @@ class GenreController < ApplicationController
 
   def show
     @genre = Genre.friendly.find(params[:id])
-    add_breadcrumb @genre.genre_english, genre_path(@genre)
+    add_breadcrumb @genre.genre_espanol, genre_path(@genre)
   end
 end

@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
    after_filter :clear_notice
 
 
+
     protected
 
     def clear_notice

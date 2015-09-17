@@ -25,6 +25,15 @@ filter :countries_country_cont, as: :select, collection: -> {Country.all.collect
 filter :genres_genre_espanol_cont, as: :select, collection: -> {Genre.all.collect(&:genre_espanol)}, label: "Genre es"
 filter :genres_genre_english_cont, as: :select, collection: -> {Genre.all.collect(&:genre_english)}, label: "Genre en"
 
+controller do
+  def find_resource
+    begin
+      scoped_collection.where(slug: params[:id]).first!
+    rescue ActiveRecord::RecordNotFound
+      scoped_collection.find(params[:id])
+    end
+  end
+end
 
 
 

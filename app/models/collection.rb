@@ -26,9 +26,9 @@ class Collection < ActiveRecord::Base
   has_and_belongs_to_many :followers, class_name: "User", :uniq => true
   has_many :playlists, :dependent => :destroy, after_add: :notify
   has_many :titles , :through => :playlists
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100#", :custom => "600x338#"}, :default_url => "/noimage/:style/missing.png"
+  has_attached_file :image, :styles => { :medium => "315x178>", :thumb => "100x100#", :custom => "640x361#"}, :default_url => "/noimage/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-
+  
   has_many :translations,autosave: true
 
   TRANSLATED_FIELD = [

@@ -8,7 +8,6 @@
           = @country.country
           .row
             .col-md-12
-              - (@country.titles-Title.in_removals(current_user)).each do |title|
+              - @titles.each do |title|
                 .col-md-3.padding-5{id: "title-#{title.id}"}
                   =render 'shared/title', title: title
-

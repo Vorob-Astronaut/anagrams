@@ -14,4 +14,5 @@ ActiveAdmin.register GenreTitle do
 # end
 
 
+
 end
