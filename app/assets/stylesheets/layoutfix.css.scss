@@ -2,9 +2,11 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100&subset=latin,latin-ext);
 
 .container-fluid.width{
-  max-width: 1300px;
+  max-width: 1600px;
 }
-
+.container-fluid{
+  padding: 0px 140px;
+}
 
 
 .back-ground{
@@ -38,6 +40,7 @@ body{
 }
 .container-fluid.margin{
   margin-top:90px;
+  background-color: #eeeeee;
 }
 
 @media(min-width: 991px){
@@ -171,17 +174,19 @@ body{
       .bell{
         padding: 31px 30px;
         border-left:3px solid #2E3337;
+        position:relative;
+        top:5px;
         .number{
           position: absolute;
-          top: 15px;
+          top: 13px;
           right:22px;
           color: white;
           font-weight: 100;
           font-size: 14px;
         }
       }
-      .avatar{
-        padding:12px 0px;
+      .login-person{
+        padding:24px 0px;
       }
       .name{
         padding: 31px 20px 31px 10px;
@@ -209,10 +214,23 @@ body{
     }
   }
 }
+
+.navbar.navbar-default.navbar-inverse .container-fluid ul.nav.navbar-nav.navbar-right.logout{
+  img{
+    padding: 24px 5px;
+  }
+  li a.padding{
+    padding-left: 5px;
+    padding-right: 0px;
+    font-family: Roboto;
+    font-size: 14px;
+  }
+}
+
 .navbar.navbar-default.navbar-inverse input#search_field.uk-search-field{
   padding: 0px;
   width: 300px !important;
-  left: 20vw;
+  left: 35vw;
   position: absolute;
   z-index:9;
 }
@@ -269,15 +287,45 @@ body{
 }
 
 .breadcrumb{
-  padding-left:40px;
   margin-bottom: 0px;
-  border-bottom:1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 .back-ground{
-  padding-top: 20px;
+  padding-top: 40px;
   padding-bottom: 20px;
 }
 
 .tm-footer.uk-text-center.uk-text-contrast{
   margin-top:0px;
 }
+
+.info.no-background{
+  background-color: white;
+}
+
+.aside-inner{
+  margin: 20px 120px 20px 0px;
+  padding: 0px;
+}
+
+body{
+  background: #eee;
+}
+
+.remove-border{
+  border: 0px !important;
+  outline: 0px !important;
+  border-image-width: 0px !important;
+  border-color: #eeeeee !important;
+  outline-color: #eeeeee !important;
+}
+.remove-padding{
+  padding: 0px;
+}
+
+ .sidebar > .nav > li.active > a {
+    color: #ee4423;
+ }
+ .sidebar > .nav > li.active {
+   border-left-color: #ee4423;
+ }

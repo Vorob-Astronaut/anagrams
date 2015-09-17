@@ -25,7 +25,7 @@
                 %li
                   =l
           %li.avatar
-            =image_tag current_user.avatar.url(:thumb), class: "img-circle img-responsive nav"
+            =image_tag('person.png', class:"login-person")
           %li.name
             =current_user.name
           %li.dropdown.main
@@ -47,8 +47,10 @@
           / %li.social_buttons
           /   =social_share_button_tag()
       - else
-        %ul.nav.navbar-nav.navbar-right
+        %ul.nav.navbar-nav.navbar-right.logout
           %li
-            %a.padding{:href => "/login"} Login
+            =image_tag('person.png')
+          %li
+            %a.padding{:href => "/login"} Login /
           %li
             %a.padding{:href => "/sign_up"} Sing up
