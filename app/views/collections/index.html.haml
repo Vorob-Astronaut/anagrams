@@ -1,14 +1,12 @@
-%main.tm-content
-  %article.uk-article
-    %div.row
-      .col-md-3
-        =render 'layouts/partials/sidebar'
-      .col-md-9
-        %h4.main-heading Collections
-        .row.padding-10
-          - @collections.each do |collection|
-            .col-md-6.padding-5
-              - if collection.image.present?
-                =render 'shared/collection', collection: collection
+%div.row
+  .col-md-3
+    =render 'layouts/partials/sidebar'
+  .col-md-9
+    %h4.main-heading Collections
+    .row.padding-10
+      - @collections.each do |collection|
+        .col-md-6.padding-5.collection-item
+          - if collection.image.present?
+            =render 'shared/collection', collection: collection
 
 

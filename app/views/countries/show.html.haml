@@ -9,5 +9,5 @@
           .row
             .col-md-12
               - @titles.each do |title|
-                .col-md-3.padding-5{id: "title-#{title.id}"}
+                .col-lg-2.col-md-3.padding-5{id: "title-#{title.id}"}
                   =render 'shared/title', title: title
