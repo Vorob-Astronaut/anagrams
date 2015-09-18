@@ -315,7 +315,7 @@ body{
 
 .remove-border{
   border: 0px !important;
-  outline: 0px !important;
+  outline: 0 !important;
   border-image-width: 0px !important;
   border-color: #eeeeee !important;
   outline-color: #eeeeee !important;
@@ -330,3 +330,7 @@ body{
  .sidebar > .nav > li.active {
    border-left-color: #ee4423;
  }
+
+.uk-panel.uk-panel-box.filter-menu{
+  background-color: rgba(255,255,255,0) !important;
+}
