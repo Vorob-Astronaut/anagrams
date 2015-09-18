@@ -2,9 +2,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100&subset=latin,latin-ext);
 
 .container-fluid.width{
-  max-width: 1600px;
+  max-width: 1700px;
 }
-.container-fluid{
+.container-fluid.width-margin{
   padding: 0px 140px;
 }
 
@@ -173,6 +173,7 @@ body{
       }
       .bell{
         padding: 31px 30px;
+        padding-left: 30px !important;
         border-left:3px solid #2E3337;
         position:relative;
         top:5px;
@@ -220,7 +221,7 @@ body{
     padding: 24px 5px;
   }
   li a.padding{
-    padding-left: 5px;
+    padding-left: 3px;
     padding-right: 0px;
     font-family: Roboto;
     font-size: 14px;
@@ -300,7 +301,7 @@ body{
 }
 
 .info.no-background{
-  background-color: white;
+  background-color: rgba(255,255,255,0);
 }
 
 .aside-inner{

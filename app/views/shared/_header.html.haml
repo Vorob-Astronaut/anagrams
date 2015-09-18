@@ -1,5 +1,5 @@
 %nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top
-  .container-fluid
+  .container-fluid.width-margin
     .navbar-header
       %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
@@ -51,6 +51,6 @@
           %li
             =image_tag('person.png')
           %li
-            %a.padding{:href => "/sign_up"} Regístrate /
+            =link_to t('sign_up'), new_user_registration_path, class: "padding"
           %li
-            %a.padding{:href => "/login"} Login
+            =link_to t('sign_in'), login_path, class: "padding"
