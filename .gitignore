@@ -19,3 +19,5 @@
 /public/system/users/*
 
 /config/database.yml
+
+/public/system/*

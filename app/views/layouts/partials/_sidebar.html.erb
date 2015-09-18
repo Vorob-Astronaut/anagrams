@@ -31,7 +31,7 @@
             <a href="#elements" title="Collections" data-toggle="collapse">
                <span data-localize="sidebar.nav.element.ELEMENTS">Collections</span>
             </a>
-            <ul id="elements" class="nav sidebar-subnav collapse">
+            <ul id="elements" class="nav sidebar-subnav collapse <%='in' if controller?('collections')%>">
                <li class="sidebar-subnav-header">Collections</li>
                <%@collection_list.each do |col|%>
                  <li>
@@ -45,10 +45,11 @@
               <%=image_tag("country.png", style: "width: 20px;")%>
                <span data-localize="sidebar.nav.form.FORM">Pais</span>
             </a>
-            <ul id="forms" class="nav sidebar-subnav collapse">
+            <ul id="forms" class="nav sidebar-subnav collapse <%='in' if controller?('countries')%>">
                <li class="sidebar-subnav-header">Pais</li>
                <%@country_list.each do |pais|%>
                  <li>
+                   <div class="pull-right label label-success"><%=pais.titles.count%></div>
                    <%=link_to pais.country, country_path(pais)%>
                  </li>
                <%end%>
@@ -59,10 +60,11 @@
               <%=image_tag("genre.png", style: "width: 20px;")%>
                <span data-localize="sidebar.nav.chart.CHART">Genero</span>
             </a>
-            <ul id="charts" class="nav sidebar-subnav collapse">
+            <ul id="charts" class="nav sidebar-subnav collapse <%='in' if controller?('genre')%>">
                <li class="sidebar-subnav-header">Charts</li>
                <%@genre_list.each do |genre|%>
                <li>
+                 <div class="pull-right label label-success"><%=genre.titles.count%></div>
                  <%=link_to genre.genre_espanol, genre_path(genre)%>
                </li>
                <%end%>
