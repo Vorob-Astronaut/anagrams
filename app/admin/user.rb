@@ -18,10 +18,8 @@ controller do
   def notify
     count = 0
     User.all.each do |u|
-      count += 1 if u.user_log_activities.where("created_at >= ?", Time.zone.now.beginning_of_day)
       UserMailer.daily_mail(u).deliver_now
     end
-    flash[:notice] = "Here is #{count} emails sent"
     redirect_to(:back)
   end
 end
