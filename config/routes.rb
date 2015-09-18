@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  get '/admin/admin_notify' => "admin/users#notify", as: "admin_notify"
   devise_for :users
  # root to: "home#index"
   devise_scope :user do

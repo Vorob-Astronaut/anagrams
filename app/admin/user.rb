@@ -14,16 +14,27 @@ ActiveAdmin.register User do
 # end
 permit_params :user_id,:email, :encrypted_password, :reset_password_token,:reset_password_sent_at,:remember_created_at,:current_sign_in_at,:last_sign_in_at,:current_sign_in_ip,:last_sign_in_ip, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at,:avatar
 
+controller do
+  def notify
+    count = 0
+    User.all.each do |u|
+      count += 1 if u.user_log_activities.where("created_at >= ?", Time.zone.now.beginning_of_day)
+      UserMailer.daily_mail(u).deliver_now
+    end
+    flash[:notice] = "Here is #{count} emails sent"
+    redirect_to(:back)
+  end
+end
 
 form do |f|
   f.inputs
-  f.inputs "Avatar", :multipart => true  do 
+  f.inputs "Avatar", :multipart => true  do
     f.input :avatar, :required => false, :as => :file , :hint => image_tag(f.object.avatar.url(:thumb))
-    
+
   end
   f.actions
  end
- 
+
   index do
     column :email
     column :encrypted_password
@@ -32,8 +43,8 @@ form do |f|
     end
     actions
   end
-  
-  
+
+
   show do |ad|
   attributes_table do
     row :email
@@ -49,5 +60,5 @@ form do |f|
     # Will display the image on show object page
   end
  end
- 
+
 end
