@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get 'message' => 'user_activity_logs#send_message'
     root to: 'home#index'
   end
+  get 'about' => 'home#about', as: :about
   get 'search' => 'search#search', as: :search
   get 'user/followed_collections' => 'users#followed_collections', as: :followed_collections
   get 'ac' => 'search#ac'

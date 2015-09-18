@@ -4,4 +4,7 @@ class HomeController < ApplicationController
     @collections = Collection.all
   end
 
+  def about
+  end
+
 end
