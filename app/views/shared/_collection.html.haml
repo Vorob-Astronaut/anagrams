@@ -9,4 +9,5 @@
   -if current_user
     =link_to t('follow'), follow_collection_path(collection), id: "collection_11", class: "#{'followed' if current_user.followed_collection_ids.include?(collection.id)} addCollection follow_btn follow-button-#{collection.slug}", remote: true
   -else
-    =link_to t('follow'), follow_collection_path(collection), id: "collection_11", class: "addCollection follow_btn follow-button-#{collection.slug}", remote: true
+    #collection_11.addCollection.follow_btn
+      =t('follow')
