@@ -1,3 +1,6 @@
 .counrty{
   float: left;
 }
+#add_film_form{
+  display: none;
+}

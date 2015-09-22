@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     @collections = current_user.followed_collections
   end
 
+  def add_a_film
+    Message.create(author: current_user, message: params[:add_a_film])
+    redirect_to(root_path, :notice => "Your message sent to administrator")
+  end
+
 
 
   private

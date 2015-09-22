@@ -35,4 +35,5 @@ Rails.application.routes.draw do
   get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
   get '', to: redirect("/#{I18n.default_locale}")
   get '/:locale' => "home#index"
+  post "add_a_film" => "users#add_a_film"
 end

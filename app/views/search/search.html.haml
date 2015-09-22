@@ -12,15 +12,29 @@
                 #list_34_com_content_34
                   .fabrik_groupdata
                     .uk-grid
-                      -(@titles-Title.in_removals(current_user)).each do |title|
-                        .block{id: "title-#{title.id}"}
-                          =render 'shared/title', title: title
+                      -if @titles.any?
+                        -(@titles-Title.in_removals(current_user)).each do |title|
+                          .block{id: "title-#{title.id}"}
+                            =render 'shared/title', title: title
+                      -else
+                        We don't have that film on the site yet.
+                        -if current_user
+                          Would you like us to add it?
+                          =button_tag "Yes!", id: "add_a_film"
                     %br/
                   .filmstrip_footer
                     .fabrik___heading
                       %span
                         .fabrikNav
               %p
+                #add_film_form
+                  %hr
+                  =simple_form_for("add_a_film", url: '/add_a_film') do |f|
+                    =f.input :film_name
+                    =f.input :approximate_year, required: false
+                    =f.input :director, required: false
+                    =f.input :comment, as: :text, required: false
+                    =f.submit
               %br/
               %br/
               %br/
