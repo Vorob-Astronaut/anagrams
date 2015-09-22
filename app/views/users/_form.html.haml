@@ -3,5 +3,6 @@
   = f.fields_for :profile do |n|
     = n.text_field :name, autofocus: true
     = n.file_field :avatar
+  = f.check_box :notification_preferences, collection: ["daily", "weekly", "none"]
   = f.submit "update"
   = link_to t(:cancel), user_profile_path(current_user), class: 'btn btn-default'

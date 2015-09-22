@@ -35,6 +35,7 @@ gem 'annotate', '~> 2.6.10'
 gem 'emcee'
 gem 'social-share-button'
 gem "breadcrumbs_on_rails"
+gem "simple_form"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
