@@ -2,6 +2,14 @@ require 'server_side'
 class UserActivityLogsController < ApplicationController
   include ActionController::Live
 
+  def mark_as_readed
+    @notification = UserLogActivity.find params[:notification]
+    @notification.update_attribute(:readed, true)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   #def send_message
   #  response.headers['Content-Type'] = 'text/event-stream'
   #  redis = Redis.new

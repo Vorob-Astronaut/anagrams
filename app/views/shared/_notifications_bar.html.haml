@@ -1,0 +1,7 @@
+=link_to image_tag('bell.png'), "#", class: "dropdown-toggle", 'data-toggle' => "dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"
+.number
+  =@last_notification.size
+%ul.dropdown-menu
+  -@last_notification.each do |l|
+    %li
+      =link_to "#{l.message} ---- #{l.created_at.to_date.strftime("%A")}", mark_notifications_as_readed_path(l), remote: true

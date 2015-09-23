@@ -17,13 +17,7 @@
       - if current_user
         %ul.nav.navbar-nav.navbar-right
           %li.bell.dropdown.main
-            =link_to image_tag('bell.png'), "#", class: "dropdown-toggle", 'data-toggle' => "dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"
-            .number
-              5
-            %ul.dropdown-menu
-              -@last_notification.each do |l|
-                %li
-                  =l
+            =render "shared/notifications_bar"
           %li.avatar
             =image_tag('person.png', class:"login-person")
           %li.name

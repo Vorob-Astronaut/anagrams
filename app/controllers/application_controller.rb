@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     @country_list = Country.where(is_active?: true)
     @collection_list = Collection.all
     @q = Title.ransack params[:q]
-    @last_notification = current_user.user_log_activities.last(5).collect(&:message) if current_user
+    @last_notification = current_user.user_log_activities.unreaded if current_user
   end
 
   def set_locale

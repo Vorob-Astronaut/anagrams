@@ -3,6 +3,7 @@ class UserLogActivity < ActiveRecord::Base
   belongs_to :notification
 
   after_save :notify
+  scope :unreaded, -> { where(readed: false) }
 
   protected
 
