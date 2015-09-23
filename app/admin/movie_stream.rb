@@ -1,9 +1,9 @@
 ActiveAdmin.register MovieStream do
-
+permit_params :title_id, :typel, :link, :link_type, :price, :logo
 
   form do |f|
     inputs 'Details' do
-      f.input :title, collection: Title.all.map{|t| [t.film_title, t.id]}
+      f.input :title, collection: Title.all.order(:film_title).map{|t| [t.film_title, t.id]}
       f.input :typel
       f.input :link
       f.input :link_type

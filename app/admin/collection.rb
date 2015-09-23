@@ -34,7 +34,7 @@ form do |f|
   end
 
    f.has_many :playlists ,  new_record: true, :allow_destroy => true do |p|
-    p.input :title_id, label: 'Film Title', as: :select, collection: Title.all.map{|u| ["#{u.film_title}", u.id]}
+    p.input :title_id, label: 'Film Title', as: :select, collection: Title.all.order(:film_title).map{|u| ["#{u.film_title}", u.id]}
 
   end
 

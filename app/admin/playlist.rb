@@ -19,8 +19,8 @@ ActiveAdmin.register Playlist do
 
   form do |f|
     inputs 'Details' do
-      f.input :collection, as: :select, collection: Collection.all.map{|c| [c.collection_name, c.id]}, label: "Collection"
-      f.input :title, as: :select, collection: Title.all.map{|t| [t.film_title, t.id]}, label: "Title"
+      f.input :collection, as: :select, collection: Collection.all.order(:collection_name).map{|c| [c.collection_name, c.id]}, label: "Collection"
+      f.input :title, as: :select, collection: Title.all.order(:film_title).map{|t| [t.film_title, t.id]}, label: "Title"
       f.actions
     end
   end

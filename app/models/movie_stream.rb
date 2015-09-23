@@ -13,7 +13,14 @@
 #
 
 class MovieStream < ActiveRecord::Base
-  
+
   belongs_to :title
+  after_create :notify
+
+  protected
+
+  def notify(*args)
+    self.title.notifications.each {|n| n.notify("A new platform added to title #{self.title.film_title}")}
+  end
 
 end
