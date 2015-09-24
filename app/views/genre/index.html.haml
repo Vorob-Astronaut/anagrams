@@ -1,7 +1,9 @@
 .row
-  .col-md-3.remove-padding
+  .col-md-2
     =render 'layouts/partials/sidebar'
-  .col-md-9.back-ground
+  %ol.breadcrumb
+    = render_breadcrumbs tag: :li, separator: ""
+  .col-md-10.back-ground
     - @genres.each do |genre|
       %p
         %span.uk-h2

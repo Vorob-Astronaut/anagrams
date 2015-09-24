@@ -1,23 +1,18 @@
 // @import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700);
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,500);
 
 .container-fluid.width{
-  max-width: 1300px;
+  max-width: 1400px;
 }
-.container-fluid.width-margin{
-  padding: 0px 140px;
-}
-
-
-.back-ground{
-  background-color: #eeeeee;
-}
+// .container-fluid.width-margin{
+//   // padding: 0px 140px;
+// }
 
 .tagline{
   font-weight: 200;
 }
 .uk-h1 p, h4.main-heading {
-  font-family: "Roboto";
+  font-family: "Maven Pro";
   font-weight: 200;
   font-size: 40px;
   text-transform: lowercase;
@@ -27,7 +22,7 @@
 }
 h3.title{
   font-size: 30px;
-  font-family: "Roboto";
+  font-family: "Maven Pro";
   font-weight: 200;
   text-transform: lowercase;
   &:first-letter {
@@ -35,12 +30,11 @@ h3.title{
   }
 }
 body{
-  font-family: "Roboto";
+  font-family: "Maven Pro";
   font-weight: 300;
 }
 .container-fluid.margin{
   margin-top:90px;
-  background-color: #eeeeee;
 }
 
 @media(min-width: 991px){
@@ -73,13 +67,15 @@ body{
     top:-10px;
     z-index: 1;
     max-height: 150px;
+    background-color: #314250;
     h5{
-      font-family: "Roboto";
+      font-family: "Maven Pro";
       font-weight: 200;
     }
     .icon{
       height: 38px;
       .round-icon{
+        background-color: #465562;
         img{
           padding-bottom:10px;
           padding-top:10px;
@@ -127,7 +123,7 @@ body{
   }
 
   .navbar-collapse{
-    background-color: #262c31;
+    background-color: #314250;
     position: relative;
     top:30px;
     .nav.navbar-nav.navbar-right{
@@ -137,7 +133,7 @@ body{
 }
 .navbar.navbar-default.navbar-inverse{
   height:90px;
-  background-color: #262c31;
+  background-color: #314250;
   a.navbar-brand {
     z-index:9999;
     position:relative;
@@ -169,18 +165,19 @@ body{
       a.padding{
         padding: 34px 20px;
         font-weight: 100;
-        font-family: Roboto;
+        font-family: Maven Pro;
       }
+
       .bell{
         padding: 31px 30px;
         padding-left: 30px !important;
-        border-left:3px solid #2E3337;
+        border-left:3px solid #465562;
         position:relative;
         top:5px;
         .number{
           position: absolute;
           top: 13px;
-          right:22px;
+          right:20px;
           color: white;
           font-weight: 100;
           font-size: 14px;
@@ -190,9 +187,9 @@ body{
         padding:24px 0px;
       }
       .name{
-        padding: 31px 20px 31px 10px;
+        padding: 29px 20px 33px 10px;
         color: white;
-        font-family: Roboto;
+        font-family: Maven Pro;
         font-weight: 200;
         font-size: 15px;
       }
@@ -200,8 +197,8 @@ body{
         padding: 24px 0px;
 
         .dropdown-menu{
-          background-color: #262c31;
-          border:2px solid #262c31;
+          background-color: #314250;
+          border:2px solid #314250;
           &:after{
             z-index: -1;
             display: none;
@@ -223,12 +220,13 @@ body{
   li a.padding{
     padding-left: 3px;
     padding-right: 0px;
-    font-family: Roboto;
+    font-family: Maven Pro;
     font-size: 14px;
   }
 }
 
 .navbar.navbar-default.navbar-inverse input#search_field.uk-search-field{
+  background-color: #465562 !important;
   padding: 0px;
   width: 300px !important;
   left: 35vw;
@@ -290,10 +288,19 @@ body{
 .breadcrumb{
   margin-bottom: 0px;
   border-bottom: 1px solid #ddd;
+  background-color: #bbd6ca;
+  li:first-child{
+    padding-left: 20px;
+  }
+  li{
+    color: #262c31;
+  }
+  a{
+    color:white;
+  }
 }
 .back-ground{
-  padding-top: 40px;
-  padding-bottom: 20px;
+  padding: 40px 60px;
 }
 
 .tm-footer.uk-text-center.uk-text-contrast{
@@ -305,32 +312,46 @@ body{
 }
 
 .aside-inner{
-  margin: 20px 120px 20px 0px;
-  padding: 0px;
+  position:relative;
+  right: 4px;
+  .sidebarr{
+    background-color: #ecf0f1;
+    li.active{
+      border-left: 0px;
+      li a, ul#forms{
+        background-color: #ecf0f1;
+      }
+    }
+    li{
+      background-color: #ecf0f1;
+      .label{
+        position: absolute;
+        right: 15px;
+        top: 4px;
+        color: white;
+        border-radius: 50%;
+        background-color: rgba(102, 102, 102, 0.5);
+        width:25px;
+        height:25px;
+        padding: 3px;
+        border: 0px;
+      }
+      a{
+        padding: 2px 20px;
+      }
+      a:first-child{
+        text-align: center;
+      }
+      #elements a{
+        text-align: left;
+      }
+    }
+  }
 }
 
-body{
-  background: #eee;
+.row.film{
 }
 
-.remove-border{
-  border: 0px !important;
-  outline: 0 !important;
-  border-image-width: 0px !important;
-  border-color: #eeeeee !important;
-  outline-color: #eeeeee !important;
-}
 .remove-padding{
   padding: 0px;
-}
-
- .sidebar > .nav > li.active > a {
-    color: #ee4423;
- }
- .sidebar > .nav > li.active {
-   border-left-color: #ee4423;
- }
-
-.uk-panel.uk-panel-box.filter-menu{
-  background-color: rgba(255,255,255,0) !important;
 }

@@ -23,7 +23,7 @@
         %span.auth= @collections.where(is_featured?: true).first.user.name
     .element-5-padding
       -(@collections.where(is_featured?: true).first.titles-Title.in_removals(current_user)).each do |title|
-        .col-sm-4.col-lg-2.col-md-2.col-33{id: "title-#{title.id}"}
+        .col-sm-6.col-lg-2.col-md-4.col-33{id: "title-#{title.id}"}
           =render 'shared/title', title: title
   .row.home-collection
     .col-md-12

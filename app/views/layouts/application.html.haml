@@ -29,9 +29,6 @@
     #alert-container
       = render "shared/alert"
   .container-fluid.margin.width-margin
-    .row
-      %ol.breadcrumb
-        = render_breadcrumbs tag: :li, separator: ""
     = yield
   -if current_page?(root_url)
     = render "shared/footer"

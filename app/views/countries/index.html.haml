@@ -1,7 +1,9 @@
 .row
-  .col-md-3.remove-border.remove-padding
+  .col-md-2
     =render 'layouts/partials/sidebar'
-  .col-md-9.back-ground
+  %ol.breadcrumb
+    = render_breadcrumbs tag: :li, separator: ""
+  .col-md-10.back-ground
     - @countries.each do |country|
       - if country.is_active? && country.titles.any?
         = link_to country.country, country_path(country)

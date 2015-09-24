@@ -1,7 +1,9 @@
 %div.row
-  .col-md-3.remove-padding
+  .col-md-2
     =render 'layouts/partials/sidebar'
-  .col-md-9
+  %ol.breadcrumb
+    = render_breadcrumbs tag: :li, separator: ""
+  .col-md-10.back-ground
     %h4.main-heading Collections
     .row.padding-10
       - @collections.each do |collection|

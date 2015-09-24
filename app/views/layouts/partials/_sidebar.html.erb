@@ -1,6 +1,6 @@
 <!-- START Sidebar (left)-->
 <div class="aside-inner">
-   <nav class="sidebar" data-sidebar-anyclick-close="">
+   <nav class="sidebarr" data-sidebar-anyclick-close="">
       <!-- START sidebar nav-->
       <ul class="nav">
          <!-- START user info-->
@@ -24,9 +24,6 @@
          </li>
          <!-- END user info-->
          <!-- Iterates over all sidebar items-->
-         <li class="nav-heading">
-            <span>Main Navigation</span>
-         </li>
          <li class="<%= 'active' if controller?('collections') %>">
             <a href="#elements" title="Collections" data-toggle="collapse">
                <span data-localize="sidebar.nav.element.ELEMENTS">Collections</span>
@@ -49,7 +46,7 @@
                <li class="sidebar-subnav-header">Pais</li>
                <%@country_list.each do |pais|%>
                  <li>
-                   <div class="pull-right label label-success"><%=pais.titles.count%></div>
+                   <div class="label"><%=pais.titles.count%></div>
                    <%=link_to pais.country, country_path(pais)%>
                  </li>
                <%end%>
