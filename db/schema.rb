@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925073201) do
+ActiveRecord::Schema.define(version: 20150925091312) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -147,15 +147,26 @@ ActiveRecord::Schema.define(version: 20150925073201) do
   add_index "messages", ["author_type", "author_id"], name: "index_messages_on_author_type_and_author_id", using: :btree
   add_index "messages", ["receiver_type", "receiver_id"], name: "index_messages_on_receiver_type_and_receiver_id", using: :btree
 
+  create_table "movie_stream_link_types", force: :cascade do |t|
+    t.string   "typel",             limit: 255
+    t.string   "logo_file_name",    limit: 255
+    t.string   "logo_content_type", limit: 255
+    t.integer  "logo_file_size",    limit: 4
+    t.datetime "logo_updated_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
   create_table "movie_streams", force: :cascade do |t|
-    t.string  "typel",       limit: 255
-    t.string  "link",        limit: 255
-    t.string  "link_type",   limit: 255
-    t.decimal "price",                     precision: 10, scale: 2
-    t.integer "title_id",    limit: 4,                                              null: false
-    t.string  "external_id", limit: 255,                            default: "",    null: false
-    t.text    "logo",        limit: 65535
-    t.boolean "protect",     limit: 1,                              default: false
+    t.string  "typel",                     limit: 255
+    t.string  "link",                      limit: 255
+    t.string  "link_type",                 limit: 255
+    t.decimal "price",                                   precision: 10, scale: 2
+    t.integer "title_id",                  limit: 4,                                              null: false
+    t.string  "external_id",               limit: 255,                            default: "",    null: false
+    t.text    "logo",                      limit: 65535
+    t.boolean "protect",                   limit: 1,                              default: false
+    t.integer "movie_stream_link_type_id", limit: 4
   end
 
   create_table "notifications", force: :cascade do |t|

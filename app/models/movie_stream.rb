@@ -15,6 +15,7 @@
 class MovieStream < ActiveRecord::Base
 
   belongs_to :title
+  belongs_to :movie_stream_link_type
   after_create :notify
 
   protected

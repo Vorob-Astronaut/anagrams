@@ -3,5 +3,10 @@
   =@last_notification.size
 %ul.dropdown-menu
   -@last_notification.each do |l|
-    %li
+    %li.notif
       =link_to "#{l.message} ---- #{l.created_at.to_date.strftime("%A")}", mark_notifications_as_readed_path(l), remote: true
+
+:javascript
+  $(".notif").on('mouseenter', function(e){
+    console.log(e.target);
+  });
