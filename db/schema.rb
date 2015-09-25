@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20150925091312) do
     t.string   "collection_name",         limit: 255
     t.text     "collection_description_", limit: 65535
     t.string   "user_id",                 limit: 255
-    t.boolean  "featured",                limit: 1
-    t.boolean  "home",                    limit: 1
+    t.text     "featured",                limit: 65535
+    t.text     "home",                    limit: 65535
     t.string   "image_file_name",         limit: 255
     t.string   "image_content_type",      limit: 255
     t.integer  "image_file_size",         limit: 4
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20150925091312) do
     t.string  "country_code",      limit: 255
     t.string  "geographic_region", limit: 255
     t.string  "country",           limit: 100
-    t.boolean "active",            limit: 1
+    t.text    "active",            limit: 65535
     t.boolean "is_active?",        limit: 1
     t.string  "slug",              limit: 255
   end
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 20150925091312) do
     t.datetime "date_time"
     t.string   "genre_english", limit: 255
     t.string   "genre_espanol", limit: 255
-    t.boolean  "active",        limit: 1
+    t.text     "active",        limit: 65535
     t.boolean  "is_active?",    limit: 1
     t.string   "slug",          limit: 255
   end
@@ -215,7 +215,7 @@ ActiveRecord::Schema.define(version: 20150925091312) do
     t.text     "short_description_espanol", limit: 65535
     t.string   "duration",                  limit: 255
     t.string   "film_rating",               limit: 255
-    t.boolean  "active",                    limit: 1
+    t.text     "active",                    limit: 65535
     t.integer  "meta_verified",             limit: 4
     t.datetime "date_updated_can_istream"
     t.string   "key_art_file_name",         limit: 255

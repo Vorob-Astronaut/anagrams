@@ -66,14 +66,16 @@ body{
     position:relative;
     top:-10px;
     z-index: 1;
-    max-height: 150px;
     background-color: #314250;
+    padding-bottom: 10px;
     h5{
       font-family: "Maven Pro";
       font-weight: 200;
+      padding-bottom: 15px;
+      text-transform: capitalize;
     }
     .icon{
-      height: 38px;
+      height: 38px !important;
       .round-icon{
         background-color: #465562;
         img{
@@ -315,6 +317,7 @@ body{
   position:relative;
   right: 4px;
   .sidebarr{
+    padding-top: 50px;
     background-color: #ecf0f1;
     li.active{
       border-left: 0px;
@@ -345,6 +348,15 @@ body{
       #elements a{
         text-align: left;
       }
+    }
+  }
+}
+
+.home-collection{
+  h3{
+    background-color: #314250;
+    small{
+      color: white;
     }
   }
 }
