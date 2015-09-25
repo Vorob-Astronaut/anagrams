@@ -9,7 +9,8 @@ ActiveAdmin.register_page "Dashboard" do
         small I18n.t("active_admin.dashboard_welcome.call_to_action")
       end
     end
-    li link_to "Notify", admin_notify_path
+    li link_to "Notify", admin_notify_path, data: { confirm: 'Are you sure?' }
+    li link_to "Check sources for all titles", admin_check_sources_path, data: { confirm: 'It can be not so fast action. Please, dont reload a page while titles processing' }
 
 
 

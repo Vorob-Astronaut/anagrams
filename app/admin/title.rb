@@ -33,7 +33,17 @@ controller do
       scoped_collection.find(params[:id])
     end
   end
+
+  def check_sources
+    client = Canistreamit::Client.new
+    Title.all.each {|t| t.check_sources(client)}
+    redirect_to(:back)
+  end
+
 end
+
+
+
 
 
 

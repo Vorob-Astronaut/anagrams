@@ -95,6 +95,8 @@ GEM
     breadcrumbs_on_rails (2.3.1)
     builder (3.2.2)
     byebug (6.0.2)
+    canistreamit (0.0.2)
+      httparty
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -158,6 +160,9 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hike (1.2.3)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     i18n_data (0.7.0)
     inherited_resources (1.6.0)
@@ -188,6 +193,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.8.0)
     multi_json (1.11.2)
+    multi_xml (0.5.5)
     mysql2 (0.3.18)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -332,6 +338,7 @@ DEPENDENCIES
   bower-rails
   breadcrumbs_on_rails
   byebug
+  canistreamit
   capistrano
   capistrano-bower
   capistrano-bundler

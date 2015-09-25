@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150923082156) do
+ActiveRecord::Schema.define(version: 20150925073201) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -152,9 +152,10 @@ ActiveRecord::Schema.define(version: 20150923082156) do
     t.string  "link",        limit: 255
     t.string  "link_type",   limit: 255
     t.decimal "price",                     precision: 10, scale: 2
-    t.integer "title_id",    limit: 4,                                           null: false
-    t.string  "external_id", limit: 255,                            default: "", null: false
+    t.integer "title_id",    limit: 4,                                              null: false
+    t.string  "external_id", limit: 255,                            default: "",    null: false
     t.text    "logo",        limit: 65535
+    t.boolean "protect",     limit: 1,                              default: false
   end
 
   create_table "notifications", force: :cascade do |t|

@@ -65,6 +65,22 @@ class Title < ActiveRecord::Base
     save!
   end
 
+  def check_sources(client)
+    self.movie_streams.each {|s| s.destroy! if s.protect != true}
+    response = client.search_and_query(self.film_title, ['streaming', 'rental', 'purchase', 'dvd', 'xfinity']).first
+    if response
+      ['streaming', 'rental', 'purchase', 'dvd', 'xfinity'].each do |type|
+        response["availability"][type].each do |source|
+          if source.first != "amazon_bluray" then
+            if source.first != "netflix_dvd" then
+              self.movie_streams.create(typel: type, link: source.last["direct_url"], link_type: source.first, price: source.last["price"], external_id: source.last["external_id"] || 0, logo: "/images/fabriklogo/#{source.first}.jpg")
+            end
+          end
+        end
+      end
+    end
+  end
+
   protected
 
   def notify(*args)

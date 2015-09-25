@@ -8,10 +8,11 @@ permit_params :title_id, :typel, :link, :link_type, :price, :logo
       f.input :link
       f.input :link_type
       f.input :price
-      f.input :logo
+      f.input :protect
       f.actions
     end
   end
+
 
 
 # See permitted parameters documentation:

@@ -74,7 +74,7 @@
                       -if @title.movie_streams.any? then
                         -@title.movie_streams.each do |stream|
                           .platform_detail
-                            =link_to(image_tag(stream.logo.gsub(/\/images\//, ''), alt: stream.link_type, height: "100px", width: "200px"), stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail")
+                            =link_to(image_tag("fabriklogo/#{stream.link_type}.jpg", alt: stream.link_type, height: "100px", width: "200px"), stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail")
                             %span.uk-thumbnail.price_platform
                               =link_to "View", stream.link
                       -else
