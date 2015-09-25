@@ -1,0 +1,216 @@
+@media(max-width:767px){
+  .navbar-toggle{
+    right: 40px;
+    top: 20px;
+  }
+  .navbar-brand{
+    position:relative;
+    left: 50vw;
+    top: -10px;
+    img{
+      width: 50px;
+    }
+    span.name{
+      position: absolute !important;
+      top: 65px !important;
+      right: -5px !important;
+      font-size: 24px !important;
+    }
+  }
+
+  .navbar-collapse{
+    background-color: #314250;
+    position: relative;
+    top:30px;
+    .nav.navbar-nav.navbar-right{
+      float: right;
+    }
+  }
+}
+.navbar.navbar-default.navbar-inverse{
+  height:90px;
+  background-color: #314250;
+  a.navbar-brand {
+    z-index:9999;
+    position:relative;
+    height: 50px;
+    span{
+      z-index:999;
+    }
+    span.name {
+    font-size:26px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    z-index:99;
+    }
+  }
+  #search_field{
+    position:relative;
+    top:3px;
+    left:40%;
+  }
+  .container-fluid{
+
+    #title_search{
+      position: absolute;
+      top: 28px;
+
+    }
+    ul.nav.navbar-nav.navbar-right{
+      a.padding{
+        padding: 34px 20px;
+        font-weight: 100;
+        font-family: Maven Pro;
+      }
+
+      .bell{
+        padding: 31px 30px;
+        padding-left: 30px !important;
+        border-left:3px solid #465562;
+        position:relative;
+        top:5px;
+        .number{
+          position: absolute;
+          top: 13px;
+          right:20px;
+          color: white;
+          font-weight: 100;
+          font-size: 14px;
+        }
+      }
+      .login-person{
+        padding:24px 0px;
+      }
+      .name{
+        padding: 29px 20px 33px 10px;
+        color: white;
+        font-family: Maven Pro;
+        font-weight: 200;
+        font-size: 15px;
+      }
+      .dropdown.main{
+        padding: 24px 0px;
+
+        .dropdown-menu{
+          background-color: #314250;
+          border:2px solid #314250;
+          &:after{
+            z-index: -1;
+            display: none;
+            visibility: hidden;
+          }
+          li a{
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.navbar.navbar-default.navbar-inverse.small{
+  height: 40px;
+  -webkit-transition:  1.5s;
+  transition:  1.5s;
+  .navbar-brand{
+    padding-top: 0px;
+    img{
+      transform: scale(0.75);
+    }
+  }
+  #search_field{
+    top: -18px;
+  }
+  .nav.navbar-nav.navbar-right{
+    top: -16px;
+    .bell{
+      padding-bottom: 5px !important;
+    }
+    .dropdown.main{
+      padding-bottom: 5px !important;
+    }
+  }
+}
+.navbar.navbar-default.navbar-inverse{
+  -webkit-transition:  0.8s;
+  transition:  0.8s;
+  .navbar-brand{
+    -webkit-transition:  1s;
+    transition:  1s;
+    img{
+      -webkit-transition:  1s;
+      transition:  1s;
+    }
+  }
+  #search_field{
+    -webkit-transition:  1s;
+    transition:  1s;
+  }
+  .nav.navbar-nav.navbar-right{
+    -webkit-transition:  1s;
+    transition:  1s;
+    .bell{
+      -webkit-transition:  1s;
+      transition:  1s;
+    }
+    .dropdown.main{
+      -webkit-transition:  1s;
+      transition:  1s;
+    }
+  }
+}
+
+
+.navbar.navbar-default.navbar-inverse .container-fluid ul.nav.navbar-nav.navbar-right.logout{
+  img{
+    padding: 24px 5px;
+  }
+  li a.padding{
+    padding-left: 3px;
+    padding-right: 0px;
+    font-family: Maven Pro;
+    font-size: 14px;
+  }
+}
+
+.navbar.navbar-default.navbar-inverse input#search_field.uk-search-field{
+  background-color: #465562 !important;
+  padding: 0px;
+  width: 300px !important;
+  left: 35vw;
+  position: absolute;
+  z-index:9;
+}
+@media(max-width:979px){
+  .navbar.navbar-default.navbar-inverse input#search_field.uk-search-field{
+    padding: 0px;
+    width: 180px !important;
+    left: 20vw;
+    position: absolute;
+  }
+  ul.dropdown-menu{
+    position:absolute;
+    right: 200px;
+  }
+}
+@media(max-width:767px){
+  .navbar.navbar-default.navbar-inverse input#search_field.uk-search-field{
+    padding: 0px;
+    width: 180px !important;
+    left: 15vw;
+    position: absolute;
+  }
+}
+@media(max-width:680px){
+  .navbar.navbar-default.navbar-inverse input#search_field.uk-search-field{
+    padding: 0px;
+    width: 180px !important;
+    left: 10vw;
+    position: absolute;
+  }
+}
+
+#bs-example-navbar-collapse-1{
+  z-index:999;
+}

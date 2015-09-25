@@ -14,14 +14,12 @@
     = csrf_meta_tags
     :javascript
       $(window).scroll(function() {
-          if ($(this).scrollTop() >= 180)
+          if ($(this).scrollTop() >= 100)
           {
-             $('.top-navbar').addClass('tm-navbar-small');
-             $('#languagebar').css('margin-top','20px');
+             $('.navbar.navbar-default.navbar-inverse').addClass('small');
       	}
       	if ($(this).scrollTop() === 0) {
-             $('.top-navbar').removeClass('tm-navbar-small');
-             $('#languagebar').css('margin-top','45px');
+             $('.navbar.navbar-default.navbar-inverse').removeClass('small');
           }
       	});
   %body
