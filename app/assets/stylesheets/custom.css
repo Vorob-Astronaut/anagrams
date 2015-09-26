@@ -342,12 +342,12 @@ p.mtop {
     text-transform: none;
 }
 .year {
-    color: #0081c5;
-    font-size: 16px;
+    color: #7ed3ff;
+    font-size: 30px;
     font-weight: 400;
     margin-left: 20px;
     margin-right: 20px;
-    padding-top: 10px;
+    padding-top: 3px;
 }
 .addToFav a {
     margin-right: 15px;
@@ -478,9 +478,8 @@ p.mtop {
     color: #86cbff;
 }
 .year_action > div {
-    color: #a1a1a1;
-    font-size: 12px;
-    word-spacing: 10px;
+    color: #646060;
+    font-size: 15px;
 }
 .filternav .uk-nav-side > li.uk-active > a {
     background: none repeat scroll 0 0 #ee4423;
@@ -680,4 +679,24 @@ div.uk-grid.filmstrip-detail.detail div.uk-width-7-10 h1.uk-heading-large.uk-cle
 }
 #accordian li.active ul {
 	display: block;
+}
+
+/* New CSS */
+.title-heading{
+    text-transform: none;
+    letter-spacing: -1px;
+    padding-top: 15px !important;
+    line-height: 40px !important;
+}
+
+.btn-action-title{
+    border-radius: 4px !important;
+    background-color: #bbd6ca !important;
+    border: 0 !important;
+    color: white !important;
+    font-weight: bold !important;
+    text-transform: none !important;
+    line-height: 25px !important;
+    letter-spacing: 0px !important;
+    font-size: 14px !important;
 }

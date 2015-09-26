@@ -27,7 +27,7 @@
                           -else
                             =link_to image_tag('edit.png'), add_to_que_path(@title.id), class: "round-icon myqueue", remote: true
                 .uk-width-7-10
-                  %h1.uk-heading-large.uk-clearfix
+                  %h1.uk-heading-large.uk-clearfix.title-heading
                     .uk-float-left
                       #titles___filmTitle_ro= @title.film_title
                     .uk-float-left.year
@@ -62,9 +62,9 @@
 
                     </div>
                   .addToFav
-                    %a#add_.btn.uk-button.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return AddtoFav(id)", :title => "Agregar a mis favoritos"}=t('add_to_favorite')
-                    %a#film_.btn.uk-button.Remove_view.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"}=t('remove_from_view')
-                    %a#addqueue_.btn.uk-button.myqueue.add_favourite{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)", :title => "Want To Watch"}=t('add_to_queue')
+                    %a#add_.btn.uk-button.add_favourite.btn-action-title{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return AddtoFav(id)", :title => "Agregar a mis favoritos"}=t('add_to_favorite')
+                    %a#film_.btn.uk-button.Remove_view.add_favourite.btn-action-title{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"}=t('remove_from_view')
+                    %a#addqueue_.btn.uk-button.myqueue.add_favourite.btn-action-title{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)", :title => "Want To Watch"}=t('add_to_queue')
                 .detail_platform.uk-width-1-1
                   .uk-panel.uk-panel-box.uk-width-medium-10-10
                     %span
