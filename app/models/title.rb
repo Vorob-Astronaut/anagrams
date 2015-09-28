@@ -73,7 +73,12 @@ class Title < ActiveRecord::Base
         response["availability"][type].each do |source|
           if source.first != "amazon_bluray" then
             if source.first != "netflix_dvd" then
-              self.movie_streams.create(typel: type, link: source.last["direct_url"], link_type: source.first, price: source.last["price"], external_id: source.last["external_id"] || 0)
+              stream_type = MovieStreamLinkType.find_by_typel(source.first)
+              if stream_type == nil then
+                stream_type = MovieStreamLinkType.create(typel: source.first)
+                Message.create(message: "NEW STREAM TYPE #{stream_type.typel} ADDED. PLEASE, ADD A LOGO MANUALY")
+              end
+              self.movie_streams.create(typel: type, link: source.last["direct_url"], movie_stream_link_type: stream_type, price: source.last["price"], external_id: source.last["external_id"] || 0)
             end
           end
         end
