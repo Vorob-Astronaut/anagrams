@@ -1,7 +1,7 @@
 
 .tm-logo {
 }
-.tm-navbar-small .user_name {
+.tm-navbar-small {
     top: 18px;
     transition: all 300ms ease 0s;
 }
@@ -602,9 +602,7 @@ div.uk-grid.filmstrip-detail.detail div.uk-width-7-10 h1.uk-heading-large.uk-cle
 }
 }
 @media all and (max-width: 979px) {
-.user_name, .user_picture {
-    display: none;
-}
+
 }
 .user_picture {
     left: 130px;
@@ -614,15 +612,7 @@ div.uk-grid.filmstrip-detail.detail div.uk-width-7-10 h1.uk-heading-large.uk-cle
 .user_picture > img {
     border-radius: 30px;
 }
-.user_name {
-    color: #fff;
-    font-size: 16px;
-    left: 150px;
-    padding: 2px 43px;
-    position: absolute;
-    text-transform: capitalize;
-    top: 43px;
-}
+
 
 
 #accordian {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925091312) do
+ActiveRecord::Schema.define(version: 20150928104348) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20150925091312) do
     t.string   "collection_name",         limit: 255
     t.text     "collection_description_", limit: 65535
     t.string   "user_id",                 limit: 255
-    t.text     "featured",                limit: 65535
-    t.text     "home",                    limit: 65535
+    t.boolean  "featured",                limit: 1
+    t.boolean  "home",                    limit: 1
     t.string   "image_file_name",         limit: 255
     t.string   "image_content_type",      limit: 255
     t.integer  "image_file_size",         limit: 4
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20150925091312) do
     t.string  "country_code",      limit: 255
     t.string  "geographic_region", limit: 255
     t.string  "country",           limit: 100
-    t.text    "active",            limit: 65535
+    t.boolean "active",            limit: 1
     t.boolean "is_active?",        limit: 1
     t.string  "slug",              limit: 255
   end
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 20150925091312) do
     t.datetime "date_time"
     t.string   "genre_english", limit: 255
     t.string   "genre_espanol", limit: 255
-    t.text     "active",        limit: 65535
+    t.boolean  "active",        limit: 1
     t.boolean  "is_active?",    limit: 1
     t.string   "slug",          limit: 255
   end
@@ -215,7 +215,7 @@ ActiveRecord::Schema.define(version: 20150925091312) do
     t.text     "short_description_espanol", limit: 65535
     t.string   "duration",                  limit: 255
     t.string   "film_rating",               limit: 255
-    t.text     "active",                    limit: 65535
+    t.boolean  "active",                    limit: 1
     t.integer  "meta_verified",             limit: 4
     t.datetime "date_updated_can_istream"
     t.string   "key_art_file_name",         limit: 255
@@ -259,23 +259,25 @@ ActiveRecord::Schema.define(version: 20150925091312) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                    limit: 255, default: "", null: false
-    t.string   "encrypted_password",       limit: 255, default: "", null: false
+    t.string   "email",                    limit: 255,   default: "", null: false
+    t.string   "encrypted_password",       limit: 255,   default: "", null: false
     t.string   "reset_password_token",     limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",            limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",            limit: 4,     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",       limit: 255
     t.string   "last_sign_in_ip",          limit: 255
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.string   "avatar_file_name",         limit: 255
     t.string   "avatar_content_type",      limit: 255
     t.integer  "avatar_file_size",         limit: 4
     t.datetime "avatar_updated_at"
     t.string   "notification_preferences", limit: 255
+    t.string   "name",                     limit: 255
+    t.text     "bio",                      limit: 65535
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

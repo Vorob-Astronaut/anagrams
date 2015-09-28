@@ -20,7 +20,7 @@
       %h3.title
         = @collections.where(is_featured?: true).first.collection_name
         by
-        %span.auth= @collections.where(is_featured?: true).first.user.name
+        %span.auth= @collections.where(is_featured?: true).first.user.username
     .element-5-padding
       -(@collections.where(is_featured?: true).first.titles-Title.in_removals(current_user)).each do |title|
         .col-sm-6.col-lg-2.col-md-4.col-33{id: "title-#{title.id}"}

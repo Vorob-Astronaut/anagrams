@@ -9,6 +9,8 @@
           = image_tag(current_user.avatar.url(:thumb), class: "img-circle img-responsive")
         = f.label :avatar
         = f.file_field :avatar
+        = f.input :name, label: "First and Last name", as: :string, class: ""
+        = f.input :bio, label: "Describe Yourself"
         = f.input :notification_preferences, as: :select, collection: ["daily", "weekly", "none"]
       .field
         = f.label :email
