@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   end
   get 'about' => 'home#about', as: :about
   get 'search' => 'search#search', as: :search
+  get 'users/:id' => 'users#show', as: :user_show
   get 'user/followed_collections' => 'users#followed_collections', as: :followed_collections
   get 'ac' => 'search#ac'
   get 'user_queues/add/:title_id' => 'user_queues#add', as: :add_to_que

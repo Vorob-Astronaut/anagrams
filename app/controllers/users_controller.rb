@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_filter :set_user, only: [:show, :edit, :update]
 
   def show
+    @user = User.find params[:id]
   end
 
   def followed_collections
@@ -13,8 +14,6 @@ class UsersController < ApplicationController
     Message.create(author: current_user, message: params[:add_a_film])
     redirect_to(root_path, :notice => "Your message sent to administrator")
   end
-
-
 
   private
 
