@@ -76,6 +76,20 @@ index do
     column :year_produced
     column :director
     column :actors
+    column :countries do |coll|
+      countries = ""
+      coll.countries.each do |country|
+        countries = countries + country.country + "\n"
+      end
+      countries
+    end
+    column :genres do |coll|
+      genres = ""
+      coll.genres.each do |genre|
+        genres = genres + genre.genre_espanol + "\n"
+      end
+      genres
+    end
     column :snappy_summary
 
     actions
