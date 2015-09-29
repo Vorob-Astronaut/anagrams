@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     resources :user_favorites
     resources :user_removals
     resources :user_queues
-    get 'message' => 'user_activity_logs#send_message'
+    resources :messages do
+      get :report, on: :member
+    end
     get ':notification/mark_notifications_as_readed' => "user_activity_logs#mark_as_readed", as: :mark_notifications_as_readed
     root to: 'home#index'
   end

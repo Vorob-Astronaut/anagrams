@@ -1,0 +1,6 @@
+Thanks for helping us update our films. Please be specific on the problem
+=simple_form_for @message do |f|
+  =f.input :author, input_html: { value: current_user.email }
+  =f.input :title, input_html: { value: params[:id] }
+  =f.input :message
+  =f.submit

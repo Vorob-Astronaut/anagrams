@@ -10,7 +10,7 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
     li link_to "Notify", admin_notify_path, data: { confirm: 'Are you sure?' }
-    li link_to "Check sources for all titles", admin_check_sources_path, data: { confirm: 'It can be not so fast action. Please, dont reload a page while titles processing' }
+    li link_to "Update platforms for titles", admin_check_sources_path, data: { confirm: 'It can be not so fast action. Please, dont reload a page while titles processing' }
 
 
 

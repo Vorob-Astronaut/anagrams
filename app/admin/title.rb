@@ -35,8 +35,7 @@ controller do
   end
 
   def check_sources
-    client = Canistreamit::Client.new
-    Title.all.each {|t| t.check_sources(client)}
+    CheckSourcesJob.perform_later
     redirect_to(:back)
   end
 
@@ -48,21 +47,27 @@ end
 
 
 form do |f|
-  f.inputs
+  f.inputs "Child" do
+    f.has_many :country_titles ,  new_record: true,:allow_destroy => true do |p|
+      p.input :country_id, label: 'Country', as: :select, collection: Country.all.map{|u| ["#{u.country}", u.id]}
+    end
+
+    f.has_many :genre_titles ,  new_record: true,:allow_destroy => true do |p|
+      p.input :genre_id, label: 'Genre', as: :select, collection: Genre.all.map{|u| ["#{u.genre_espanol}", u.id]}
+    end
+  end
+
+  f.inputs "Details" do
+    f.input :film_title
+    f.input :year_produced
+    f.input :snappy_summary
+    f.input :director
+    f.input :actors
+  end
+
   f.inputs "key_art", :multipart => true  do
     f.input :key_art, :required => false, :as => :file , :hint => image_tag(f.object.key_art.url(:thumb))
   end
-
-  f.has_many :country_titles ,  new_record: true,:allow_destroy => true do |p|
-    p.input :country_id, label: 'Country', as: :select, collection: Country.all.map{|u| ["#{u.country}", u.id]}
-
-  end
-   f.has_many :genre_titles ,  new_record: true,:allow_destroy => true do |p|
-    p.input :genre_id, label: 'Genre', as: :select, collection: Genre.all.map{|u| ["#{u.genre_espanol}", u.id]}
-
-  end
-
-
   f.actions
  end
 

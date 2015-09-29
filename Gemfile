@@ -37,6 +37,8 @@ gem 'social-share-button'
 gem "breadcrumbs_on_rails"
 gem "simple_form"
 gem "canistreamit"
+gem 'delayed_job_active_record'
+gem "daemons"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
