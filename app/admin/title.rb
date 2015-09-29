@@ -35,9 +35,7 @@ controller do
   end
 
   def check_sources
-    client = Canistreamit::Client.new
-    Title.all.each {|t| t.check_sources(client)}
-    redirect_to(:back)
+    CheckSourcesJob.perform_later
   end
 
 end
