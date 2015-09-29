@@ -36,6 +36,7 @@ controller do
 
   def check_sources
     CheckSourcesJob.perform_later
+    redirect_to(:back)
   end
 
 end
