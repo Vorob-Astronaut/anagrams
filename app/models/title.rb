@@ -92,6 +92,4 @@ class Title < ActiveRecord::Base
     self.notifications.each {|n| n.notify("A new platform added to title #{self.film_title}")}
   end
 
-  handle_asynchronously :check_sources
-
 end

@@ -72,6 +72,10 @@
                     %span
                       %strong=t('platforms')
                       =social_share_button_tag(@title.film_title, :popup => true)
+                      -if @title.notifications.where(user: current_user).any?
+                        =link_to t('notify_me'), follow_title_path(@title), class: "follow-btn btn followed", remote: true
+                      -else
+                        =link_to t('notify_me'), follow_title_path(@title), class: "follow-btn btn", remote: true
                     %div{:id => "titles___platform_ro go-watch"}
                       -if @title.movie_streams.any? then
                         -@title.movie_streams.each do |stream|
@@ -81,10 +85,6 @@
                               =link_to "View", stream.link
                       -else
                         =t('platfrom_not_avalible')
-                        -if @title.notifications.where(user: current_user).any?
-                          =link_to t('notify_me'), follow_title_path(@title), class: "follow-btn btn followed", remote: true
-                        -else
-                          =link_to t('notify_me'), follow_title_path(@title), class: "follow-btn btn", remote: true
                         %br
                         %br
                         %br
