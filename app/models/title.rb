@@ -86,6 +86,10 @@ class Title < ActiveRecord::Base
     end
   end
 
+  def image
+    key_art
+  end
+
   protected
 
   def notify(*args)
