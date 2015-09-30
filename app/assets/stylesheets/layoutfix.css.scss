@@ -32,6 +32,7 @@ h3.title{
 body{
   font-family: "Maven Pro";
   font-weight: 300;
+  overflow-x: hidden;
 }
 .container-fluid.margin{
   margin-top:90px;
@@ -127,6 +128,7 @@ body{
   margin-bottom: 0px;
   border-bottom: 1px solid #ddd;
   background-color: #bbd6ca;
+  width: 101%;
   li:first-child{
     padding-left: 20px;
   }
@@ -202,4 +204,15 @@ body{
 
 .remove-padding{
   padding: 0px;
+}
+
+.main-content{
+  padding-left: 35px;
+  margin-top: 3%;
+  .main-description{
+    margin-bottom: 30px;
+  }
+  .main-buttons{
+    margin-bottom: 30px;
+  }
 }
