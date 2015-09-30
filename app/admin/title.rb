@@ -78,6 +78,12 @@ index do
       link_to image_tag(coll.key_art.url(:thumb)), "/admin/titles/#{coll.id}"
     end
     column :film_title
+    column :country do |country|
+      country.countries.collect(&:country)
+    end
+    column :genre do |genre|
+      genre.genres.collect(&:genre_espanol)
+    end
     column :year_produced
     column :director
     column :actors
