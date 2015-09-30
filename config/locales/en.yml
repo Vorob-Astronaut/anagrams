@@ -23,6 +23,7 @@ en:
   sign_in: Sign in
   sign_up: Sign up /
 
+
   active_admin:
     dashboard: Dashboard
     dashboard_welcome:
@@ -160,3 +161,10 @@ en:
     formtastic:
       create: "Create a %{model}"
       update: "Update %{model}"
+
+  report_a_problem: Report a problem
+  thanks_message: Thanks for helping us update our films. Please be specific on the problem
+  author: Author
+  title: Title
+  message: Message
+  send: Send

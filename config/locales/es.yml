@@ -24,6 +24,7 @@ es:
   sign_up: Regístrate  /
 
 
+
   active_admin:
     dashboard: Dashboard
     dashboard_welcome:
@@ -161,3 +162,10 @@ es:
     formtastic:
       create: "Create a %{model}"
       update: "Update %{model}"
+
+  report_a_problem: Reportar un problema
+  thanks_message: Gracias por ayudarnos a actualizar este Film. Porfavor se específico en el problema
+  author: Autor
+  title: Titulo
+  message: Mensaje
+  send: Enviar

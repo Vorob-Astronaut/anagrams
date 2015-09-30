@@ -10,22 +10,6 @@
                   #titles___key_art_ro
                     .fabrikSubElementContainer
                       %img.fabrikLightBoxImage{:alt => "", :src => "#{@title.key_art.url(:medium)}"}/
-                      .info.no-background
-                        .icon
-                          -if current_user and current_user.user_favorites.collect(&:title_id).include?(@title.id) then
-                            =link_to image_tag('heart-red.png', style: "width: 38px;"), add_to_favorite_path(@title.id), remote: true
-                          -else
-                            =link_to image_tag('heart.png'), add_to_favorite_path(@title.id), class: "round-icon add_favourite", remote: true
-                        .icon
-                          -if current_user and current_user.user_removals.collect(&:title_id).include?(@title.id) then
-                            =link_to image_tag('cross-red.png', style: "width: 38px;"), add_to_removal_path(@title.id), remote: true
-                          -else
-                            =link_to image_tag('cross.png'), add_to_removal_path(@title.id), class: "round-icon Remove_view", remote: true
-                        .icon
-                          -if current_user and current_user.user_queues.collect(&:title_id).include?(@title.id) then
-                            =link_to image_tag('edit-red.png', style: "width: 38px;"), add_to_que_path(@title.id), remote: true
-                          -else
-                            =link_to image_tag('edit.png'), add_to_que_path(@title.id), class: "round-icon myqueue", remote: true
                 .uk-width-7-10
                   %h1.uk-heading-large.uk-clearfix.title-heading
                     .uk-float-left
@@ -66,7 +50,7 @@
                     %a#film_.btn.uk-button.Remove_view.add_favourite.btn-action-title{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"}=t('remove_from_view')
                     %a#addqueue_.btn.uk-button.myqueue.add_favourite.btn-action-title{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)", :title => "Want To Watch"}=t('add_to_queue')
                     -if current_user
-                      %a.uk-button.btn.btn-action-title{"data-target" => "#myModal", "data-toggle" => "modal", :href => report_message_path} Report a problem
+                      %a.uk-button.btn.btn-action-title{"data-target" => "#myModal", "data-toggle" => "modal", :href => report_message_path}=t('report_a_problem')
                 .detail_platform.uk-width-1-1
                   .uk-panel.uk-panel-box.uk-width-medium-10-10
                     %span
@@ -80,7 +64,8 @@
                       -if @title.movie_streams.any? then
                         -@title.movie_streams.each do |stream|
                           .platform_detail
-                            =link_to(image_tag(stream.movie_stream_link_type.logo.url, alt: stream.link_type, height: "100px", width: "200px"), stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail")
+                            -if stream.movie_stream_link_type
+                              =link_to(image_tag(stream.movie_stream_link_type.logo.url, alt: stream.link_type, height: "100px", width: "200px"), stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail")
                             %span.uk-thumbnail.price_platform
                               =link_to "View", stream.link
                       -else

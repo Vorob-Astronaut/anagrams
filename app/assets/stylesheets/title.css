@@ -29,7 +29,8 @@ padding: 20px;
 height: 20%;
 background: none repeat scroll 0 0 #262c31;
 top: -15%;
-border-radius: 8px;
+border-bottom-left-radius: 8px;
+border-bottom-right-radius: 8px;
 }
 
 .details {
