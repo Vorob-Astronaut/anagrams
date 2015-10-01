@@ -15,7 +15,7 @@
                       -if @titles.any?
                         -(@titles-Title.in_removals(current_user)).each do |title|
                           .block{id: "title-#{title.id}"}
-                            =render 'shared/title', title: title
+                            =render 'titles/title', title: title
                       -else
                         We don't have that film on the site yet.
                         -if current_user

@@ -10,8 +10,14 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   def show
     @collection = Collection.friendly.find(params[:id])
+    @titles = (@collection.titles-Title.in_removals(current_user)).paginate(page: params[:page], per_page: 5)
     add_breadcrumb @collection.collection_name, collection_path(@collection)
+    if request.xhr?
+      sleep(3) # make request a little bit slower to see loader
+      render :partial => @titles
+    end
   end
+
 
   def follow
     if current_user

@@ -39,6 +39,8 @@ gem "simple_form"
 gem "canistreamit"
 gem 'delayed_job_active_record'
 gem "daemons"
+gem 'will_paginate', '~> 3.0.6'
+gem 'pageless-rails', github: 'rorlab/pageless-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

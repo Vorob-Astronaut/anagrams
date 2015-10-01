@@ -13,7 +13,7 @@
                     .uk-grid
                       - @user_removals.each do |queue|
                         .block{id: "title-#{queue.title.id}"}
-                          =render 'shared/title', title: queue.title
+                          =render 'titles/title', title: queue.title
                     %br/
                   .filmstrip_footer
                     .fabrik___heading

@@ -13,7 +13,7 @@
                     .uk-grid
                       - @user_favorites.each do |favorite|
                         .block{id: "title-#{favorite.title.id}"}
-                          =render 'shared/title', title: favorite.title
+                          =render 'titles/title', title: favorite.title
                     %br/
                   .filmstrip_footer
                     .fabrik___heading

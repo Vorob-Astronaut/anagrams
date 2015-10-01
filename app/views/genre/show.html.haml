@@ -9,7 +9,7 @@
         = @genre.genre_espanol
     .row
       .col-md-12
-        - @genre.titles.in_groups_of(4, false).each do |group|
-          -group.each do |title|
-            .col-lg-2.col-md-3.col-sm-6.padding-5{id: "title-#{title.id}"}
-              =render 'shared/title', title: title
+        =render @titles
+        #results
+
+=pageless(@titles.total_pages, genre_path(@genre), '#results')

@@ -28,9 +28,8 @@
                   =link_to t('genre'), genre_index_path
 
     .row.film.padding-10
-      - (@collection.titles-Title.in_removals(current_user)).each do |title|
-        .col-md-2.col-sm-4.padding-5{id: "title-#{title.id}"}
-          =render 'shared/title', title: title
+      =render @titles
+      #results
     .row
       .col-md-12
         %h4.main-heading Other Collections you might like
@@ -51,3 +50,4 @@
             -else
               =link_to t('follow'), follow_collection_path(coll), id: "collection_11", class: "follow_btn_small follow-button-#{coll.slug}", remote: true
 
+=pageless(@titles.total_pages, collection_path(@collection), '#results')

@@ -12,5 +12,4 @@
       .row
         .col-md-12
           - genre.titles.first(4).each do |title|
-            .col-lg-2.col-md-3.col-sm-6.padding-5{id: "title-#{title.id}"}
-              =render 'shared/title', title: title
+            =render 'titles/title', title: title

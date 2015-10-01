@@ -24,8 +24,7 @@
           = link_to(@collections.where(is_featured?: true).first.user.username, user_show_path(@collections.where(is_featured?: true).first.user.id))
     .element-5-padding
       -(@collections.where(is_featured?: true).first.titles-Title.in_removals(current_user)).each do |title|
-        .col-sm-6.col-lg-2.col-md-4.col-33{id: "title-#{title.id}"}
-          =render 'shared/title', title: title
+        =render 'titles/title', title: title
   .row.home-collection
     .col-md-12
       %h4.main-heading=t('collection')

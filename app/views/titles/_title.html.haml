@@ -1,0 +1,29 @@
+.col-lg-2.col-md-3.col-sm-6.padding-5{id: "title-#{title.id}"}
+  .product{"data-target" => "#modalTitle", "data-toggle" => "modal"}
+    =link_to image_tag(title.key_art.url(:medium)), title, remote: true
+  .info
+    %h5= truncate(title.film_title, :length => 20)
+    .icon
+      -if current_user
+        -if current_user.user_favorites.collect(&:title_id).include?(title.id) then
+          =link_to image_tag('heart-red.png', style: "width: 38px;"), add_to_favorite_path(title.id), remote: true
+        -else
+          =link_to image_tag('heart.png'), add_to_favorite_path(title.id), class: "round-icon add_favourite", remote: true
+      -else
+        =link_to image_tag('heart.png'), new_user_registration_path, class: "round-icon add_favourite"
+    .icon
+      -if current_user
+        -if current_user.user_removals.collect(&:title_id).include?(title.id) then
+          =link_to image_tag('cross-red.png', style: "width: 38px;"), add_to_removal_path(title.id), remote: true
+        -else
+          =link_to image_tag('cross.png'), add_to_removal_path(title.id), class: "round-icon Remove_view", remote: true
+      -else
+        =link_to image_tag('cross.png'), new_user_registration_path, class: "round-icon Remove_view"
+    .icon
+      -if current_user
+        -if current_user.user_queues.collect(&:title_id).include?(title.id) then
+          =link_to image_tag('edit-red.png', style: "width: 38px;"), add_to_que_path(title.id), remote: true
+        -else
+          =link_to image_tag('edit.png'), add_to_que_path(title.id), class: "round-icon myqueue", remote: true
+      -else
+        =link_to image_tag('edit.png'), new_user_registration_path, class: "round-icon myqueue"
