@@ -12,7 +12,7 @@ ActiveAdmin.register User do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-permit_params :user_id,:email, :encrypted_password, :reset_password_token,:reset_password_sent_at,:remember_created_at,:current_sign_in_at,:last_sign_in_at,:current_sign_in_ip,:last_sign_in_ip, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at,:avatar
+permit_params :user_id,:email, :encrypted_password, :reset_password_token,:reset_password_sent_at,:remember_created_at,:current_sign_in_at,:last_sign_in_at,:current_sign_in_ip,:last_sign_in_ip, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at,:avatar, :name
 
 controller do
   def notify
