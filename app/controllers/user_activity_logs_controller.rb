@@ -10,6 +10,14 @@ class UserActivityLogsController < ApplicationController
     end
   end
 
+  def mark_all_as_readed
+    @notifications = current_user.user_log_activities
+    @notifications.each {|n| n.update_attribute(:readed, true)}
+    respond_to do |format|
+      format.js {render 'mark_as_readed'}
+    end
+  end
+
   #def send_message
   #  response.headers['Content-Type'] = 'text/event-stream'
   #  redis = Redis.new

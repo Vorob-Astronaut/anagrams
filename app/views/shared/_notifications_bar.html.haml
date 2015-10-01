@@ -2,6 +2,7 @@
 .number
   =@last_notification.size
 %ul.dropdown-menu
+  =link_to "Mark all as readed", mark_all_notifications_as_readed_path, class: 'btn', remote: true
   -@last_notification.each do |l|
     %li.notif
       =link_to image_tag(l.notification.notifier.image.url(:thumb)), mark_notifications_as_readed_path(l), remote: true
