@@ -1,7 +1,10 @@
 %h4=t("thanks_message")
 =simple_form_for @message do |f|
   .form-group
-    =f.input :author, label: t("author"), input_html: { value: current_user.email, class: "form-control custom-input" }
+    -if current_user then
+      =f.input :author, label: t("author"), input_html: { value: current_user.email, class: "form-control custom-input" }
+    -else
+      =f.input :author, label: t("author"), input_html: { value: "Anonymous", class: "form-control custom-input" }
   .form-group
     =f.input :title, label: t("title"), input_html: { value: params[:id], class: "form-control" }
   .form-group

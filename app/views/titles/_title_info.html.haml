@@ -61,10 +61,8 @@
                   -else
                     =link_to t('add_to_queue'), new_user_registration_path, class: "btn uk-button add_favourite btn-action-title"
 
-                  -if current_user
-                    %a.uk-button.btn.btn-action-title{"data-target" => "#myModal", "data-toggle" => "modal", :href => report_message_path}=t('report_a_problem')
-                  -else
-                    =link_to t('report_a_problem'), new_user_registration_path, class: "btn uk-button add_favourite btn-action-title"
+                  %a.uk-button.btn.btn-action-title{"data-target" => "#myModal", "data-toggle" => "modal", :href => report_message_path}=t('report_a_problem')
+
 
               .detail_platform.uk-width-1-1
                 .uk-panel.uk-panel-box.uk-width-medium-10-10

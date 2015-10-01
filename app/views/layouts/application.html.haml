@@ -31,9 +31,7 @@
   -if current_page?(root_url)
     = render "shared/footer"
 
-#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog
-    .modal-content
+
 
     / /.modal-content
   / /.modal-dialog
@@ -46,3 +44,7 @@
         %span{"aria-hidden" => "true"}
           &times
       .modal-main-content
+
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
