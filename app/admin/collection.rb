@@ -27,7 +27,12 @@ controller do
 end
 
 form do |f|
-  f.inputs
+  f.inputs "Details" do
+    f.input :collection_name
+    f.input :collection_description_
+    f.input :featured
+    f.input :home
+  end
   f.inputs "Image"  do
     f.input :image, :required => false, :as => :file , :hint => image_tag(f.object.image.url(:thumb))
   end
@@ -38,6 +43,8 @@ form do |f|
 
   f.actions
 end
+
+
 
 
 

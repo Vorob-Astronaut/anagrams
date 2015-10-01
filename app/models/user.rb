@@ -40,11 +40,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   def username
-    if name then
-      name
-    else
-      email
-    end
+    name || email
   end
 
 
