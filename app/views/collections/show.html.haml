@@ -14,7 +14,7 @@
         -if current_user
           =link_to t('follow'), follow_collection_path(@collection), id: "critic_11", class: "#{'followed' if current_user.followed_collection_ids.include?(@collection.id)} uk-button addCritics follow-button-#{@collection.slug}", remote: true
         -else
-          =link_to t('follow'), follow_collection_path(@collection), id: "critic_11", class: "uk-button addCritics follow-button-#{@collection.slug}", remote: true
+          =link_to t('follow'), new_user_registration_path, id: "critic_11", class: "uk-button addCritics follow-button-#{@collection.slug}"
       .col-md-6
         %section
           .uk-width-1-1

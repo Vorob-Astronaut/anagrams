@@ -278,6 +278,17 @@ p.mtop {
     position: absolute;
     right: 20px;
     top: -22px;
+    cursor: pointer;
+}
+.follow_btn a{
+    color: #93be23;
+    text-decoration: none;
+    cursor: pointer;
+}
+.follow_btn a:hover{
+    color: #93be23;
+    text-decoration: none;
+    cursor: pointer;
 }
 .follow_btn_small {
     background: none repeat scroll 0 0 #fff;
