@@ -61,6 +61,8 @@ end
 gem "puma"
 # Authentication
 gem 'devise'
+gem 'devise-i18n'
+gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 
 gem "globalize", github: "ncri/globalize"
 

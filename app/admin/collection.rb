@@ -27,19 +27,17 @@ controller do
 end
 
 form do |f|
-  f.input :collection_name
   f.inputs
   f.inputs "Image"  do
     f.input :image, :required => false, :as => :file , :hint => image_tag(f.object.image.url(:thumb))
   end
 
-   f.has_many :playlists ,  new_record: true, :allow_destroy => true do |p|
+  f.has_many :playlists ,  new_record: true, :allow_destroy => true do |p|
     p.input :title_id, label: 'Film Title', as: :select, collection: Title.all.order(:film_title).map{|u| ["#{u.film_title}", u.id]}
-
   end
 
   f.actions
- end
+end
 
 
 
