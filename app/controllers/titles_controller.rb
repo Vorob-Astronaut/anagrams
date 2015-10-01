@@ -7,6 +7,7 @@ class TitlesController < ApplicationController
   # GET /titles/1
   def show
     @title = Title.friendly.find(params[:id])
+    @country_list = Country.where(is_active?: true)
     add_breadcrumb @title.film_title, title_path(@title)
   end
 

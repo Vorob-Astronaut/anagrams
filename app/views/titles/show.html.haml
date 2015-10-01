@@ -1,5 +1,10 @@
-.tm-block.tm-block-main
-  .uk-container.uk-container-center
+.row
+  .col-md-2
+    =render 'layouts/partials/sidebar'
+  %ol.breadcrumb
+    = render_breadcrumbs tag: :li, separator: ""
+  .tm-block.tm-block-main.col-md-10
+    .uk-container.uk-container-center
     .tm-middle.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => ""}
       .tm-main.uk-width-medium-1-1
         %main.tm-content

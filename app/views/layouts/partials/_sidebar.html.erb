@@ -42,9 +42,9 @@
               <%=image_tag("country.png", style: "width: 20px;")%>
                <span data-localize="sidebar.nav.form.FORM">Pais</span>
             </a>
-            <ul id="forms" class="nav sidebar-subnav collapse <%='in' if controller?('countries')%>">
+            <ul id="forms" class="nav sidebar-subnav collapse <%='in' if controller?('countries') || controller?('titles') %>">
                <li class="sidebar-subnav-header">Pais</li>
-               <%@country_list.each do |pais|%>
+               <% @country_list.each do |pais|%>
                  <li>
                    <div class="label"><%=pais.titles.count%></div>
                    <%=link_to pais.country, country_path(pais)%>
