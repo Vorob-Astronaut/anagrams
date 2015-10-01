@@ -230,3 +230,27 @@ body{
     }
   }
 }
+
+#modalTitle{
+  .modal-dialog{
+    width: 95%;
+
+    .modal-content{
+      border-radius: 0px;
+      .tm-block{
+        padding: 0px;
+
+        .fabrikForm.fabrikDetails{
+          margin-top: 0px;
+        }
+      }
+
+      .close{
+        font-size: 30px;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+      }
+    }
+  }
+}

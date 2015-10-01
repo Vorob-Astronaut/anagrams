@@ -26,4 +26,22 @@
       source: "/ac.json",
       minLength: 1
     });
+
+    // This is for handle the modal for titles
+    $('.product > a').click( function(event){
+      var newUrl = $(this).attr('href');
+
+      window.history.pushState({}, null, newUrl);
+    });
+
+    $('#modalTitle .close').click(function (e) {
+      window.history.back();
+    });
+    //------------------------------------//
   });
+
+
+$('#modalTitle').on('hidden.bs.modal', function (e) {
+  window.history.back();
+});
+

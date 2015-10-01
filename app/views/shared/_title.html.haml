@@ -1,5 +1,5 @@
-.product
-  =link_to image_tag(title.key_art.url(:medium)), title
+.product{"data-target" => "#modalTitle", "data-toggle" => "modal"}
+  =link_to image_tag(title.key_art.url(:medium)), title, remote: true
 .info
   %h5= truncate(title.film_title, :length => 20)
   .icon

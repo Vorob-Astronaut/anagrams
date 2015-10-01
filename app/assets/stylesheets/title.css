@@ -14,6 +14,7 @@ height: 350px;
 .product {
 display: block;
 position: relative;
+cursor: pointer;
 }
 
 .product img {
