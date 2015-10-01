@@ -38,3 +38,11 @@
     / /.modal-content
   / /.modal-dialog
 / /.modal
+
+#modalTitle.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "modalTitle", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      %button{:type => "button", :class => "close", "data-dismiss" => "modal", "aria-label" => "Close"}
+        %span{"aria-hidden" => "true"}
+          &times
+      .modal-main-content
