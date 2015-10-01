@@ -25,7 +25,7 @@
          <!-- END user info-->
          <!-- Iterates over all sidebar items-->
          <li class="<%= 'active' if controller?('collections') %>">
-            <a href="#elements" title="Collections" data-toggle="collapse">
+            <a href="<%= collections_path %>" title="Collections">
                <span data-localize="sidebar.nav.element.ELEMENTS">Collections</span>
             </a>
             <ul id="elements" class="nav sidebar-subnav collapse <%='in' if controller?('collections')%>">
