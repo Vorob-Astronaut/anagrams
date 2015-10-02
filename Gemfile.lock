@@ -48,6 +48,12 @@ GIT
       countries (~> 1.0.0)
       sort_alphabetical (~> 1.0)
 
+GIT
+  remote: git://github.com/wazery/ratyrate.git
+  revision: e80b1b1bedcfa8823dc90f5b5311a76afe19f263
+  specs:
+    ratyrate (1.2.2.alpha)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -386,6 +392,7 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails-i18n (~> 4.0.0)
   rails_serve_static_assets
+  ratyrate!
   redis-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

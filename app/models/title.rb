@@ -30,6 +30,7 @@
 class Title < ActiveRecord::Base
   extend FriendlyId
   friendly_id :film_title, use: :slugged
+  ratyrate_rateable "users_score"
 
   #belongs_to :collection
   has_attached_file :key_art, :styles => { :medium => "300x300>", :thumb => "50x50#", :custom => "694x1000#"}, :default_url => "/noimage/:style/missing.png"

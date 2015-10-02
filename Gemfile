@@ -41,6 +41,7 @@ gem 'delayed_job_active_record'
 gem "daemons"
 gem 'will_paginate', '~> 3.0.6'
 gem 'pageless-rails', github: 'rorlab/pageless-rails'
+gem 'ratyrate', :github => 'wazery/ratyrate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

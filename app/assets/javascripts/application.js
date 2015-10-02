@@ -9,3 +9,6 @@
 //= require jquery-ui
 //= require social-share-button
 //= require pageless
+//= require turbolinks
+//= require jquery.raty
+//= require ratyrate

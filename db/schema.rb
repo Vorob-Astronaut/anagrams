@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929084130) do
+ActiveRecord::Schema.define(version: 20151002100644) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -47,15 +47,14 @@ ActiveRecord::Schema.define(version: 20150929084130) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "collection_language", force: :cascade do |t|
-    t.string   "locale",                  limit: 255,   null: false
+  create_table "average_caches", force: :cascade do |t|
+    t.integer  "rater_id",      limit: 4
+    t.integer  "rateable_id",   limit: 4
+    t.string   "rateable_type", limit: 255
+    t.float    "avg",           limit: 24,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "collection_name",         limit: 255
-    t.text     "collection_description_", limit: 65535
   end
-
-  add_index "collection_language", ["locale"], name: "index_collection_translations_on_locale", using: :btree
 
   create_table "collection_translations", force: :cascade do |t|
     t.integer  "collection_id",           limit: 4,     null: false
@@ -74,8 +73,8 @@ ActiveRecord::Schema.define(version: 20150929084130) do
     t.string   "collection_name",         limit: 255
     t.text     "collection_description_", limit: 65535
     t.string   "user_id",                 limit: 255
-    t.text     "featured",                limit: 65535
-    t.text     "home",                    limit: 65535
+    t.boolean  "featured",                limit: 1
+    t.boolean  "home",                    limit: 1
     t.string   "image_file_name",         limit: 255
     t.string   "image_content_type",      limit: 255
     t.integer  "image_file_size",         limit: 4
@@ -97,7 +96,7 @@ ActiveRecord::Schema.define(version: 20150929084130) do
     t.string  "country_code",      limit: 255
     t.string  "geographic_region", limit: 255
     t.string  "country",           limit: 100
-    t.text    "active",            limit: 65535
+    t.boolean "active",            limit: 1
     t.boolean "is_active?",        limit: 1
     t.string  "slug",              limit: 255
   end
@@ -155,7 +154,7 @@ ActiveRecord::Schema.define(version: 20150929084130) do
     t.datetime "date_time"
     t.string   "genre_english", limit: 255
     t.string   "genre_espanol", limit: 255
-    t.text     "active",        limit: 65535
+    t.boolean  "active",        limit: 1
     t.boolean  "is_active?",    limit: 1
     t.string   "slug",          limit: 255
   end
@@ -207,6 +206,14 @@ ActiveRecord::Schema.define(version: 20150929084130) do
 
   add_index "notifications", ["notifier_type", "notifier_id"], name: "index_notifications_on_notifier_type_and_notifier_id", using: :btree
 
+  create_table "overall_averages", force: :cascade do |t|
+    t.integer  "rateable_id",   limit: 4
+    t.string   "rateable_type", limit: 255
+    t.float    "overall_avg",   limit: 24,  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "playlists", force: :cascade do |t|
     t.datetime "date_time"
     t.integer  "collection_id", limit: 4
@@ -226,10 +233,34 @@ ActiveRecord::Schema.define(version: 20150929084130) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
+  create_table "rates", force: :cascade do |t|
+    t.integer  "rater_id",      limit: 4
+    t.integer  "rateable_id",   limit: 4
+    t.string   "rateable_type", limit: 255
+    t.float    "stars",         limit: 24,  null: false
+    t.string   "dimension",     limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rates", ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type", using: :btree
+  add_index "rates", ["rater_id"], name: "index_rates_on_rater_id", using: :btree
+
+  create_table "rating_caches", force: :cascade do |t|
+    t.integer  "cacheable_id",   limit: 4
+    t.string   "cacheable_type", limit: 255
+    t.float    "avg",            limit: 24,  null: false
+    t.integer  "qty",            limit: 4,   null: false
+    t.string   "dimension",      limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
+
   create_table "titles", force: :cascade do |t|
     t.datetime "date_time"
     t.string   "film_title",                limit: 255
-    t.string   "alt_title",                 limit: 255
     t.string   "year_produced",             limit: 255
     t.text     "snappy_summary",            limit: 65535
     t.text     "long_description_espanol",  limit: 65535
@@ -242,8 +273,7 @@ ActiveRecord::Schema.define(version: 20150929084130) do
     t.text     "short_description_espanol", limit: 65535
     t.string   "duration",                  limit: 255
     t.string   "film_rating",               limit: 255
-    t.text     "active",                    limit: 65535
-    t.string   "ref_movie_id",              limit: 255
+    t.boolean  "active",                    limit: 1
     t.integer  "meta_verified",             limit: 4
     t.datetime "date_updated_can_istream"
     t.string   "key_art_file_name",         limit: 255
@@ -252,7 +282,6 @@ ActiveRecord::Schema.define(version: 20150929084130) do
     t.datetime "key_art_updated_at"
     t.boolean  "is_active?",                limit: 1
     t.string   "slug",                      limit: 255
-    t.boolean  "not_found",                 limit: 1,     default: false, null: false
   end
 
   add_index "titles", ["film_title"], name: "filmTitle", using: :btree
