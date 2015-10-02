@@ -10,8 +10,7 @@
                 #titles___key_art_ro
                   .fabrikSubElementContainer
                     %img.fabrikLightBoxImage{:alt => "", :src => "#{@title.key_art.url(:medium)}"}/
-                    Rating
-                    = rating_for @title, "users_score"
+                    =rating_for(@title, "users_score") if current_user
               .uk-width-7-10
                 %h1.uk-heading-large.uk-clearfix.title-heading
                   .uk-float-left
