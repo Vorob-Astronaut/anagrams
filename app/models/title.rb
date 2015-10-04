@@ -39,14 +39,19 @@ class Title < ActiveRecord::Base
   has_many :notifications, as: :notifier
   has_many :country_titles, :dependent => :destroy
   has_many :countries , :through => :country_titles
+
   has_many :genre_titles, :dependent => :destroy
   has_many :genres , :through => :genre_titles
+
+  has_many :playlists, :dependent => :destroy
+  has_many :collections, :through => :playlists
+  
   has_many :user_favorites
   has_many :user_removals
   has_many :user_queues
   accepts_nested_attributes_for :country_titles, :allow_destroy => true
   accepts_nested_attributes_for :genre_titles, :allow_destroy => true
-
+  accepts_nested_attributes_for :playlists, :allow_destroy => true
 
   def self.in_removals(user)
     if user then

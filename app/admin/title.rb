@@ -42,18 +42,18 @@ controller do
 end
 
 
-
-
-
-
 form do |f|
   f.inputs "Child" do
     f.has_many :country_titles ,  new_record: true,:allow_destroy => true do |p|
       p.input :country_id, label: 'Country', as: :select, collection: Country.all.map{|u| ["#{u.country}", u.id]}
     end
 
-    f.has_many :genre_titles ,  new_record: true,:allow_destroy => true do |p|
+    f.has_many :genre_titles, new_record: true,:allow_destroy => true do |p|
       p.input :genre_id, label: 'Genre', as: :select, collection: Genre.all.map{|u| ["#{u.genre_espanol}", u.id]}
+    end
+
+    f.has_many :playlists,  new_record: true, :allow_destroy => true do |p|
+      p.input :collection_id, label: 'collection', as: :select, collection: Collection.all.map{|u| ["#{u.collection_name}", u.id]}
     end
   end
 
