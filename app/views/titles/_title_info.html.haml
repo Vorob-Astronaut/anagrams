@@ -22,7 +22,7 @@
                     / <span><strong></strong></span>
                 .year_action
                   #titles___Genres_ro
-                    Documental, Drama
+                    =@title.genres.collect(&:genre_espanol).join(', ')
                 .detail_director
                   %span
                     %strong director:

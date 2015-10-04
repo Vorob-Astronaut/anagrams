@@ -4,11 +4,12 @@
 
 //--- Angle
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require_tree ./angle/
 //= require jquery-ui
 //= require social-share-button
 //= require pageless
-//= require turbolinks
 //= require jquery.raty
 //= require ratyrate
+//= require turbolinks
