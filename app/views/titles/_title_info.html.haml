@@ -10,7 +10,10 @@
                 #titles___key_art_ro
                   .fabrikSubElementContainer
                     %img.fabrikLightBoxImage{:alt => "", :src => "#{@title.key_art.url(:medium)}"}/
-                    =rating_for(@title, "users_score") if current_user
+                    -if !current_user then
+                      =rating_for(@title, "users_score", :enable_half => true, :half_show => true, readonly: true)
+                    -else
+                      =rating_for(@title, "users_score", :enable_half => true, :half_show => true)
               .uk-width-7-10
                 %h1.uk-heading-large.uk-clearfix.title-heading
                   .uk-float-left
