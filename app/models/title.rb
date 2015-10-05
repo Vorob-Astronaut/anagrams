@@ -54,8 +54,6 @@ class Title < ActiveRecord::Base
   accepts_nested_attributes_for :playlists, :allow_destroy => true
 
   validates :film_title, presence: true
-  validates :snappy_summary, presence: true
-  validates :year_produced, presence: true
 
   def self.in_removals(user)
     if user then
@@ -76,7 +74,6 @@ class Title < ActiveRecord::Base
   end
 
   def check_sources(client)
-    self.movie_streams.each {|s| s.destroy! if s.protect != true}
     response = client.search_and_query(self.film_title, ['streaming', 'rental', 'purchase', 'dvd', 'xfinity']).first
     if response
       ['streaming', 'rental', 'purchase', 'dvd', 'xfinity'].each do |type|
@@ -88,13 +85,16 @@ class Title < ActiveRecord::Base
                 stream_type = MovieStreamLinkType.create(typel: source.first)
                 Message.create(message: "NEW STREAM TYPE #{stream_type.typel} ADDED. PLEASE, ADD A LOGO MANUALY")
               end
-              self.movie_streams.create(typel: type, link: source.last["direct_url"] || source.last['url'], movie_stream_link_type: stream_type, price: source.last["price"], external_id: source.last["external_id"] || 0)
+              ms = self.movie_streams.find_or_create_by(link: source.last["direct_url"] || source.last['url'], typel: type, movie_stream_link_type: stream_type, price: source.last["price"], external_id: source.last["external_id"] || 0)
             end
           end
         end
       end
     end
   end
+
+
+
 
   def image
     key_art
