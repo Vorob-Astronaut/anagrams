@@ -13,6 +13,17 @@ ActiveAdmin.register CollectionTranslation do
 #   permitted
 # end
 
-permit_params :collection_name, :collection_description_, :locale
+permit_params :collection_name, :collection_description_, :locale, :collection_id
+
+form do |f|
+  f.inputs "Details" do
+    f.input :locale, as: :select, collection: ['es', 'en']
+    f.input :collection_name
+    f.input :collection_description_
+    f.input :collection_id, as: :select, collection: Collection.all.order(:collection_name).map{|u| ["#{u.collection_name}", u.id]}
+  end
+  f.actions
+end
+
 
 end

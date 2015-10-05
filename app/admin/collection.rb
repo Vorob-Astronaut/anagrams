@@ -13,7 +13,7 @@ ActiveAdmin.register Collection do
 #   permitted
 # end
 
-permit_params :collection_name, :collection_description_,:_destroy, :featured, :home,:date_time,:user_id,:image,translations_attributes:
+permit_params :locale, :collection_name, :collection_description_,:_destroy, :featured, :home,:date_time,:user_id,:image,translations_attributes:
  [:locale, :collection_name_, :collection_description_, :id],:playlists_attributes => [:id,:title_id ,:_destroy]
 
 controller do
@@ -32,6 +32,7 @@ form do |f|
     f.input :collection_description_
     f.input :featured
     f.input :home
+    f.input :user
   end
   f.inputs "Image"  do
     f.input :image, :required => false, :as => :file , :hint => image_tag(f.object.image.url(:thumb))

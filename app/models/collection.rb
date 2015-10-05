@@ -23,6 +23,7 @@ class Collection < ActiveRecord::Base
 
   belongs_to :user
   has_many :notifications, as: :notifier
+  has_many :collection_translations
   has_and_belongs_to_many :followers, class_name: "User", :uniq => true
   has_many :playlists, :dependent => :destroy, after_add: :notify
   has_many :titles , :through => :playlists
@@ -33,7 +34,7 @@ class Collection < ActiveRecord::Base
   validates :collection_description_, presence: true
 
 
-  has_many :translations,autosave: true
+  has_many :translations, autosave: true
 
   TRANSLATED_FIELD = [
     :collection_name, :collection_description_
