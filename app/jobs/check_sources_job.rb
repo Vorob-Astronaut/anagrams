@@ -1,6 +1,10 @@
 class CheckSourcesJob < ActiveJob::Base
   queue_as :default
 
+  after_perform do |job|
+    Message.create(message: "Movie streams for #{@count} titles updated")
+  end
+
   def perform(*args)
     client = Canistreamit::Client.new
     @count = 0
@@ -14,5 +18,6 @@ class CheckSourcesJob < ActiveJob::Base
   def after(job)
     Message.create(message: "Movie streams for #{@count} titles updated")
   end
+
 
 end

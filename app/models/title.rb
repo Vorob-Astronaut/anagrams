@@ -45,7 +45,7 @@ class Title < ActiveRecord::Base
 
   has_many :playlists, :dependent => :destroy
   has_many :collections, :through => :playlists
-  
+
   has_many :user_favorites
   has_many :user_removals
   has_many :user_queues
@@ -84,7 +84,7 @@ class Title < ActiveRecord::Base
                 stream_type = MovieStreamLinkType.create(typel: source.first)
                 Message.create(message: "NEW STREAM TYPE #{stream_type.typel} ADDED. PLEASE, ADD A LOGO MANUALY")
               end
-              self.movie_streams.create(typel: type, link: source.last["direct_url"], movie_stream_link_type: stream_type, price: source.last["price"], external_id: source.last["external_id"] || 0)
+              self.movie_streams.create(typel: type, link: source.last["direct_url"] || source.last['url'], movie_stream_link_type: stream_type, price: source.last["price"], external_id: source.last["external_id"] || 0)
             end
           end
         end
