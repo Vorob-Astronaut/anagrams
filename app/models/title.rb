@@ -53,6 +53,10 @@ class Title < ActiveRecord::Base
   accepts_nested_attributes_for :genre_titles, :allow_destroy => true
   accepts_nested_attributes_for :playlists, :allow_destroy => true
 
+  validates :film_title, presence: true
+  validates :snappy_summary, presence: true
+  validates :year_produced, presence: true
+
   def self.in_removals(user)
     if user then
       includes(:user_removals).where(:user_removals => {user_id: user.id})

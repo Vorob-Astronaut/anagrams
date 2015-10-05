@@ -28,6 +28,10 @@ class Collection < ActiveRecord::Base
   has_many :titles , :through => :playlists
   has_attached_file :image, :styles => { :medium => "315x178>", :thumb => "50x50#", :custom => "640x361#"}, :default_url => "/noimage/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  validates :user, presence: true
+  validates :collection_name, presence: true
+  validates :collection_description_, presence: true
+
 
   has_many :translations,autosave: true
 
