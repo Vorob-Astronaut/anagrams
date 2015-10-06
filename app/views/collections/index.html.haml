@@ -4,7 +4,7 @@
   %ol.breadcrumb
     = render_breadcrumbs tag: :li, separator: ""
   .col-md-10.back-ground
-    %h4.main-heading Collections
+    %h4.main-heading=t('collections')
     .row.padding-10
       - @collections.each do |collection|
         .col-md-6.padding-5.collection-item
