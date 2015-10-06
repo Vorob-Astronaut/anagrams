@@ -1,5 +1,5 @@
 ActiveAdmin.register Title do
-
+before_filter :paginate
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -13,7 +13,7 @@ ActiveAdmin.register Title do
 #   permitted
 # end
 
- permit_params :date_time, :film_title, :year_produced, :snappy_summary,:long_description_espanol,:key_art,:actors,:director,:imdb,:internal_comments,:butaca_owned,:short_description_espanol,:duration,:film_rating,:active,:meta_verified,:date_updated_can_istream, :locale,:country_titles_attributes => [:id,:country_id, :_destroy],:genre_titles_attributes => [:id,:genre_id , :_destroy]
+ permit_params :date_time, :film_title, :year_produced, :snappy_summary,:long_description_espanol,:key_art,:actors,:director,:imdb,:internal_comments,:butaca_owned,:short_description_espanol,:duration,:film_rating,:active,:meta_verified,:date_updated_can_istream, :locale,:country_titles_attributes => [:id,:country_id, :_destroy],:genre_titles_attributes => [:id,:genre_id , :_destroy], playlists_attributes: [:id, :collection_id]
 
  #controller do
   #def permitted_params
@@ -24,6 +24,11 @@ filter :film_title_cont
 filter :countries_country_cont, as: :select, collection: -> {Country.all.collect(&:country)}, label: "Country"
 filter :genres_genre_espanol_cont, as: :select, collection: -> {Genre.all.collect(&:genre_espanol)}, label: "Genre es"
 filter :genres_genre_english_cont, as: :select, collection: -> {Genre.all.collect(&:genre_english)}, label: "Genre en"
+
+action_item :only => :index do
+  link_to "all", admin_titles_path(pagination: Title.all.size)
+end
+
 
 controller do
   def find_resource
@@ -39,8 +44,10 @@ controller do
     redirect_to(:back)
   end
 
+  def paginate
+    @per_page = params[:pagination] unless params[:pagination].blank?
+  end
 end
-
 
 form do |f|
   f.inputs "Child" do
@@ -72,8 +79,6 @@ form do |f|
  end
 
 index do
-
-    #column :id
     column :key_art do |coll|
       link_to image_tag(coll.key_art.url(:thumb)), "/admin/titles/#{coll.id}"
     end
