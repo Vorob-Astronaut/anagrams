@@ -1,8 +1,13 @@
 class CheckSourcesJob < ActiveJob::Base
   queue_as :default
 
+  before_perform do |job|
+    @@before_size = MovieStream.all.size
+  end
+
   after_perform do |job|
-    Message.create(message: "Movie streams for #{@count} titles updated")
+    count = @before_size - MovieStream.all.size
+    Message.create(message: "#{count} streams added")
   end
 
   def perform(*args)
