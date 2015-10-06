@@ -461,13 +461,11 @@ _:-ms-lang(x), .layout-fixed .wrapper > .aside > .aside-inner {
 } // boxed
 
 .left-sidebar{
-  width: 25%;
   padding-left: 0px;
 }
 
 @media screen and (min-width: $screen-md){
   .left-sidebar{
-    width: 16.66667%;
     padding-left: 15px;
   }
 }

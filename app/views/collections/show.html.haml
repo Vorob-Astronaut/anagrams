@@ -1,21 +1,21 @@
 .row
-  .col-md-2.left-sidebar
+  .col-md-2.col-sm-3.left-sidebar
     =render 'layouts/partials/sidebar'
   %ol.breadcrumb
     = render_breadcrumbs tag: :li, separator: ""
-  .col-md-10.container-fluid.width.main-content
+  .col-md-10.col-sm-9.main-content
     .row
       .col-md-5.main-description
         %span.uk-h2= @collection.collection_name
         %br/
         = @collection.collection_description_
     .row.main-buttons
-      .col-md-6
+      .col-md-6.col-sm-4
         -if current_user
           =link_to t('follow'), follow_collection_path(@collection), id: "critic_11", class: "#{'followed' if current_user.followed_collection_ids.include?(@collection.id)} uk-button addCritics follow-button-#{@collection.slug}", remote: true
         -else
           =link_to t('follow'), new_user_registration_path, id: "critic_11", class: "uk-button addCritics follow-button-#{@collection.slug}"
-      .col-md-6
+      .col-md-6.col-sm-8.cta-buttons
         %section
           .uk-width-1-1
             .uk-panel.uk-panel-box.filter-menu
