@@ -33,8 +33,9 @@ class Collection < ActiveRecord::Base
   validates :collection_name, presence: true
   validates :collection_description_, presence: true
 
-
   has_many :translations, autosave: true
+
+  scope :home, -> {where(home: true)}
 
   TRANSLATED_FIELD = [
     :collection_name, :collection_description_

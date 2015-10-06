@@ -8,10 +8,10 @@ class GenreController < ApplicationController
 
   def show
     @genre = Genre.friendly.find(params[:id])
-    @titles = (@genre.titles-Title.in_removals(current_user)).paginate(page: params[:page], per_page: 6)
+    @titles = (@genre.titles-Title.in_removals(current_user)).paginate(page: params[:page], per_page: 30)
     add_breadcrumb @genre.genre_espanol, genre_path(@genre)
     if request.xhr?
-      sleep(3) # make request a little bit slower to see loader
+       
       render :partial => @titles
     end
   end

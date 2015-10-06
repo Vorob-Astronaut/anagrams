@@ -24,7 +24,4 @@
       .col-md-12
         %h4.main-heading=t('collection')
     .row.home-collection
-      - @collections.each do |collection|
-        .col-md-6
-          - if collection.image.present?
-            =render 'shared/collection', collection: collection
+      =render @collections

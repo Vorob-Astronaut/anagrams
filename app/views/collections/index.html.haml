@@ -6,9 +6,7 @@
   .col-md-10.back-ground
     %h4.main-heading=t('collections')
     .row.padding-10
-      - @collections.each do |collection|
-        .col-md-6.padding-5.collection-item
-          - if collection.image.present?
-            =render 'shared/collection', collection: collection
+      =render @collections
+      #results
 
-
+=pageless(@collections.total_pages, collections_path, '#results')
