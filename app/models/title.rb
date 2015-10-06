@@ -74,6 +74,7 @@ class Title < ActiveRecord::Base
   end
 
   def check_sources(client)
+    sources_list = []
     response = client.search_and_query(self.film_title, ['streaming', 'rental', 'purchase', 'dvd', 'xfinity']).first
     if response
       ['streaming', 'rental', 'purchase', 'dvd', 'xfinity'].each do |type|
@@ -85,11 +86,13 @@ class Title < ActiveRecord::Base
                 stream_type = MovieStreamLinkType.create(typel: source.first)
                 Message.create(message: "NEW STREAM TYPE #{stream_type.typel} ADDED. PLEASE, ADD A LOGO MANUALY")
               end
-              ms = self.movie_streams.find_or_create_by(link: source.last["direct_url"] || source.last['url'], typel: type, movie_stream_link_type: stream_type, price: source.last["price"], external_id: source.last["external_id"] || 0)
+              sources_list << self.movie_streams.find_or_create_by(link: source.last["direct_url"] || source.last['url'], typel: type, movie_stream_link_type: stream_type, price: source.last["price"], external_id: source.last["external_id"] || 0)
             end
           end
         end
       end
+      not_longer_present_list = self.movie_streams - sources_list
+      not_longer_present_list.each {|m| m.destroy unless m.protect == true}
     end
   end
 
