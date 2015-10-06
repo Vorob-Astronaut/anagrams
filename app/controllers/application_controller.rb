@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
    before_filter :configure_permitted_parameters, if: :devise_controller?
    before_filter :set_locale
    before_filter :set_variables
+   before_filter :authenticate_admin_user!
    after_filter :clear_notice
 
 
