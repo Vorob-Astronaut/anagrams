@@ -23,6 +23,7 @@ es:
   sign_in: Login
   sign_up: Regístrate  /
   collections: Colecciones
+  other_collections: Otras colecciones que te podrían gustar
 
 
   active_admin:

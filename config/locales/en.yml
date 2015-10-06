@@ -23,6 +23,7 @@ en:
   sign_in: Sign in
   sign_up: Sign up /
   collections: Collections
+  other_collections:  Other Collections you might like
 
   active_admin:
     dashboard: Dashboard
