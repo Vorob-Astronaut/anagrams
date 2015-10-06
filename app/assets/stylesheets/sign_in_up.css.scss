@@ -1,4 +1,4 @@
-#login-panel.panel{
+.login-panel.panel{
   margin-top: 30px;
   -webkit-box-shadow: -3px 4px 17px 0px rgba(50, 50, 50, 0.37);
   -moz-box-shadow:    -3px 4px 17px 0px rgba(50, 50, 50, 0.37);
@@ -37,4 +37,12 @@
       padding-left: 5px;
     }
   }
+}
+
+#add_film_form{
+  margin-top: 0px !important;
+}
+
+#add_a_film{
+  margin-left: 20px;
 }

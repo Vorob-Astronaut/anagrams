@@ -24,6 +24,15 @@ en:
   sign_up: Sign up /
   collections: Collections
   other_collections: Other Collections you might like
+  search_result: Search result
+  no_results: We don't have that film on the site yet.
+  add_title_question: Would you like us to add it?
+  yes_asnwer: Yes!
+  add_film_title: Add film request
+  film_name: Film Name
+  year_aprox: Approximate year
+  film_comment: Comment
+  send: Send
 
   active_admin:
     dashboard: Dashboard

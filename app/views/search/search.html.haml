@@ -4,10 +4,8 @@
       .tm-main.uk-width-medium-1-1
         %main.tm-content
           %article.uk-article
-            %h1
-              Search result
+            %h1=t('search_result')
             %div
-              %p
               .fabrikDataContainer.filmstrip.homefilmstrip
                 #list_34_com_content_34
                   .fabrik_groupdata
@@ -17,24 +15,23 @@
                           .block{id: "title-#{title.id}"}
                             =render 'titles/title', title: title
                       -else
-                        We don't have that film on the site yet.
+                        =t('no_results')
                         -if current_user
-                          Would you like us to add it?
-                          =button_tag "Yes!", id: "add_a_film"
+                          =t('add_title_question')
+                          =button_tag t('yes_asnwer'), id: "add_a_film", class: "btn btn-danger"
                     %br/
                   .filmstrip_footer
                     .fabrik___heading
                       %span
                         .fabrikNav
-              %p
-                #add_film_form
-                  %hr
-                  =simple_form_for("add_a_film", url: '/add_a_film') do |f|
-                    =f.input :film_name
-                    =f.input :approximate_year, required: false
-                    =f.input :director, required: false
-                    =f.input :comment, as: :text, required: false
-                    =f.submit
+              #add_film_form.login-panel.col-md-6.col-md-offset-3.panel
+                %h4=t('add_film_title')
+                =simple_form_for("add_a_film", url: '/add_a_film') do |f|
+                  =f.input :film_name, label: t('film_name'), class: "form-control"
+                  =f.input :approximate_year, label: t('year_aprox'), required: false, class: "form-control"
+                  =f.input :director, required: false, class: "form-control"
+                  =f.input :comment, label: t('film_comment'), as: :text, required: false, input_html: {class: "form-control", rows: 3}
+                  =f.submit t('send'), class: "btn btn-danger"
               %br/
               %br/
               %br/

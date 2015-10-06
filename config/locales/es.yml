@@ -24,7 +24,15 @@ es:
   sign_up: Regístrate  /
   collections: Colecciones
   other_collections: Otras colecciones que te podrían gustar
-
+  search_result: Resultados de la búsqueda
+  no_results: Aún no tenemos ese film en nuestro sitio.
+  add_title_question: ¿Te gustaría que la agregáramos?
+  yes_asnwer: ¡Si!
+  add_film_title: Solicitud para agregar film
+  film_name: Nombre del film
+  year_aprox: Año aproximado
+  film_comment: Comentarios
+  send: Enviar
 
   active_admin:
     dashboard: Dashboard
