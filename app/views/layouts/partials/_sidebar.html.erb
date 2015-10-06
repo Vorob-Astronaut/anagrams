@@ -42,7 +42,7 @@
               <%=image_tag("country.png", style: "width: 20px;")%>
                <span data-localize="sidebar.nav.form.FORM">Pais</span>
             </a>
-            <ul id="forms" class="nav sidebar-subnav collapse <%='in' if controller?('countries') || controller?('titles') %>">
+            <ul id="forms" class="nav sidebar-subnav collapse <%='in' if controller?('countries') || controller?('titles') || controller?('home') %>">
                <li class="sidebar-subnav-header">Pais</li>
                <% @country_list.each do |pais|%>
                  <li>
@@ -52,7 +52,7 @@
                <%end%>
             </ul>
          </li>
-         <li class="<%= 'active' if controller?('genre') %>">
+         <li class="<%= 'active' if controller?('genre') || controller?('home') %>">
             <a href="#charts" title="Genero" data-toggle="collapse">
               <%=image_tag("genre.png", style: "width: 20px;")%>
                <span data-localize="sidebar.nav.chart.CHART">Genero</span>

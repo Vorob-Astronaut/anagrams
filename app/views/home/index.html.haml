@@ -1,35 +1,30 @@
-.container-fluid.width
-  .row
-    .col-md-8
-      %h2.tagline
-        %br>/
-        =t('tagline')
+.row
+  .col-md-2
+    =render 'layouts/partials/sidebar'
+  %ol.breadcrumb
+    = render_breadcrumbs tag: :li, separator: ""
+  .container-fluid.width.col-md-10
+    .row
+      .col-md-8
+        %h2.tagline
+          %br>/
+          =t('tagline')
 
-  .row
-    .col-md-12
-      %section
-        .uk-width-1-1
-          .uk-panel.uk-panel-box.filter-menu
-            %ul.uk-nav.uk-nav-parent-icon.uk-nav-side
-              %li
-                =link_to t('collection'), collections_path
-              %li
-                =link_to t('country'), countries_path
-              %li
-                =link_to t('genre'), genre_index_path
-      %h3.title
-        = @collections.where(is_featured?: true).first.collection_name
-        by
-        %span.auth
-          = link_to(@collections.where(is_featured?: true).first.user.username, user_show_path(@collections.where(is_featured?: true).first.user.id))
-    .element-5-padding
-      -(@collections.where(is_featured?: true).first.titles-Title.in_removals(current_user)).each do |title|
-        =render 'titles/title', title: title
-  .row.home-collection
-    .col-md-12
-      %h4.main-heading=t('collection')
-  .row.home-collection
-    - @collections.each do |collection|
-      .col-md-6
-        - if collection.image.present?
-          =render 'shared/collection', collection: collection
+    .row
+      .col-md-12
+        %h3.title
+          = @collections.where(is_featured?: true).first.collection_name
+          by
+          %span.auth
+            = link_to(@collections.where(is_featured?: true).first.user.username, user_show_path(@collections.where(is_featured?: true).first.user.id))
+      .element-5-padding
+        -(@collections.where(is_featured?: true).first.titles-Title.in_removals(current_user)).each do |title|
+          =render 'titles/title', title: title
+    .row.home-collection
+      .col-md-12
+        %h4.main-heading=t('collection')
+    .row.home-collection
+      - @collections.each do |collection|
+        .col-md-6
+          - if collection.image.present?
+            =render 'shared/collection', collection: collection
