@@ -50,6 +50,7 @@ controller do
 end
 
 form do |f|
+  f.actions
   f.inputs "Child" do
     f.has_many :country_titles ,  new_record: true,:allow_destroy => true do |p|
       p.input :country_id, label: 'Country', as: :select, collection: Country.all.map{|u| ["#{u.country}", u.id]}
