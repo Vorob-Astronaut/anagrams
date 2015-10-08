@@ -87,19 +87,14 @@ index do
     column :year_produced
     column :director
     column :actors
-    column :countries do |coll|
-      countries = ""
-      coll.countries.each do |country|
-        countries = countries + country.country + "\n"
-      end
-      countries
+    column :collections do |country|
+      country.collections.collect(&:collection_name)
     end
-    column :genres do |coll|
-      genres = ""
-      coll.genres.each do |genre|
-        genres = genres + genre.genre_espanol + "\n"
-      end
-      genres
+    column :country do |country|
+      country.countries.collect(&:country)
+    end
+    column :genre do |genre|
+      genre.genres.collect(&:genre_espanol)
     end
     column :snappy_summary
 
