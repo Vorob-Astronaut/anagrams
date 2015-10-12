@@ -68,6 +68,7 @@ $blue-color: #3996d1;
   .container-fluid{
 
     #title_search{
+      padding-left: 35px;
       &:focus{
         .border-bottom-search{
           display: block;
