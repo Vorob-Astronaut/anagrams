@@ -18,8 +18,9 @@ en:
   platforms: Where you can watch online
   platfrom_not_avalible: this film is not available
   notify_me: notify me!
+  notifications: Notifications
   follow: Follow
-  search: Search
+  search: Search for movies, directors or genres
   sign_in: Sign in
   sign_up: Sign up /
   collections: Collections
@@ -33,6 +34,9 @@ en:
   year_aprox: Approximate year
   film_comment: Comment
   send: Send
+  my_profile: My Profile
+  logout: Logout
+  followed_collections: Followed collections
 
   active_admin:
     dashboard: Dashboard

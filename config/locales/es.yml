@@ -18,8 +18,9 @@ es:
   platforms: Donde la puedes ver online
   platfrom_not_avalible: esta película no está disponible
   notify_me: notificarme!
+  notifications: Notificaciones
   follow: Sígueme
-  search: Búsqueda
+  search: Búsqueda por película, director o género
   sign_in: Login
   sign_up: Regístrate  /
   collections: Colecciones
@@ -33,6 +34,9 @@ es:
   year_aprox: Año aproximado
   film_comment: Comentarios
   send: Enviar
+  my_profile: Mi Perfil
+  logout: Salir
+  followed_collections: Mis colecciones
 
   active_admin:
     dashboard: Dashboard

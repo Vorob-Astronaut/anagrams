@@ -1,7 +1,14 @@
-=link_to image_tag('bell.png'), "#", class: "dropdown-toggle", 'data-toggle' => "dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"
+=link_to "#", class: "dropdown-toggle", 'data-toggle' => "dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false" do
+  .fa.fa-bell-o
 .number
-  =@last_notification.size
+  .number-circle
+    %span=@last_notification.size
 %ul.dropdown-menu
+  %h6.notifications-title
+    =t("notifications")
+    %span.text-blue="("
+    =@last_notification.size
+    %span.text-blue=")"
   =link_to "Mark all as readed", mark_all_notifications_as_readed_path, class: 'btn', remote: true
   -@last_notification.each do |l|
     %li.notif

@@ -389,7 +389,7 @@ $container-lg:                 $container-large-desktop;
 //##
 
 // Basics of a navbar
-$navbar-height:                    55px;
+$navbar-height:                    90px;
 $navbar-margin-bottom:             $line-height-computed;
 $navbar-border-radius:             $border-radius-base;
 $navbar-padding-horizontal:        floor(($grid-gutter-width / 2));
@@ -534,7 +534,7 @@ $state-success-text:             $brand-success;
 $state-success-bg:               #dff0d8;
 $state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%);
 
-$state-info-text:                $brand-info; 
+$state-info-text:                $brand-info;
 $state-info-bg:                  #d9edf7;
 $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%);
 
