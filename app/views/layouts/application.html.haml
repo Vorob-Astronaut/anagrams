@@ -12,16 +12,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
     = csrf_meta_tags
-    :javascript
-      $(window).scroll(function() {
-          if ($(this).scrollTop() >= 100)
-          {
-             $('.navbar.navbar-default.navbar-inverse').addClass('small');
-      	}
-      	if ($(this).scrollTop() === 0) {
-             $('.navbar.navbar-default.navbar-inverse').removeClass('small');
-          }
-      	});
+
     %script{src: "https://use.typekit.net/jyt7bua.js"}
     %script
       try{Typekit.load({ async: true });}catch(e){}

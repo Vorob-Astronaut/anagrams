@@ -198,6 +198,7 @@ body{
   .sidebarr{
     padding-top: 30px;
     background-color: #ecf0f1;
+    padding-bottom: 30px;
     li.active{
       border-left: 0px;
       li a, ul#forms{
@@ -322,6 +323,12 @@ body{
   width: 20%;
   position: fixed;
   margin-top: 145px;
+
+  &.scrolled{
+    margin-top: 115px;
+    -webkit-transition:  1s;
+    transition:  1s;
+  }
 
   .sidebarr{
     background: $navbar-color;

@@ -215,22 +215,43 @@
 }
 
 .navbar.navbar-default.navbar-inverse.small{
-  height: 40px;
+  height: 60px;
+  min-height: 60px;
   -webkit-transition:  1.5s;
   transition:  1.5s;
   .navbar-brand{
-    padding-top: 0px;
+    padding-top: 5px !important;
+    padding-bottom: 0px !important;
+    height: 60px;
+    .name{
+      padding: 0px 50px 0px 10px !important;
+    }
     img{
       transform: scale(0.75);
     }
   }
+  .navbar-form{
+    -webkit-transition:  1.5s;
+    transition:  1.5s;
+    margin-top: 15px;
+  }
   #search_field{
     top: -18px;
+  }
+  .login-person{
+    padding-bottom: 0px !important;
+    margin-top: -30px;
+  }
+  .name{
+    padding-top: 35px !important;
+    padding-bottom: 10px !important;
+    display: inline-block;
   }
   .nav.navbar-nav.navbar-right{
     top: -16px;
     .bell{
       padding-bottom: 5px !important;
+      padding-bottom: 30px !important;
     }
     .dropdown.main{
       padding-bottom: 7px !important;
@@ -252,6 +273,14 @@
     -webkit-transition:  1s;
     transition:  1s;
   }
+  .name{
+    -webkit-transition:  1s;
+    transition:  1s;
+  }
+  .login-person{
+    -webkit-transition:  1s;
+    transition:  1s;
+  }
   .nav.navbar-nav.navbar-right{
     -webkit-transition:  1s;
     transition:  1s;
@@ -266,6 +295,13 @@
   }
 }
 
+.scrolled{
+  &.navbar-subnav{
+    margin-top: 60px;
+    -webkit-transition:  1s;
+    transition:  1s;
+  }
+}
 
 .navbar.navbar-default.navbar-inverse .container-fluid ul.nav.navbar-nav.navbar-right.logout{
   img{

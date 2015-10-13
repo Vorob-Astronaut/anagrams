@@ -43,7 +43,36 @@ $(function() {
 
   $(window).resize( function(){
     setSidebarHeight();
-  })
+  });
+
+  // Script for shrink the top navbar
+  $(window).scroll(function() {
+    if ($(this).scrollTop() >= 100)
+    {
+      $('.navbar.navbar-default.navbar-inverse').addClass('small');
+      $('.navbar-subnav').addClass('scrolled');
+
+      if( !$('.menu-sidebar').hasClass('scrolled') ){
+        var height = $('.sidebarr').outerHeight() + 30;
+
+        $('.sidebarr').css({
+          height: height,
+        });
+
+        $('.menu-sidebar').addClass('scrolled');
+      }
+    }
+    if ($(this).scrollTop() === 0) {
+      $('.navbar.navbar-default.navbar-inverse').removeClass('small');
+      $('.navbar-subnav').removeClass('scrolled');
+      $('.menu-sidebar').removeClass('scrolled');
+
+      var height = $('.sidebarr').outerHeight() - 30;
+      $('.sidebarr').css({
+        height: height,
+      });
+    }
+  });
 });
 
 function setSidebarHeight(){
@@ -51,7 +80,6 @@ function setSidebarHeight(){
 
   $('.sidebarr').css({
     height: height - (90 + 55),
-    maxHeight: height - (90 + 55)
   });
 }
 
