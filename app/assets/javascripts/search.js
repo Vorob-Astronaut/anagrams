@@ -73,6 +73,18 @@ $(function() {
       });
     }
   });
+
+  $('.navbar-collapse-button span').click( function(){
+    if( !$('.menu-sidebar').hasClass('menu-collapsed') ){
+      $('.menu-sidebar').addClass('menu-collapsed');
+      $('.main-content').addClass('menu-collapsed');
+      $('.breadcrumb').addClass('menu-collapsed');
+    }else{
+      $('.menu-sidebar').removeClass('menu-collapsed');
+      $('.main-content').removeClass('menu-collapsed');
+      $('.breadcrumb').removeClass('menu-collapsed');
+    }
+  })
 });
 
 function setSidebarHeight(){
