@@ -1,5 +1,5 @@
 <div class="aside-inner">
-   <nav class="sidebarr" data-sidebar-anyclick-close="">
+   <nav class="sidebarr scrollbar-custom" data-sidebar-anyclick-close="">
       <!-- START sidebar nav-->
       <ul class="nav">
          <!-- START user info-->
@@ -24,7 +24,7 @@
          <!-- END user info-->
          <!-- Iterates over all sidebar items-->
          <li class="<%= 'active' if controller?('collections') %> menu-item-title">
-            <a href="<%= collections_path %>" title="Collections">
+            <a href="#elements" title="Collections" data-toggle="collapse">
                <span data-localize="sidebar.nav.element.ELEMENTS"><%= t('collections') %></span>
                <span class="fa fa-angle-down pull-right">
             </a>
@@ -42,7 +42,7 @@
                <span data-localize="sidebar.nav.form.FORM">Pais</span>
                <span class="fa fa-angle-down pull-right">
             </a>
-            <ul id="forms" class="nav sidebar-subnav collapse <%='in' if controller?('countries') || controller?('titles') || controller?('home') %>">
+            <ul id="forms" class="nav sidebar-subnav collapse <%='in' if controller?('countries') || controller?('titles') %>">
                <li class="sidebar-subnav-header">Pais</li>
                <% @country_list.each do |pais|%>
                  <li>

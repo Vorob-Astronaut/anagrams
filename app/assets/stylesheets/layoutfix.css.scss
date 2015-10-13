@@ -320,6 +320,7 @@ body{
 
   .sidebarr{
     background: $navbar-color;
+    overflow-y: scroll;
 
     .nav{
       background: $navbar-color;
@@ -357,3 +358,20 @@ body{
   width: 80%;
 }
 
+.scrollbar-custom::-webkit-scrollbar-track
+{
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar
+{
+  width: 8px;
+  background-color: transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: $custom-scrollbar-color;
+}
