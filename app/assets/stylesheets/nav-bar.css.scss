@@ -1,6 +1,4 @@
-$navbar-color: #373b44;
-$dropdown-color: #4c515d;
-$blue-color: #3996d1;
+@import 'variables';
 
 @media(max-width:767px){
   .navbar-toggle{
@@ -37,7 +35,7 @@ $blue-color: #3996d1;
   a.navbar-brand {
     z-index:9999;
     position:relative;
-    padding-top: 15px !important;
+    padding-top: 22px !important;
     span{
       z-index:999;
     }

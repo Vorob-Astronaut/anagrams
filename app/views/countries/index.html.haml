@@ -1,8 +1,6 @@
 .row
   .col-md-2.left-sidebar
     =render 'layouts/partials/sidebar'
-  %ol.breadcrumb
-    = render_breadcrumbs tag: :li, separator: ""
   .col-md-10.back-ground
     - @countries.each do |country|
       - if country.is_active? && country.titles.any?

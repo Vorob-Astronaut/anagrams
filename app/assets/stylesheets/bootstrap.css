@@ -523,8 +523,8 @@ a:focus {
   clear: both;
 }
 .container-fluid {
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
   *zoom: 1;
 }
 .container-fluid:before,
@@ -5236,7 +5236,7 @@ a.badge:focus {
 }
 @media (min-width: 1200px) {
   .row {
-    margin-left: -30px;
+    margin-left: -15px;
     *zoom: 1;
   }
   .row:before,

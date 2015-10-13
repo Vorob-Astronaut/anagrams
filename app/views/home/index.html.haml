@@ -1,15 +1,11 @@
 .row
-  .col-md-2
+  .col-md-2.menu-sidebar
     =render 'layouts/partials/sidebar'
-  %ol.breadcrumb
-    = render_breadcrumbs tag: :li, separator: ""
-  .container-fluid.width.col-md-10
+  .container-fluid.width.col-md-10.main-content
     .row
       .col-md-8
         %h2.tagline
-          %br>/
           =t('tagline')
-
     .row
       .col-md-12
         %h3.title

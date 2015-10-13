@@ -1,6 +1,8 @@
 // @import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,500);
 
+@import 'variables';
+
 .container-fluid.width{
   max-width: 1400px;
 }
@@ -36,7 +38,6 @@ body{
   overflow-x: hidden;
 }
 .container-fluid.margin{
-  margin-top:90px;
 }
 
 @media(min-width: 991px){
@@ -125,21 +126,57 @@ body{
   }
 }
 
-.breadcrumb{
+.navbar-subnav{
+  background-color: $subnav-nav-color;
+  height: $subnav-height !important;
   margin-bottom: 0px;
-  border-bottom: 1px solid #ddd;
-  background-color: #bbd6ca;
-  width: 101%;
-  li:first-child{
-    padding-left: 20px;
+  min-height: $subnav-height;
+  border-radius: 0px;
+  margin-top: 90px;
+
+  ul{
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    list-style: none;
+
+    li{
+      display: inline-block;
+      padding-top: 12px;
+      padding-bottom: $subnav-padding-vertical;
+
+      &.navbar-collapse-button{
+        float: left;
+        padding-top: 15px;
+        padding-bottom: 6px !important;
+        span{
+          font-size: 25px;
+          color: white;
+        }
+      }
+    }
   }
-  li{
-    color: #262c31;
-  }
-  a{
-    color:white;
+
+  ol.breadcrumb{
+    margin-bottom: 0px;
+    display: inline-block;
+    padding: 0px;
+    background: transparent !important;
+    margin-left: ($left-panel-width - 40);
+    li:first-child{
+      padding-left: 20px;
+    }
+    li{
+      color: #262c31;
+      padding: 0px;
+    }
+    a{
+      color:white;
+    }
   }
 }
+
 .back-ground{
   padding: 40px 60px;
 }
@@ -156,7 +193,7 @@ body{
   position:relative;
   right: 4px;
   .sidebarr{
-    padding-top: 50px;
+    padding-top: 30px;
     background-color: #ecf0f1;
     li.active{
       border-left: 0px;
@@ -208,8 +245,6 @@ body{
 }
 
 .main-content{
-  padding-left: 35px;
-  margin-top: 3%;
   .main-description{
     margin-bottom: 30px;
   }
@@ -277,3 +312,48 @@ body{
     margin-top: 5px;
   }
 }
+
+/* Menu Side Bar */
+.menu-sidebar{
+  padding: 0px;
+  width: 20%;
+
+  .sidebarr{
+    background: $navbar-color;
+
+    .nav{
+      background: $navbar-color;
+
+      li{
+        background: $navbar-color;
+        text-transform: uppercase;
+        font-size: 14px;
+        a{
+          color: white;
+          text-align: left !important;
+        }
+
+        &.menu-item-title{
+          font-weight: bold;
+
+          a{
+            .fa{
+              margin-top: 7px;
+              color: #a0a5ab;
+            }
+          }
+        }
+      }
+    }
+
+    .sidebar-subnav{
+      padding-top: 10px;
+      padding-left: 15px !important;
+    }
+  }
+}
+
+.main-content{
+  width: 80%;
+}
+
