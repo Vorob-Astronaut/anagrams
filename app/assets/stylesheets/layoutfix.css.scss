@@ -392,12 +392,19 @@ body{
 
       li{
         background: $navbar-color;
-        text-transform: uppercase;
         font-size: 14px;
         -webkit-transition:  0.7s;
         transition:  0.7s;
+
+        &.menu-item-title{
+          > a {
+            color: white;
+            text-transform: uppercase;
+          }
+        }
+
         a{
-          color: white;
+          color: #a0a5ab;
           text-align: left !important;
         }
 
