@@ -170,6 +170,8 @@ body{
     padding: 0px;
     background: transparent !important;
     margin-left: ($left-panel-width - 40);
+    -webkit-transition:  1s;
+    transition:  1s;
 
     &.menu-collapsed{
       margin-left: 0px;
@@ -424,7 +426,7 @@ body{
   transition:  1s;
   &.menu-collapsed{
     width: 100%;
-    margin-left: 0px;
+    padding-left: 0px;
   }
 }
 
