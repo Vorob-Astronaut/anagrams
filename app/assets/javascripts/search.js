@@ -84,7 +84,7 @@ $(function() {
       $('.main-content').removeClass('menu-collapsed');
       $('.breadcrumb').removeClass('menu-collapsed');
     }
-  })
+  });
 });
 
 function setSidebarHeight(){

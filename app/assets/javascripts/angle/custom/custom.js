@@ -1,5 +1,5 @@
 // Custom jQuery
-// ----------------------------------- 
+// -----------------------------------
 
 
 (function(window, document, $, undefined){

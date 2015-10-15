@@ -136,6 +136,8 @@ body{
   position: fixed;
   width: 100%;
   z-index: 1000;
+  -webkit-transition:  1s;
+  transition:  1s;
 
   ul{
     padding: 0px;
@@ -168,8 +170,6 @@ body{
     padding: 0px;
     background: transparent !important;
     margin-left: ($left-panel-width - 40);
-    -webkit-transition:  1s;
-    transition:  1s;
 
     &.menu-collapsed{
       margin-left: 0px;
@@ -228,7 +228,7 @@ body{
         border: 0px;
       }
       a{
-        padding: 2px 20px;
+        padding: 2px 20px 2px 25px;
       }
       a:first-child{
         text-align: center;
@@ -322,6 +322,34 @@ body{
 
   h4.main-heading{
     margin-top: 5px;
+  }
+
+  .navbar-subnav{
+    margin-top: 90px !important;
+
+    &.scrolled{
+      margin-top: 60px !important;
+    }
+  }
+
+  .menu-sidebar{
+    margin-top: 145px !important;
+
+    &.scrolled{
+      margin-top: 105px !important;
+    }
+  }
+
+  .main-content{
+    margin-top: 145px !important;
+
+    &.scrolled{
+      margin-top: 105px !important;
+    }
+  }
+
+  .navbar-inverse{
+    position: fixed !important;
   }
 }
 
