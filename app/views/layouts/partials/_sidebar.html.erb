@@ -61,7 +61,7 @@
                <li class="sidebar-subnav-header">Charts</li>
                <%@genre_list.each do |genre|%>
                <li>
-                 <div class="pull-right label label-success"><%=genre.titles.count%></div>
+                 <div class="pull-right label"><%=genre.titles.count%></div>
                  <%=link_to genre.genre_espanol, genre_path(genre)%>
                </li>
                <%end%>
