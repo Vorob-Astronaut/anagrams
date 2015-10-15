@@ -55,7 +55,7 @@
   #search_field{
     border: none;
     color: #8d919b;
-    font-family: "open-sans";
+    font-family: "open-sans", "Maven Pro";
     font-size: 14px;
     &:focus{
       border: none;
@@ -362,4 +362,20 @@
 
 .text-blue{
   color: $blue-color;
+}
+
+.top-nav-button{
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-family: "open-sans", "Maven Pro";
+}
+
+.register-button{
+  margin-right: 10px;
+  background-color: #464b57;
+}
+
+.signin-button{
+  background-color: #3996d1;
 }

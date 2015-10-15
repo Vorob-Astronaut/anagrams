@@ -47,8 +47,8 @@
       - else
         %ul.nav.navbar-nav.navbar-right.logout
           %li
-            =image_tag('person.png')
+            =link_to login_path, class: "padding" do
+              %span.top-nav-button.register-button=t('sign_up')
           %li
-            =link_to t('sign_up'), login_path, class: "padding"
-          %li
-            =link_to t('sign_in'), login_path, class: "padding"
+            =link_to login_path, class: "padding" do
+              %span.top-nav-button.signin-button=t('sign_in')
