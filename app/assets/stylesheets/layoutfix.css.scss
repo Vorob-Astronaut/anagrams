@@ -221,11 +221,10 @@ body{
       background-color: #ecf0f1;
       .label{
         position: absolute;
-        right: 15px;
+        right: 5px;
         top: 4px;
-        color: white;
+        color: #a0a5ab;
         border-radius: 50%;
-        background-color: rgba(102, 102, 102, 0.5);
         width:25px;
         height:25px;
         padding: 3px;
@@ -424,6 +423,22 @@ body{
     .sidebar-subnav{
       padding-top: 15px;
       padding-left: 15px !important;
+
+      li{
+        margin: 0 15px 0px 10px !important;
+        border-radius: 20px;
+        a{
+          padding-left: 10px !important;
+          padding-right: 10px !important;
+        }
+        &:hover, &.active{
+          background-color: #3996d1;
+          a, .label{
+            color: white;
+            font-weight: bold;
+          }
+        }
+      }
     }
   }
 }
