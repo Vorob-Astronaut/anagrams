@@ -37,6 +37,7 @@ es:
   my_profile: Mi Perfil
   logout: Salir
   followed_collections: Mis colecciones
+  close: Cerrar
 
   active_admin:
     dashboard: Dashboard

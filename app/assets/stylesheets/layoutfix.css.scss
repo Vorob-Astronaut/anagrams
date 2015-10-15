@@ -285,27 +285,63 @@ body{
 }
 
 #modalTitle{
+  background-color: transparent !important;
+
+  &.fade{
+    -webkit-transform: none !important;
+    transform: none !important;
+  }
+
+  &.modal.fade:not(.in) .modal-dialog {
+    -webkit-transform: translate3d(25%, 0, 0) !important;
+    transform: translate3d(25%, 0, 0) !important;
+  }
+
   .modal-dialog{
-    width: 95%;
+    width: 100%;
+    margin: 144px 0px 0px 0px;
 
     .modal-content{
       border-radius: 0px;
+      background-color: $navbar-color;
+      color: white;
+      box-shadow: none;
+      border: none;
+      padding-top: 30px;
       .tm-block{
         padding: 0px;
 
         .fabrikForm.fabrikDetails{
           margin-top: 0px;
+
+          .filmstrip-detail{
+            margin-top: 40px;
+          }
         }
       }
 
       .close{
-        font-size: 30px;
+        font-size: 14px;
+        color: white;
         position: absolute;
-        top: 15px;
-        right: 20px;
+        top: 0px;
+        right: 0px;
+        font-weight: normal;
       }
     }
   }
+}
+
+.modal-backdrop{
+  opacity: 0 !important;
+}
+
+#titles___filmTitle_ro{
+  color: white;
+}
+
+.uk-float-left.year{
+  color: white;
 }
 
 @media screen and (max-width: 991px){
