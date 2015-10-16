@@ -309,7 +309,7 @@ body{
 
     .modal-content{
       border-radius: 0px;
-      background-color: $navbar-color;
+      background-color: rgba(55, 59, 68, 0.99);
       color: white;
       box-shadow: none;
       border: none;
@@ -361,7 +361,8 @@ body{
             color: #cf8f54;
             font-family: "open-sans", "Maven Pro";
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 14px;
           }
           .detail-info{
             display: table;
@@ -376,6 +377,7 @@ body{
           #titles___shortDescriptionEspanol_ro{
             color: #9096a2;
             font-family: "open-sans", "Maven Pro";
+            font-size: 14px;
           }
           .detail_director{
             margin-top: 0px;
@@ -389,15 +391,17 @@ body{
           .detail_label{
             color: #787c85;
             font-family: "open-sans", "Maven Pro";
-            font-weight: 500;
+            font-weight: 600;
             display: inline-block;
+            font-size: 14px;
           }
           .detail_content{
             font-family: "open-sans", "Maven Pro";
-            font-weight: 500;
+            font-weight: 600;
             margin-left: 20px;
             font-style: italic;
             display: inline-block;
+            font-size: 14px;
           }
         }
         .film-buttons{
@@ -416,8 +420,8 @@ body{
         font-weight: 500;
         font-size: 14px;
         img{
-          width: 18px;
-          height: 18px;
+          width: 20px;
+          height: 20px;
           margin-left: 10px;
         }
       }
