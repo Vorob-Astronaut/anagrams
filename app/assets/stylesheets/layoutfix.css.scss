@@ -333,80 +333,168 @@ body{
         margin-right: auto;
         float: none;
 
-        .film-img{
-          width: 30%;
-          float: left;
-        }
-        .film-details{
-          width: 50%;
-          float: left;
+        .film-main-info{
+          padding-bottom: 70px;
+          border-bottom: 2px solid #40444e;
+          width: 100%;
+          margin-bottom: 30px;
 
-          .uk-heading-large{
-            margin-top: 0px;
-            padding-top: 0px !important;
-            #titles___filmTitle_ro{
-              font-size: 25px;
+          .film-img{
+            width: 25%;
+            float: left;
+          }
+          .film-details{
+            width: 60%;
+            float: left;
+
+            .uk-heading-large{
+              margin-top: -10px;
+              padding-top: 0px !important;
+              margin-bottom: 0px;
+              #titles___filmTitle_ro{
+                font-size: 25px;
+                font-family: "open-sans", "Maven Pro";
+                font-weight: 600;
+              }
+              .year{
+                font-size: 25px;
+                font-family: "open-sans", "Maven Pro";
+                font-weight: 600;
+                padding-top: 0px;
+                margin: 0px 10px;
+              }
+            }
+            .year_action > div{
+              color: #cf8f54;
+              font-family: "open-sans", "Maven Pro";
+              text-transform: uppercase;
+              font-weight: bold;
+              font-size: 14px;
+            }
+            .detail-info{
+              display: table;
+              span{
+                display: table-cell;
+
+                &:first-child{
+                  width: 100px;
+                }
+              }
+            }
+            #titles___shortDescriptionEspanol_ro{
+              color: #9096a2;
+              font-family: "open-sans", "Maven Pro";
+              font-size: 14px;
+            }
+            .detail_director{
+              margin-top: 0px;
+            }
+            .detail_director span{
+              float: none !important;
+            }
+            .detail_Actors span{
+              float: none !important;
+            }
+            .detail_label{
+              color: #787c85;
               font-family: "open-sans", "Maven Pro";
               font-weight: 600;
+              display: inline-block;
+              font-size: 14px;
             }
-            .year{
-              font-size: 25px;
+            .detail_content{
               font-family: "open-sans", "Maven Pro";
               font-weight: 600;
-              padding-top: 0px;
-              margin: 0px 10px;
+              margin-left: 20px;
+              font-style: italic;
+              display: inline-block;
+              font-size: 14px;
             }
           }
-          .year_action > div{
-            color: #cf8f54;
-            font-family: "open-sans", "Maven Pro";
-            text-transform: uppercase;
-            font-weight: 600;
-            font-size: 14px;
-          }
-          .detail-info{
-            display: table;
-            span{
-              display: table-cell;
+          .film-buttons{
+            width: 15%;
+            float: left;
 
-              &:first-child{
-                width: 100px;
+            .addToFav{
+              a{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                font-family: "open-sans", "Maven Pro";
+                font-weight: 600;
+                font-size: 12px !important;
+                text-align: left;
+              }
+
+              .btn{
+                width: 100%;
+                margin-right: 0px;
+                margin-bottom: 10px;
+                text-transform: uppercase !important;
+
+                &.btn-like{
+                  background-color: #d25452 !important;
+                }
+
+                &.btn-queue{
+                  background-color: #3996d1 !important;
+                }
+
+                &.btn-remove{
+                  background-color: #4b4f57 !important;
+                }
               }
             }
           }
-          #titles___shortDescriptionEspanol_ro{
-            color: #9096a2;
-            font-family: "open-sans", "Maven Pro";
-            font-size: 14px;
-          }
-          .detail_director{
-            margin-top: 0px;
-          }
-          .detail_director span{
-            float: none !important;
-          }
-          .detail_Actors span{
-            float: none !important;
-          }
-          .detail_label{
-            color: #787c85;
-            font-family: "open-sans", "Maven Pro";
-            font-weight: 600;
-            display: inline-block;
-            font-size: 14px;
-          }
-          .detail_content{
-            font-family: "open-sans", "Maven Pro";
-            font-weight: 600;
-            margin-left: 20px;
-            font-style: italic;
-            display: inline-block;
-            font-size: 14px;
-          }
         }
-        .film-buttons{
-          width: 20%;
-          float: left;
+
+        .detail_platform{
+          padding: 0px;
+          background-color: transparent !important;
+          .uk-panel{
+            background: transparent !important;
+            padding: 0px !important;
+
+            strong{
+              margin: 0px !important;
+              text-align: center;
+              color: white;
+              font-size: 25px;
+              font-family: "open-sans", "Maven Pro";
+              font-weight: 600;
+            }
+
+            .platform_detail{
+              .uk-thumbnail{
+                width: 90%;
+                margin: 0 auto;
+                background-color: #4b4f57;
+                text-align: left;
+
+                .go-play{
+                  width: 25px;
+                  height: 25px;
+                  background-color: #3996d1;
+                  border-radius: 4px;
+                  color: white;
+                  float: right;
+                  margin-top: 2px;
+                }
+
+                a{
+                  padding: 0px 10px !important;
+                }
+              }
+            }
+          }
+
+          .platforms_title{
+            margin-bottom: 30px;
+          }
+
+          .go_watch{
+            overflow-y: hidden;
+            padding-bottom: 150px;
+          }
         }
       }
 
@@ -417,7 +505,7 @@ body{
         width: 100%;
         text-transform: uppercase;
         font-family: "open-sans", "Maven Pro";
-        font-weight: 500;
+        font-weight: 600;
         font-size: 14px;
         img{
           width: 20px;

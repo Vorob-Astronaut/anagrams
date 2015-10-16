@@ -8,9 +8,9 @@ es:
   favorites: Mis favoritos
   queue: Mi cola
   removals: My removals
-  add_to_favorite: Agregar a mis favoritos
-  remove_from_view: Eliminar de la vista
-  add_to_queue: AÑADIR A myQueue
+  add_to_favorite: Me gusta
+  remove_from_view: Eliminar
+  add_to_queue: Poner en cola
   genre: Género
   collection: Colección
   country: País
