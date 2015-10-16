@@ -293,13 +293,19 @@ body{
   }
 
   &.modal.fade:not(.in) .modal-dialog {
-    -webkit-transform: translate3d(25%, 0, 0) !important;
-    transform: translate3d(25%, 0, 0) !important;
+    -webkit-transform: none;
+    transform: none;
   }
+
+  #title_search{
+    margin-top: 15px !important;
+  }
+
 
   .modal-dialog{
     width: 100%;
-    margin: 144px 0px 0px 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 
     .modal-content{
       border-radius: 0px;
@@ -307,7 +313,7 @@ body{
       color: white;
       box-shadow: none;
       border: none;
-      padding-top: 30px;
+      padding: 0px;
       .tm-block{
         padding: 0px;
 
@@ -320,13 +326,100 @@ body{
         }
       }
 
-      .close{
+      .fabrikGroup{
+        margin-top: 190px;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+
+        .film-img{
+          width: 30%;
+          float: left;
+        }
+        .film-details{
+          width: 50%;
+          float: left;
+
+          .uk-heading-large{
+            margin-top: 0px;
+            padding-top: 0px !important;
+            #titles___filmTitle_ro{
+              font-size: 25px;
+              font-family: "open-sans", "Maven Pro";
+              font-weight: 600;
+            }
+            .year{
+              font-size: 25px;
+              font-family: "open-sans", "Maven Pro";
+              font-weight: 600;
+              padding-top: 0px;
+              margin: 0px 10px;
+            }
+          }
+          .year_action > div{
+            color: #cf8f54;
+            font-family: "open-sans", "Maven Pro";
+            text-transform: uppercase;
+            font-weight: 500;
+          }
+          .detail-info{
+            display: table;
+            span{
+              display: table-cell;
+
+              &:first-child{
+                width: 100px;
+              }
+            }
+          }
+          #titles___shortDescriptionEspanol_ro{
+            color: #9096a2;
+            font-family: "open-sans", "Maven Pro";
+          }
+          .detail_director{
+            margin-top: 0px;
+          }
+          .detail_director span{
+            float: none !important;
+          }
+          .detail_Actors span{
+            float: none !important;
+          }
+          .detail_label{
+            color: #787c85;
+            font-family: "open-sans", "Maven Pro";
+            font-weight: 500;
+            display: inline-block;
+          }
+          .detail_content{
+            font-family: "open-sans", "Maven Pro";
+            font-weight: 500;
+            margin-left: 20px;
+            font-style: italic;
+            display: inline-block;
+          }
+        }
+        .film-buttons{
+          width: 20%;
+          float: left;
+        }
+      }
+
+      .close-modal{
+        background-color: transparent;
+        border: navajowhite;
+        text-align: right;
+        width: 100%;
+        text-transform: uppercase;
+        font-family: "open-sans", "Maven Pro";
+        font-weight: 500;
         font-size: 14px;
-        color: white;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        font-weight: normal;
+        img{
+          width: 18px;
+          height: 18px;
+          margin-left: 10px;
+        }
       }
     }
   }

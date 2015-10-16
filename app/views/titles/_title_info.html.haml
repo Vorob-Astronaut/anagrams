@@ -1,15 +1,17 @@
+= render "shared/header"
+= render 'shared/subnavbar'
 .tm-block.tm-block-main
   .uk-container.uk-container-center
   .tm-middle.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => ""}
     .tm-main.uk-width-medium-1-1
       %main.tm-content
         #details_1_34.fabrikForm.fabrikDetails
-          #group1.fabrikGroup.form-horizontal.col-sm-8.col-sm-offset-2{:style => ""}
-            %button{:type => "button", :class => "close", "data-dismiss" => "modal", "aria-label" => "Close"}
+          #group1.fabrikGroup.form-horizontal
+            %button{:type => "button", :class => "close-modal", "data-dismiss" => "modal", "aria-label" => "Close"}
               %span{"aria-hidden" => "true"}
                 =t('close')
                 %span
-                  &times
+                  %img{"src" => '/assets/close.png'}
             .uk-grid.filmstrip-detail.detail
               .uk-width-3-10.film-img
                 #titles___key_art_ro
@@ -19,7 +21,7 @@
                       =rating_for(@title, "users_score", :enable_half => true, :half_show => true, readonly: true)
                     -else
                       =rating_for(@title, "users_score", :enable_half => true, :half_show => true)
-              .uk-width-7-10
+              .film-details
                 %h1.uk-heading-large.uk-clearfix.title-heading
                   .uk-float-left
                     #titles___filmTitle_ro= @title.film_title
@@ -28,19 +30,22 @@
                       (#{@title.year_produced})
                   .detail_rating
                     / <span><strong></strong></span>
+                .detail-info.detail_contry
+                  %span.detail_label
+                    =t('country')
+                  %span.detail_content
+                    =@title.countries.collect(&:country).join(', ')
                 .year_action
                   #titles___Genres_ro
-                    =@title.genres.collect(&:genre_espanol).join(', ')
-                .detail_director
-                  %span
-                    %strong director:
-                  #titles___Director_ro= @title.director
-                - if !@title.director.present?
-                  %br/
-                .detail_Actors
-                  %span
-                    %strong Elenco:
-                  #titles___Actors_ro= @title.actors
+                    =@title.genres.collect(&:genre_espanol).join(' · ')
+                .detail-info.detail_director
+                  %span.detail_label
+                    =t('director')
+                  %span.detail_content#titles___Director_ro= @title.director
+                .detail-info.detail_Actors
+                  %span.detail_label
+                    =t('starring')
+                  %span.detail_content#titles___Actors_ro=@title.actors
                 .detail_description
                   #titles___shortDescriptionEspanol_ro= @title.snappy_summary
                 - if !@title.snappy_summary.present?

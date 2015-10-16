@@ -38,6 +38,8 @@ en:
   logout: Logout
   followed_collections: Followed collections
   close: Close
+  director: Director
+  starring: Starring
 
   active_admin:
     dashboard: Dashboard

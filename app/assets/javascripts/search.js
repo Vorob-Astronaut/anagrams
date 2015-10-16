@@ -85,6 +85,10 @@ $(function() {
       $('.breadcrumb').removeClass('menu-collapsed');
     }
   });
+
+  $('.product').click( function(){
+      window.resize();
+  })
 });
 
 function setSidebarHeight(){

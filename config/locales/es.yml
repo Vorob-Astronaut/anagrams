@@ -38,6 +38,8 @@ es:
   logout: Salir
   followed_collections: Mis colecciones
   close: Cerrar
+  director: Director
+  starring: Elenco
 
   active_admin:
     dashboard: Dashboard
