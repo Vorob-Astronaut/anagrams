@@ -88,6 +88,10 @@ $(function() {
 
   $('.product').click( function(){
       window.resize();
+  });
+
+  $('.close-button-back').click( function(){
+    alert();
   })
 });
 

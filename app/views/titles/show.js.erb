@@ -9,3 +9,5 @@ if( $('.navbar-default').hasClass('small') ){
     'top': 145,
   })
 }
+
+$('li.navbar-collapse-button').html("<%= escape_javascript(render 'shared/back_button_nav') %>")
