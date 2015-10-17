@@ -77,11 +77,17 @@
                         =link_to t('notify_me'), follow_title_path(@title), class: "follow-btn btn", remote: true
                   %div{:id => "titles___platform_ro go-watch", class: "go_watch"}
                     -if @title.movie_streams.any? then
-                      -streams = []
-                      -streams[0]=@title.movie_streams.find_all{ |stream| stream.link_type.include? "instant" }
-                      -streams[1]=@title.movie_streams.find_all{ |stream| stream.link_type.include?("dvd") || stream.link_type.include?("bluray") }
-                      -streams[2]=@title.movie_streams.find_all{ |stream| stream.link_type.include? "rental" }
-                      -streams[3]=@title.movie_streams.find_all{ |stream| stream.link_type.include? "purchase" }
+                      -streams = [[],[],[],[]]
+                      -@title.movie_streams.each do |stream|
+                        -if !stream.link_type.nil?
+                          -if stream.link_type.include? "instant"
+                            -streams[0].push stream
+                          -if stream.link_type.include?("dvd") || stream.link_type.include?("bluray")
+                            -streams[1].push stream
+                          -if stream.link_type.include? "rental"
+                            -streams[2].push stream
+                          -if stream.link_type.include? "purchase"
+                            -streams[3].push stream
                       %table
                         %thead
                           %tr
