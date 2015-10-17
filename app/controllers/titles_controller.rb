@@ -9,6 +9,9 @@ class TitlesController < ApplicationController
     @title = Title.friendly.find(params[:id])
     @country_list = Country.where(is_active?: true)
     add_breadcrumb @title.film_title, title_path(@title)
+    if request.xhr?
+      @modal = true
+    end
   end
 
 

@@ -2,7 +2,13 @@
   .container-fluid
     %ul
       %li.navbar-collapse-button
-        %span.fa.fa-bars
+        -if @modal
+          %span{:type => "button", "data-dismiss" => "modal", "aria-label" => "Close"}
+            %span.fa.fa-angle-left.back-icon
+            %span.back-text
+              ="Back"
+        -else
+          %span.fa.fa-bars
       %li
         %ol.breadcrumb
           = render_breadcrumbs tag: :li, separator: ""

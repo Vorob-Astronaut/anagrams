@@ -72,12 +72,16 @@
                     -if current_user
                       %a#film_.btn.uk-button.Remove_view.add_favourite.btn-action-title.btn-remove{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"}=t('remove_from_view')
                     -else
-                      =link_to t('remove_from_view'), new_user_registration_path, class: "btn uk-button add_favourite btn-action-title btn-remove"
+                      =link_to new_user_registration_path, class: "btn uk-button add_favourite btn-action-title btn-remove" do
+                        %span.icon-playlist-remove
+                        %span=t('remove_from_view')
 
                     -if current_user
                       %a#addqueue_.btn.uk-button.myqueue.add_favourite.btn-action-title.btn-queue{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)", :title => "Want To Watch"}=t('add_to_queue')
                     -else
-                      =link_to t('add_to_queue'), new_user_registration_path, class: "btn uk-button add_favourite btn-action-title btn-queue"
+                      =link_to new_user_registration_path, class: "btn uk-button add_favourite btn-action-title btn-queue" do
+                        %span.icon-playlist-plus
+                        %span=t('add_to_queue')
 
                     -if current_user
                       %a.uk-button.btn.btn-action-title{"data-target" => "#myModal", "data-toggle" => "modal", :href => report_message_path}=t('report_a_problem')
@@ -94,15 +98,45 @@
                         =link_to t('notify_me'), follow_title_path(@title), class: "follow-btn btn", remote: true
                   %div{:id => "titles___platform_ro go-watch", class: "go_watch"}
                     -if @title.movie_streams.any? then
-                      -@title.movie_streams.each do |stream|
-                        %div.platform_detail
-                          -if stream.movie_stream_link_type
-                            =link_to(image_tag(stream.movie_stream_link_type.logo.url, alt: stream.link_type, height: "100px", width: "200px"), stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail")
-                          %div.uk-thumbnail.price_platform
-                            =link_to stream.link do
-                              %img{src: "/assets/netflix.png"}
-                              %div.go-play
-                                .icon-play
+                      -streams = []
+                      -streams[0]=@title.movie_streams.find_all{ |stream| stream.link_type.include? "instant" }
+                      -streams[1]=@title.movie_streams.find_all{ |stream| stream.link_type.include?("dvd") || stream.link_type.include?("bluray") }
+                      -streams[2]=@title.movie_streams.find_all{ |stream| stream.link_type.include? "rental" }
+                      -streams[3]=@title.movie_streams.find_all{ |stream| stream.link_type.include? "purchase" }
+                      %table
+                        %thead
+                          %tr
+                            %td
+                              FREE
+                            %td
+                              DIGITAL PURCHASE
+                            %td
+                              RENTAL
+                            %td
+                              PURCHASE
+                        %tbody
+                          %tr
+                            -streams.each do |streamType|
+                              %td
+                                -streamType.each do |stream|
+                                  %div.platform_detail
+                                    -if stream.movie_stream_link_type
+                                      =link_to(image_tag(stream.movie_stream_link_type.logo.url, alt: stream.link_type, height: "100px", width: "200px"), stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail")
+                                    %div.uk-thumbnail.price_platform
+                                      -if stream.link_type.include? "netflix"
+                                        %img{src: "/assets/netflix.png"}
+                                      -elsif stream.link_type.include? "amazon"
+                                        %img{src: "/assets/amazon.png"}
+                                      -elsif stream.link_type.include? "apple"
+                                        %img{src: "/assets/apple.png"}
+                                      -elsif stream.link_type.include? "youtube"
+                                        %img{src: "/assets/youtube.png"}
+                                      -elsif stream.link_type.include? "hulu"
+                                        %img{src: "/assets/hulu.png"}
+                                      -elsif stream.link_type.include? "vudu"
+                                        %img{src: "/assets/vudu.png"}
+                                      %div.go-play
+                                        .icon-play
                     -else
                       =t('platfrom_not_avalible')
                       %br
