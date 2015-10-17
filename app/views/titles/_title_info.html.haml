@@ -122,21 +122,22 @@
                                             %img{src: "/assets/vudu.png"}
                                           %div.go-play
                                             .icon-play
-                                      %div.uk-thumbnail.price_platform
-                                        -if stream.link_type.include? "netflix"
-                                          %img{src: "/assets/netflix.png"}
-                                        -elsif stream.link_type.include? "amazon"
-                                          %img{src: "/assets/amazon.png"}
-                                        -elsif stream.link_type.include? "apple"
-                                          %img{src: "/assets/apple.png"}
-                                        -elsif stream.link_type.include? "youtube"
-                                          %img{src: "/assets/youtube.png"}
-                                        -elsif stream.link_type.include? "hulu"
-                                          %img{src: "/assets/hulu.png"}
-                                        -elsif stream.link_type.include? "vudu"
-                                          %img{src: "/assets/vudu.png"}
-                                        %div.go-play
-                                          .icon-play
+                                      -else
+                                        %div.uk-thumbnail.price_platform
+                                          -if stream.link_type.include? "netflix"
+                                            %img{src: "/assets/netflix.png"}
+                                          -elsif stream.link_type.include? "amazon"
+                                            %img{src: "/assets/amazon.png"}
+                                          -elsif stream.link_type.include? "apple"
+                                            %img{src: "/assets/apple.png"}
+                                          -elsif stream.link_type.include? "youtube"
+                                            %img{src: "/assets/youtube.png"}
+                                          -elsif stream.link_type.include? "hulu"
+                                            %img{src: "/assets/hulu.png"}
+                                          -elsif stream.link_type.include? "vudu"
+                                            %img{src: "/assets/vudu.png"}
+                                          %div.go-play
+                                            .icon-play
                     -else
                       =t('platfrom_not_avalible')
                       %br
