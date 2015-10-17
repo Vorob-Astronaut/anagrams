@@ -118,8 +118,8 @@
                           %tr
                             -streams.each do |streamType|
                               %td
-                                -streamType.each do |stream|
-                                  -if streamType
+                                -if streamType
+                                  -streamType.each do |stream|
                                     %div.platform_detail
                                       -if stream.movie_stream_link_type
                                         =link_to stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail" do
