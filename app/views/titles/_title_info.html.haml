@@ -1,5 +1,6 @@
-= render "shared/header"
-= render 'shared/subnavbar'
+-if @modal
+  = render "shared/header"
+  = render 'shared/subnavbar'
 .tm-block.tm-block-main
   .uk-container.uk-container-center
   .tm-middle.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => ""}
@@ -7,7 +8,8 @@
       %main.tm-content
         #details_1_34.fabrikForm.fabrikDetails
           #group1.fabrikGroup.form-horizontal
-            %button{:type => "button", :class => "close-modal", "data-dismiss" => "modal", "aria-label" => "Close"}
+            -if @modal
+              %button{:type => "button", :class => "close-modal", "data-dismiss" => "modal", "aria-label" => "Close"}
               %span{"aria-hidden" => "true"}
                 =t('close')
                 %span
@@ -61,30 +63,7 @@
 
                     </div>
                 .film-buttons
-                  .addToFav
-                    -if current_user
-                      %a#add_.btn.uk-button.add_favourite.btn-action-title.btn-like{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return AddtoFav(id)", :title => "Me gusta"}=t('add_to_favorite')
-                    -else
-                      =link_to new_user_registration_path, class: "btn uk-button add_favourite btn-action-title btn-like" do
-                        %span.icon-heart
-                        %span=t('add_to_favorite')
-
-                    -if current_user
-                      %a#film_.btn.uk-button.Remove_view.add_favourite.btn-action-title.btn-remove{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"}=t('remove_from_view')
-                    -else
-                      =link_to new_user_registration_path, class: "btn uk-button add_favourite btn-action-title btn-remove" do
-                        %span.icon-playlist-remove
-                        %span=t('remove_from_view')
-
-                    -if current_user
-                      %a#addqueue_.btn.uk-button.myqueue.add_favourite.btn-action-title.btn-queue{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)", :title => "Want To Watch"}=t('add_to_queue')
-                    -else
-                      =link_to new_user_registration_path, class: "btn uk-button add_favourite btn-action-title btn-queue" do
-                        %span.icon-playlist-plus
-                        %span=t('add_to_queue')
-
-                    -if current_user
-                      %a.uk-button.btn.btn-action-title{"data-target" => "#myModal", "data-toggle" => "modal", :href => report_message_path}=t('report_a_problem')
+                  =render partial: 'shared/fav_buttons', locals: {show_view_button: false}
 
               .detail_platform.uk-width-1-1
                 .uk-panel.uk-panel-box.uk-width-medium-10-10
@@ -121,6 +100,22 @@
                                 -if streamType
                                   -streamType.each do |stream|
                                     %div.platform_detail
+                                      -if stream.movie_stream_link_type
+                                        =link_to stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail" do
+                                          -if stream.link_type.include? "netflix"
+                                            %img{src: "/assets/netflix.png"}
+                                          -elsif stream.link_type.include? "amazon"
+                                            %img{src: "/assets/amazon.png"}
+                                          -elsif stream.link_type.include? "apple"
+                                            %img{src: "/assets/apple.png"}
+                                          -elsif stream.link_type.include? "youtube"
+                                            %img{src: "/assets/youtube.png"}
+                                          -elsif stream.link_type.include? "hulu"
+                                            %img{src: "/assets/hulu.png"}
+                                          -elsif stream.link_type.include? "vudu"
+                                            %img{src: "/assets/vudu.png"}
+                                          %div.go-play
+                                            .icon-play
                                       %div.uk-thumbnail.price_platform
                                         -if stream.link_type.include? "netflix"
                                           %img{src: "/assets/netflix.png"}

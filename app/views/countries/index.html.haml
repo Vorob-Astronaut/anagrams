@@ -1,7 +1,7 @@
 .row
-  .col-md-2.left-sidebar
+  .menu-sidebar
     =render 'layouts/partials/sidebar'
-  .col-md-10.back-ground
+  .main-content
     - @countries.each do |country|
       - if country.is_active? && country.titles.any?
         = link_to country.country, country_path(country)

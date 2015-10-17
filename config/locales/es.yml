@@ -40,6 +40,7 @@ es:
   close: Cerrar
   director: Director
   starring: Elenco
+  view: Ver
 
   active_admin:
     dashboard: Dashboard

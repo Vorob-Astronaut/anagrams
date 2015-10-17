@@ -28,13 +28,13 @@ $(function() {
   });
 
   // This is for handle the modal for titles
-  $('.product > a').click( function(event){
+  $('.product a.btn-eye').click( function(event){
     var newUrl = $(this).attr('href');
 
     window.history.pushState({}, null, newUrl);
   });
 
-  $('#modalTitle .close').click(function (e) {
+  $('#modalTitle .close-modal').click(function (e) {
     window.history.back();
   });
   //------------------------------------//
