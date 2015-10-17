@@ -1,1 +1,11 @@
 $('#modalTitle .modal-main-content').html("<%= escape_javascript(render 'titles/title_info') %>");
+
+if( $('.navbar-default').hasClass('small') ){
+  $('#modalTitle').css({
+    'top': 115,
+  })
+}else{
+  $('#modalTitle').css({
+    'top': 145,
+  })
+}

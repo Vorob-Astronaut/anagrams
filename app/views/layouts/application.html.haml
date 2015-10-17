@@ -16,7 +16,7 @@
     %script{src: "https://use.typekit.net/jyt7bua.js"}
     %script
       try{Typekit.load({ async: true });}catch(e){}
-  %body
+  %body.scrollbar-custom
     = render "shared/header"
     = render 'shared/subnavbar'
     #alert-container
@@ -32,7 +32,7 @@
   / /.modal-dialog
 / /.modal
 
-#modalTitle.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "modalTitle", :role => "dialog", :tabindex => "-1"}
+#modalTitle.modal.fade.scrollbar-custom{"aria-hidden" => "true", "aria-labelledby" => "modalTitle", :role => "dialog", :tabindex => "-1"}
   .modal-dialog
     .modal-content
       .modal-main-content
