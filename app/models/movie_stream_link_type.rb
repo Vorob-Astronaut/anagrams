@@ -11,14 +11,12 @@ class MovieStreamLinkType < ActiveRecord::Base
   end
 
   def update_transaction_type
-    if typel.include? "instant" || typel.include?("free") then
+    if typel.include?("free") then
       self.update_attribute(:transaction_type, "Free")
-    elsif typel.include?("dvd") || typel.include?("bluray")
+    elsif typel.include?("dvd") || typel.include?("bluray") || typel.include?("purchase")
       self.update_attribute(:transaction_type, "Digital Purchase")
     elsif typel.include?("rental")
       self.update_attribute(:transaction_type, "Rental")
-    elsif typel.include?("purchase")
-      self.update_attribute(:transaction_type, "Subscription")
     else
       Message.create(message: "CANNOT RECOGNIZE A TRANSACTION TYPE FOR #{self.typel}. SET IT MANUALY")
     end
