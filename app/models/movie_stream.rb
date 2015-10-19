@@ -1,3 +1,4 @@
+require "snake_case"
 # == Schema Information
 #
 # Table name: movie_streams
@@ -17,6 +18,10 @@ class MovieStream < ActiveRecord::Base
   belongs_to :title
   belongs_to :movie_stream_link_type
   after_create :notify
+
+  ["Free", "Digital Purchase", "Rental", "Subscription"].each do |t|
+    scope t.snakecase.to_sym, -> { joins(:movie_stream_link_type).where("movie_stream_link_types.transaction_type = ?", t) }
+  end
 
   protected
 

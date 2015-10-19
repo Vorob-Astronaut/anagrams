@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002100644) do
+ActiveRecord::Schema.define(version: 20151019070826) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -180,12 +180,12 @@ ActiveRecord::Schema.define(version: 20151002100644) do
     t.datetime "logo_updated_at"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "transaction_type",  limit: 255
   end
 
   create_table "movie_streams", force: :cascade do |t|
     t.string  "typel",                     limit: 255
     t.string  "link",                      limit: 255
-    t.string  "link_type",                 limit: 255
     t.decimal "price",                                   precision: 10, scale: 2
     t.integer "title_id",                  limit: 4,                                              null: false
     t.string  "external_id",               limit: 255,                            default: "",    null: false

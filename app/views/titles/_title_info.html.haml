@@ -73,71 +73,47 @@
                       -else
                         =link_to t('notify_me'), follow_title_path(@title), class: "follow-btn btn", remote: true
                   %div{:id => "titles___platform_ro go-watch", class: "go_watch"}
+                    //TODO: DESIGN IT!
                     -if @title.movie_streams.any? then
-                      -streams = [[],[],[],[]]
-                      -@title.movie_streams.each do |stream|
-                        -if !stream.link_type.nil?
-                          -if stream.link_type.include? "instant"
-                            -streams[0].push stream
-                          -if stream.link_type.include?("dvd") || stream.link_type.include?("bluray")
-                            -streams[1].push stream
-                          -if stream.link_type.include? "rental"
-                            -streams[2].push stream
-                          -if stream.link_type.include? "purchase"
-                            -streams[3].push stream
-                      %table
-                        %thead
-                          %tr
-                            %td
-                              FREE
-                            %td
-                              DIGITAL PURCHASE
-                            %td
-                              RENTAL
-                            %td
-                              PURCHASE
-                        %tbody
-                          %tr
-                            -streams.each do |streamType|
-                              %td
-                                -if streamType
-                                  -streamType.each do |stream|
-                                    %div.platform_detail
-                                      -if stream.movie_stream_link_type
-                                        =link_to stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail" do
-                                          -if stream.link_type.include? "netflix"
-                                            %img{src: "/assets/netflix.png"}
-                                          -elsif stream.link_type.include? "amazon"
-                                            %img{src: "/assets/amazon.png"}
-                                          -elsif stream.link_type.include? "apple"
-                                            %img{src: "/assets/apple.png"}
-                                          -elsif stream.link_type.include? "youtube"
-                                            %img{src: "/assets/youtube.png"}
-                                          -elsif stream.link_type.include? "hulu"
-                                            %img{src: "/assets/hulu.png"}
-                                          -elsif stream.link_type.include? "vudu"
-                                            %img{src: "/assets/vudu.png"}
-                                          %div.go-play
-                                            .icon-play
-                                      -else
-                                        %div.uk-thumbnail.price_platform
-                                          -if stream.link_type.include? "netflix"
-                                            %img{src: "/assets/netflix.png"}
-                                          -elsif stream.link_type.include? "amazon"
-                                            %img{src: "/assets/amazon.png"}
-                                          -elsif stream.link_type.include? "apple"
-                                            %img{src: "/assets/apple.png"}
-                                          -elsif stream.link_type.include? "youtube"
-                                            %img{src: "/assets/youtube.png"}
-                                          -elsif stream.link_type.include? "hulu"
-                                            %img{src: "/assets/hulu.png"}
-                                          -elsif stream.link_type.include? "vudu"
-                                            %img{src: "/assets/vudu.png"}
-                                          %div.go-play
-                                            .icon-play
+                      .transaction_type
+                        FREE
+                        -@title.movie_streams.free.each do |stream|
+                          .platform_detail
+                            -if stream.movie_stream_link_type
+                              =link_to(image_tag(stream.movie_stream_link_type.logo.url, alt: stream.movie_stream_link_type.typel, height: "100px", width: "200px"), stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail")
+                            .go-play
+                              .icon-play
+                                =link_to "View", stream.link
+                      .transaction_type
+                        DIGITAL PURCHASE
+                        -@title.movie_streams.digital_purchase.each do |stream|
+                          .platform_detail
+                            -if stream.movie_stream_link_type
+                              =link_to(image_tag(stream.movie_stream_link_type.logo.url, alt: stream.movie_stream_link_type.typel, height: "100px", width: "200px"), stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail")
+                            .go-play
+                              .icon-play
+                                =link_to "View", stream.link
+                      .transaction_type
+                        RENTAL
+                        -@title.movie_streams.rental.each do |stream|
+                          .platform_detail
+                            -if stream.movie_stream_link_type
+                              =link_to(image_tag(stream.movie_stream_link_type.logo.url, alt: stream.movie_stream_link_type.typel, height: "100px", width: "200px"), stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail")
+                            .go-play
+                              .icon-play
+                                =link_to "View", stream.link
+                      .transaction_type
+                        SUBSCRIPTIOPN
+                        -@title.movie_streams.subscription.each do |stream|
+                          .platform_detail
+                            -if stream.movie_stream_link_type
+                              =link_to(image_tag(stream.movie_stream_link_type.logo.url, alt: stream.movie_stream_link_type.typel, height: "100px", width: "200px"), stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail")
+                            .go-play
+                              .icon-play
+                                =link_to "View", stream.link
                     -else
                       =t('platfrom_not_avalible')
                       %br
                       %br
                       %br
-                      %br
+                        .platform_detail
