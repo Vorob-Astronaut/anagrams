@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :user_removals
     resources :user_queues
     resources :messages do
-      get :report, on: :member
+      get :report, on: :collection
     end
     get ':notification/mark_notifications_as_readed' => "user_activity_logs#mark_as_readed", as: :mark_notifications_as_readed
     get 'mark_all_notifications_as_readed' => "user_activity_logs#mark_all_as_readed", as: :mark_all_notifications_as_readed

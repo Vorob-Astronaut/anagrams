@@ -88,6 +88,9 @@ group :development, :test do
   gem 'byebug'
   gem 'pg'
   gem 'pry'
+  gem "mocha", :require => false
+  gem 'rspec-rails'
+  gem 'its'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
