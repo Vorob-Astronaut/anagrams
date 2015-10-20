@@ -6,10 +6,10 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require_tree ./angle/
 //= require jquery-ui
 //= require social-share-button
 //= require pageless
 //= require jquery.raty
 //= require ratyrate
+//= require bootstrap
 //= require turbolinks

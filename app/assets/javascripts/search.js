@@ -27,19 +27,25 @@ $(function() {
     minLength: 1
   });
 
+  var previousUrl;
+
   // This is for handle the modal for titles
-  $('.product a.btn-eye').click( function(event){
+  $(document).on('click','.product a.btn-eye', function(event){
+    previousUrl = window.location.pathname;
+
     var newUrl = $(this).attr('href');
+
+    $('#modalTitle').modal({
+      backdrop: false
+    });
 
     window.history.pushState({}, null, newUrl);
   });
-
-  $('#modalTitle .close-modal').click(function (e) {
-    window.history.back();
-  });
   //------------------------------------//
 
-  setSidebarHeight();
+  $(document).ready( function(){
+    setSidebarHeight();
+  })
 
   $(window).resize( function(){
     setSidebarHeight();
@@ -74,7 +80,7 @@ $(function() {
     }
   });
 
-  $('.navbar-collapse-button span').click( function(){
+  $(document).on('click', '.navbar-collapse-button span.fa-bars', function(){
     if( !$('.menu-sidebar').hasClass('menu-collapsed') ){
       $('.menu-sidebar').addClass('menu-collapsed');
       $('.main-content').addClass('menu-collapsed');
@@ -86,25 +92,22 @@ $(function() {
     }
   });
 
-  $('.product').click( function(){
-      window.resize();
+  $(document).on('click', '.close-button-back', function(){
+    $('#modalTitle').modal('hide');
+    $('li.navbar-collapse-button').html('<span class="fa fa-bars"></span>');
   });
 
-  $('.close-button-back').click( function(){
-    alert();
-  })
+  $(document).on('hidden.bs.modal', '#modalTitle', function (e) {
+    window.history.pushState({}, null, previousUrl);
+    setSidebarHeight();
+  });
 });
 
 function setSidebarHeight(){
   var height = $(window).height();
 
   $('.sidebarr').css({
-    height: height - (90 + 55),
+    height: height - ($('.navbar-default').height() + $('.navbar-subnav').height()),
   });
 }
-
-
-$('#modalTitle').on('hidden.bs.modal', function (e) {
-  window.history.back();
-});
 

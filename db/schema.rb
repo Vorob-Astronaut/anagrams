@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 20151019070826) do
     t.datetime "updated_at"
   end
 
+  create_table "collection_language", force: :cascade do |t|
+    t.string   "locale",                  limit: 255,   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "collection_name",         limit: 255
+    t.text     "collection_description_", limit: 65535
+  end
+
+  add_index "collection_language", ["locale"], name: "index_collection_translations_on_locale", using: :btree
+
   create_table "collection_translations", force: :cascade do |t|
     t.integer  "collection_id",           limit: 4,     null: false
     t.string   "locale",                  limit: 255,   null: false
@@ -73,8 +83,8 @@ ActiveRecord::Schema.define(version: 20151019070826) do
     t.string   "collection_name",         limit: 255
     t.text     "collection_description_", limit: 65535
     t.string   "user_id",                 limit: 255
-    t.boolean  "featured",                limit: 1
-    t.boolean  "home",                    limit: 1
+    t.text     "featured",                limit: 65535
+    t.text     "home",                    limit: 65535
     t.string   "image_file_name",         limit: 255
     t.string   "image_content_type",      limit: 255
     t.integer  "image_file_size",         limit: 4
@@ -96,7 +106,7 @@ ActiveRecord::Schema.define(version: 20151019070826) do
     t.string  "country_code",      limit: 255
     t.string  "geographic_region", limit: 255
     t.string  "country",           limit: 100
-    t.boolean "active",            limit: 1
+    t.text    "active",            limit: 65535
     t.boolean "is_active?",        limit: 1
     t.string  "slug",              limit: 255
   end
@@ -154,7 +164,7 @@ ActiveRecord::Schema.define(version: 20151019070826) do
     t.datetime "date_time"
     t.string   "genre_english", limit: 255
     t.string   "genre_espanol", limit: 255
-    t.boolean  "active",        limit: 1
+    t.text     "active",        limit: 65535
     t.boolean  "is_active?",    limit: 1
     t.string   "slug",          limit: 255
   end
@@ -261,6 +271,7 @@ ActiveRecord::Schema.define(version: 20151019070826) do
   create_table "titles", force: :cascade do |t|
     t.datetime "date_time"
     t.string   "film_title",                limit: 255
+    t.string   "alt_title",                 limit: 255
     t.string   "year_produced",             limit: 255
     t.text     "snappy_summary",            limit: 65535
     t.text     "long_description_espanol",  limit: 65535
@@ -273,7 +284,8 @@ ActiveRecord::Schema.define(version: 20151019070826) do
     t.text     "short_description_espanol", limit: 65535
     t.string   "duration",                  limit: 255
     t.string   "film_rating",               limit: 255
-    t.boolean  "active",                    limit: 1
+    t.text     "active",                    limit: 65535
+    t.string   "ref_movie_id",              limit: 255
     t.integer  "meta_verified",             limit: 4
     t.datetime "date_updated_can_istream"
     t.string   "key_art_file_name",         limit: 255
@@ -282,6 +294,7 @@ ActiveRecord::Schema.define(version: 20151019070826) do
     t.datetime "key_art_updated_at"
     t.boolean  "is_active?",                limit: 1
     t.string   "slug",                      limit: 255
+    t.boolean  "not_found",                 limit: 1,     default: false, null: false
   end
 
   add_index "titles", ["film_title"], name: "filmTitle", using: :btree

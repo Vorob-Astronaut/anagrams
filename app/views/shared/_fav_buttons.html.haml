@@ -25,6 +25,6 @@
 
   -if show_view_button
     -if title
-      =link_to title, class: "btn uk-button add_favourite btn-action-title btn-eye", data: {"target" => "#modalTitle", "toggle" => "modal", "backdrop" => false}, remote: true do
+      =link_to title, class: "btn uk-button add_favourite btn-action-title btn-eye", remote: true do
         %span.icon-eye
         %span=t('view')

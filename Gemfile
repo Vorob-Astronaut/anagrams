@@ -83,13 +83,14 @@ gem "haml"
 #admin
 gem 'activeadmin', github: 'activeadmin'
 
+gem 'bootstrap-sass', '~> 3.3.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pg'
   gem 'pry'
   gem "mocha", :require => false
-  gem 'rspec-rails'
   gem 'its'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
