@@ -181,15 +181,21 @@ body{
       padding-left: 20px;
     }
     li{
-      color: #262c31;
-      padding: 0px;
-    }
-    a{
-      color:white;
+      color: #ffffff;
       font-family: "open-sans", "Maven Pro";
       font-size: 14px;
       text-transform: capitalize;
+      font-weight: 600;
+      padding: 0px;
     }
+  }
+
+  a{
+    color: #86c9f3;
+    font-family: "open-sans", "Maven Pro";
+    font-size: 14px;
+    text-transform: capitalize;
+    font-weight: 600;
   }
 }
 
@@ -826,4 +832,24 @@ body{
 .main-title{
   margin-top: 0px !important;
   line-height: 30px !important;
+}
+
+.li-filters{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  ul{
+    li{
+      margin-right: 30px;
+
+      a{
+        &.active{
+          color: #FFFFFF;
+        }
+      }
+
+      &:last-child{
+        margin-right: 15px;
+      }
+    }
+  }
 }

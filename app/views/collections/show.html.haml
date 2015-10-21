@@ -13,18 +13,6 @@
           =link_to t('follow'), follow_collection_path(@collection), id: "critic_11", class: "#{'followed' if current_user.followed_collection_ids.include?(@collection.id)} uk-button addCritics follow-button-#{@collection.slug}", remote: true
         -else
           =link_to t('follow'), new_user_registration_path, id: "critic_11", class: "uk-button addCritics follow-button-#{@collection.slug}"
-      .col-md-6.col-sm-8.cta-buttons
-        %section
-          .uk-width-1-1
-            .uk-panel.uk-panel-box.filter-menu
-              %ul.uk-nav.uk-nav-parent-icon.uk-nav-side
-                %li
-                  =link_to t('collection'), collections_path
-                %li
-                  =link_to t('country'), countries_path
-                %li
-                  =link_to t('genre'), genre_index_path
-
     .row.film.padding-10
       =render @titles
       #results
