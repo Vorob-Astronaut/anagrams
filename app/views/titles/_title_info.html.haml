@@ -92,141 +92,33 @@
                               -@title.movie_streams.free.each do |stream|
                                 .platform_detail
                                   -if stream.movie_stream_link_type
-                                    =link_to stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail" do
-                                      -if stream.link_type.include? "netflix"
-                                        %img{src: "/assets/netflix.png"}
-                                      -elsif stream.link_type.include? "amazon"
-                                        %img{src: "/assets/amazon.png"}
-                                      -elsif stream.link_type.include? "apple"
-                                        %img{src: "/assets/apple.png"}
-                                      -elsif stream.link_type.include? "youtube"
-                                        %img{src: "/assets/youtube.png"}
-                                      -elsif stream.link_type.include? "hulu"
-                                        %img{src: "/assets/hulu.png"}
-                                      -elsif stream.link_type.include? "vudu"
-                                        %img{src: "/assets/vudu.png"}
+                                    =link_to stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail" do
+                                      =image_tag(stream.movie_stream_link_type.logo.url)
                                       %div.go-play
-                                        .icon-play
-                                  -else
-                                    .uk-thumbnail.price_platform
-                                      -if stream.link_type.include? "netflix"
-                                        %img{src: "/assets/netflix.png"}
-                                      -elsif stream.link_type.include? "amazon"
-                                        %img{src: "/assets/amazon.png"}
-                                      -elsif stream.link_type.include? "apple"
-                                        %img{src: "/assets/apple.png"}
-                                      -elsif stream.link_type.include? "youtube"
-                                        %img{src: "/assets/youtube.png"}
-                                      -elsif stream.link_type.include? "hulu"
-                                        %img{src: "/assets/hulu.png"}
-                                      -elsif stream.link_type.include? "vudu"
-                                        %img{src: "/assets/vudu.png"}
-                                      .go-play
                                         .icon-play
                             %td.transaction_type
                               -@title.movie_streams.digital_purchase.each do |stream|
                                 .platform_detail
                                   -if stream.movie_stream_link_type
-                                    =link_to stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail" do
-                                      -if stream.link_type.include? "netflix"
-                                        %img{src: "/assets/netflix.png"}
-                                      -elsif stream.link_type.include? "amazon"
-                                        %img{src: "/assets/amazon.png"}
-                                      -elsif stream.link_type.include? "apple"
-                                        %img{src: "/assets/apple.png"}
-                                      -elsif stream.link_type.include? "youtube"
-                                        %img{src: "/assets/youtube.png"}
-                                      -elsif stream.link_type.include? "hulu"
-                                        %img{src: "/assets/hulu.png"}
-                                      -elsif stream.link_type.include? "vudu"
-                                        %img{src: "/assets/vudu.png"}
+                                    =link_to stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail" do
+                                      =image_tag(stream.movie_stream_link_type.logo.url)
                                       %div.go-play
-                                        .icon-play
-                                  -else
-                                    .uk-thumbnail.price_platform
-                                      -if stream.link_type.include? "netflix"
-                                        %img{src: "/assets/netflix.png"}
-                                      -elsif stream.link_type.include? "amazon"
-                                        %img{src: "/assets/amazon.png"}
-                                      -elsif stream.link_type.include? "apple"
-                                        %img{src: "/assets/apple.png"}
-                                      -elsif stream.link_type.include? "youtube"
-                                        %img{src: "/assets/youtube.png"}
-                                      -elsif stream.link_type.include? "hulu"
-                                        %img{src: "/assets/hulu.png"}
-                                      -elsif stream.link_type.include? "vudu"
-                                        %img{src: "/assets/vudu.png"}
-                                      .go-play
                                         .icon-play
                             %td.transaction_type
                               -@title.movie_streams.rental.each do |stream|
                                 .platform_detail
                                   -if stream.movie_stream_link_type
-                                    =link_to stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail" do
-                                      -if stream.link_type.include? "netflix"
-                                        %img{src: "/assets/netflix.png"}
-                                      -elsif stream.link_type.include? "amazon"
-                                        %img{src: "/assets/amazon.png"}
-                                      -elsif stream.link_type.include? "apple"
-                                        %img{src: "/assets/apple.png"}
-                                      -elsif stream.link_type.include? "youtube"
-                                        %img{src: "/assets/youtube.png"}
-                                      -elsif stream.link_type.include? "hulu"
-                                        %img{src: "/assets/hulu.png"}
-                                      -elsif stream.link_type.include? "vudu"
-                                        %img{src: "/assets/vudu.png"}
+                                    =link_to stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail" do
+                                      =image_tag(stream.movie_stream_link_type.logo.url)
                                       %div.go-play
-                                        .icon-play
-                                  -else
-                                    .uk-thumbnail.price_platform
-                                      -if stream.link_type.include? "netflix"
-                                        %img{src: "/assets/netflix.png"}
-                                      -elsif stream.link_type.include? "amazon"
-                                        %img{src: "/assets/amazon.png"}
-                                      -elsif stream.link_type.include? "apple"
-                                        %img{src: "/assets/apple.png"}
-                                      -elsif stream.link_type.include? "youtube"
-                                        %img{src: "/assets/youtube.png"}
-                                      -elsif stream.link_type.include? "hulu"
-                                        %img{src: "/assets/hulu.png"}
-                                      -elsif stream.link_type.include? "vudu"
-                                        %img{src: "/assets/vudu.png"}
-                                      .go-play
                                         .icon-play
                             %td.transaction_type
                               -@title.movie_streams.subscription.each do |stream|
                                 .platform_detail
                                   -if stream.movie_stream_link_type
-                                    =link_to stream.link, target: "_blank", title: stream.link_type, class: "uk-thumbnail" do
-                                      -if stream.link_type.include? "netflix"
-                                        %img{src: "/assets/netflix.png"}
-                                      -elsif stream.link_type.include? "amazon"
-                                        %img{src: "/assets/amazon.png"}
-                                      -elsif stream.link_type.include? "apple"
-                                        %img{src: "/assets/apple.png"}
-                                      -elsif stream.link_type.include? "youtube"
-                                        %img{src: "/assets/youtube.png"}
-                                      -elsif stream.link_type.include? "hulu"
-                                        %img{src: "/assets/hulu.png"}
-                                      -elsif stream.link_type.include? "vudu"
-                                        %img{src: "/assets/vudu.png"}
+                                    =link_to stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail" do
+                                      =image_tag(stream.movie_stream_link_type.logo.url)
                                       %div.go-play
-                                        .icon-play
-                                  -else
-                                    .uk-thumbnail.price_platform
-                                      -if stream.link_type.include? "netflix"
-                                        %img{src: "/assets/netflix.png"}
-                                      -elsif stream.link_type.include? "amazon"
-                                        %img{src: "/assets/amazon.png"}
-                                      -elsif stream.link_type.include? "apple"
-                                        %img{src: "/assets/apple.png"}
-                                      -elsif stream.link_type.include? "youtube"
-                                        %img{src: "/assets/youtube.png"}
-                                      -elsif stream.link_type.include? "hulu"
-                                        %img{src: "/assets/hulu.png"}
-                                      -elsif stream.link_type.include? "vudu"
-                                        %img{src: "/assets/vudu.png"}
-                                      .go-play
                                         .icon-play
                     -else
                       =t('platfrom_not_avalible')
