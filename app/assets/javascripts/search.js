@@ -94,12 +94,25 @@ $(function() {
 
   $(document).on('click', '.close-button-back', function(){
     $('#modalTitle').modal('hide');
-    $('li.navbar-collapse-button').html('<span class="fa fa-bars"></span>');
   });
 
   $(document).on('hidden.bs.modal', '#modalTitle', function (e) {
     window.history.pushState({}, null, previousUrl);
     setSidebarHeight();
+    $('li.navbar-collapse-button').html('<span class="fa fa-bars"></span>');
+  });
+
+  $('.sidebarr .collapse-a').click( function(event){
+    event.preventDefault();
+    $(this).siblings('ul').collapse('toggle');
+  });
+
+  $('.sidebarr ul.collapse').on('show.bs.collapse', function(){
+    $(this).siblings('a').find('.fa').removeClass('fa-angle-right').addClass('fa-angle-down');
+  });
+
+  $('.sidebarr ul.collapse').on('hidden.bs.collapse', function(){
+    $(this).siblings('a').find('.fa').removeClass('fa-angle-down').addClass('fa-angle-right');
   });
 });
 
