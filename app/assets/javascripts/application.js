@@ -12,4 +12,6 @@
 //= require jquery.raty
 //= require ratyrate
 //= require bootstrap
+//= require npm
+//= require dropdowns
 //= require turbolinks
