@@ -3,12 +3,8 @@
     =render 'layouts/partials/sidebar'
   .container-fluid.width.main-content
     .row
-      .col-md-8
-        %h2.tagline
-          =t('tagline')
-    .row
       .col-md-12
-        %h3.title
+        %h3.title.main-title
           = @collections.where(is_featured?: true).first.collection_name
           by
           %span.auth
