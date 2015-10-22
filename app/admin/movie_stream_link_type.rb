@@ -1,5 +1,5 @@
 ActiveAdmin.register MovieStreamLinkType do
-permit_params :typel, :logo, :transaction_type
+permit_params :typel, :logo, :transaction_type, :small_logo
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -19,6 +19,9 @@ form do |f|
   end
   f.inputs "Logo", :multipart => true  do
     f.input :logo, :required => false, :as => :file , :hint => image_tag(f.object.logo.url(:medium))
+  end
+  f.inputs "Small Logo", :multipart => true  do
+    f.input :small_logo, :required => false, :as => :file , :hint => image_tag(f.object.logo.url(:tiny))
   end
   f.actions
  end

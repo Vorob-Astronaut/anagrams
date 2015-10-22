@@ -3,8 +3,10 @@ class MovieStreamLinkType < ActiveRecord::Base
   has_many :movie_stream
   after_create :update_transaction_type
 
-  has_attached_file :logo, :styles => { :medium => "100x200>", :tiny => "20x20>" }, :default_url => "/noimage/:style/missing.png"
+  has_attached_file :logo, :styles => { :medium => "100x200>" }, :default_url => "/noimage/:style/missing.png"
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
+  has_attached_file :small_logo, :styles => { :tiny => "30x30>" }, :default_url => "/noimage/:style/missing.png"
+  validates_attachment_content_type :small_logo, :content_type => /\Aimage\/.*\Z/
 
   ["Free", "Digital Purchase", "Rental", "Subscription"].each do |t|
     scope t.snakecase.to_sym, -> { where(transaction_type: t) }
