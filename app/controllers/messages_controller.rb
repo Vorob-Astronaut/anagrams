@@ -6,7 +6,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-    binding.pry
     Message.create(author: User.find_by_email(params[:message][:author]), message: "USER REPORT A PROBLEM WITH TITLE #{params[:message][:title]} MESSAGE: #{params[:message][:message]}")
     redirect_to :back
   end

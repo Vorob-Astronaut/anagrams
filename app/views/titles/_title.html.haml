@@ -7,6 +7,8 @@
     .title-info
       .title-info-name= truncate(title.film_title, :length => 20)
       .title-info-country= title.countries.collect(&:country).join(', ')
+      -title.movie_streams.first(5).each do |stream|
+        =image_tag(stream.movie_stream_link_type.logo.url(:tiny))
     .info{"style" => "display: none;"}
       %h5= truncate(title.film_title, :length => 20)
       .icon
