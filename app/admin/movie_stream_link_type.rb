@@ -21,7 +21,7 @@ form do |f|
     f.input :logo, :required => false, :as => :file , :hint => image_tag(f.object.logo.url(:medium))
   end
   f.inputs "Small Logo", :multipart => true  do
-    f.input :small_logo, :required => false, :as => :file , :hint => image_tag(f.object.logo.url(:tiny))
+    f.input :small_logo, :required => false, :as => :file , :hint => image_tag(f.object.small_logo.url(:tiny))
   end
   f.actions
  end
