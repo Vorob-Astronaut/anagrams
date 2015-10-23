@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022122935) do
+ActiveRecord::Schema.define(version: 20151023050204) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -173,14 +173,18 @@ ActiveRecord::Schema.define(version: 20151022122935) do
   add_index "messages", ["receiver_type", "receiver_id"], name: "index_messages_on_receiver_type_and_receiver_id", using: :btree
 
   create_table "movie_stream_link_types", force: :cascade do |t|
-    t.string   "typel",             limit: 255
-    t.string   "logo_file_name",    limit: 255
-    t.string   "logo_content_type", limit: 255
-    t.integer  "logo_file_size",    limit: 4
+    t.string   "typel",                   limit: 255
+    t.string   "logo_file_name",          limit: 255
+    t.string   "logo_content_type",       limit: 255
+    t.integer  "logo_file_size",          limit: 4
     t.datetime "logo_updated_at"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "transaction_type",  limit: 255
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "transaction_type",        limit: 255
+    t.string   "small_logo_file_name",    limit: 255
+    t.string   "small_logo_content_type", limit: 255
+    t.integer  "small_logo_file_size",    limit: 4
+    t.datetime "small_logo_updated_at"
   end
 
   create_table "movie_streams", force: :cascade do |t|
