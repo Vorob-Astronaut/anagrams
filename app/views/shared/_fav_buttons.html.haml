@@ -1,30 +1,41 @@
-.addToFav
-  -if current_user
-    %a#add_.btn.uk-button.add_favourite.btn-action-title.btn-like{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return AddtoFav(id)", :title => "Me gusta"}=t('add_to_favorite')
-  -else
-    =link_to new_user_registration_path, class: "btn uk-button add_favourite btn-action-title btn-like" do
-      %span.icon-heart
-      %span=t('add_to_favorite')
+.actions_bar
+  .actions_bar__button
+    -if current_user
+      = link_to "", class: "action_bar__button__link action_bar__button__link--like", id: "add_", data: {"uk-tooltip" => {pos: 'top-right'}}, onclick: "return AddtoFav(id)" do
+        %span.icon.icon-heart
+        %span=t('add_to_favorite')
+    -else
+      =link_to new_user_registration_path, class: "action_bar__button__link action_bar__button__link--like" do
+        %span.icon.icon-heart
+        %span=t('add_to_favorite')
 
-  -if current_user
-    %a#film_.btn.uk-button.Remove_view.add_favourite.btn-action-title.btn-remove{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return RemoveFromView(id)", :title => "Eliminar de la vista"}=t('remove_from_view')
-  -else
-    =link_to new_user_registration_path, class: "btn uk-button add_favourite btn-action-title btn-remove" do
-      %span.icon-playlist-remove
-      %span=t('remove_from_view')
+  .actions_bar__button
+    -if current_user
+      = link_to "", class: "action_bar__button__link action_bar__button__link--queue", id: "addqueue_", data: {"uk-tooltip" => {pos: 'top-right'}}, onclick: "return MyQueue(id)" do
+        %span.icon.icon-playlist-plus
+        %span=t('add_to_queue')
+    -else
+      =link_to new_user_registration_path, class: "action_bar__button__link action_bar__button__link--queue" do
+        %span.icon.icon-playlist-plus
+        %span=t('add_to_queue')
 
-  -if current_user
-    %a#addqueue_.btn.uk-button.myqueue.add_favourite.btn-action-title.btn-queue{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)", :title => "Want To Watch"}=t('add_to_queue')
-  -else
-    =link_to new_user_registration_path, class: "btn uk-button add_favourite btn-action-title btn-queue" do
-      %span.icon-playlist-plus
-      %span=t('add_to_queue')
+  .actions_bar__button
+    -if current_user
+      =link_to new_user_registration_path, class: "action_bar__button__link action_bar__button__link--remove", id: "film_", data: {"uk-tooltip" => {pos: 'top-right'}}, onclick: "return RemoveFromView(id)" do
+        %span.icon.icon-playlist-remove
+        %span=t('remove_from_view')
+    -else
+      =link_to new_user_registration_path, class: "action_bar__button__link action_bar__button__link--remove" do
+        %span.icon.icon-playlist-remove
+        %span=t('remove_from_view')
 
-  -if current_user
-    %a.uk-button.btn.btn-action-title{"data-target" => "#myModal", "data-toggle" => "modal", :href => report_messages_path}=t('report_a_problem')
+  / -if current_user
+  /   .actions_bar__button
+  /     %a."data-target" => "#myModal", "data-toggle" => "modal", :href => report_messages_path}=t('report_a_problem')
 
   -if show_view_button
     -if title
-      =link_to title, class: "btn uk-button add_favourite btn-action-title btn-eye", remote: true do
-        %span.icon-eye
-        %span=t('view')
+      .actions_bar__button
+        =link_to title, class: "action_bar__button__link action_bar__button__link--view", remote: true do
+          %span.icon.icon-eye
+          %span=t('view')
