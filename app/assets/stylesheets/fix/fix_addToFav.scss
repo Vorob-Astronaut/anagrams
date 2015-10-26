@@ -1,0 +1,96 @@
+.addToFav {
+	
+	.btn {
+		padding-top: 15px !important;	
+		padding-bottom: 15px !important;
+		padding-left: 40px;
+		position: relative;
+
+		white-space: normal !important;
+		line-height: 1.3 !important;
+	}
+
+	.btn-like {
+
+		&::before {
+			width: 18px;	
+			height: 18px;
+			margin-top: -9px;
+			margin-left: 15px;
+			top: 50%;
+			position: absolute;
+
+			background-color: inherit;
+			background-image: asset_url('icon--heart.png');
+			background-repeat: no-repeat;
+			content: '';
+		}
+
+		&:hover {
+			background-color: #d25452 !important;
+		}
+	}
+
+	.btn-remove {
+
+		&::before {
+			width: 20px;	
+			height: 16px;
+			margin-top: -6px;
+			margin-left: 15px;
+			top: 50%;
+			position: absolute;
+
+			background-color: inherit;
+			background-image: asset_url('icon--burger-plus.png');
+			background-repeat: no-repeat;
+			content: '';
+		}
+
+		&:hover {
+			background-color: #2d3034 !important;
+		}
+	}
+
+	.btn-queue {
+
+		&::before {
+			width: 20px;	
+			height: 16px;
+			margin-top: -6px;
+			margin-left: 15px;
+			top: 50%;
+			position: absolute;
+
+			background-color: inherit;
+			background-image: asset_url('icon--burger-cross.png');
+			background-repeat: no-repeat;
+			content: '';
+		}
+
+		&:hover {
+			background-color: #5092e4 !important;
+		}
+	}
+
+	.btn-eye {
+		
+		&::before {
+			width: 22px;	
+			height: 15px;
+			margin-top: -6px;
+			margin-left: 15px;
+			top: 50%;
+			position: absolute;
+
+			background-color: inherit;
+			background-image: asset_url('icon--eye.png');
+			background-repeat: no-repeat;
+			content: '';
+		}
+
+		&:hover {
+			background-color: #ffffff !important;
+		}
+	}
+}
