@@ -14,3 +14,4 @@
 //= require bootstrap
 //= require dropdowns
 //= require turbolinks
+//= require_tree ./fix
