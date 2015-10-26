@@ -6,37 +6,37 @@ es:
     index:
       title: "Coleccions"
   favorites: Mis favoritos
-  queue: Mi cola
-  removals: My removals
-  add_to_favorite: Me gusta
+  queue: Mi lista por ver
+  removals: Películas Eliminadas
+  add_to_favorite: Favoritas
   remove_from_view: Eliminar
-  add_to_queue: Poner
+  add_to_queue: + Mi lista por ver
   genre: Género
-  collection: Colección
+  collection: Colecciones
   country: País
   tagline: PORQUE NOS GUSTAN LAS PELÍCULAS EN ESPAÑOL, TE AYUDAMOS A DESCUBRIRLAS. ¡MIRA Y DISFRUTA!
   platforms: Dónde la puedes ver online
-  platfrom_not_avalible: esta película no está disponible
-  notify_me: notificarme!
+  platfrom_not_avalible: Esta película no está disponible. Avísame cuando esté online.
+  notify_me: Avísame
   notifications: Notificaciones
   follow: Sígueme
-  search: Búsqueda por película, director o género
-  sign_in: Login
-  sign_up: Regístrate
+  search: Busca por Película, Director o Género
+  sign_in: Entra
+  sign_up: Únete
   collections: Colecciones
   other_collections: Otras colecciones que te podrían gustar
-  search_result: Resultados de la búsqueda
-  no_results: Aún no tenemos ese film en nuestro sitio.
+  search_result: Resultados de la Búsqueda
+  no_results: Ups, parece que no tenemos esta película, ¿quieres sugerirla?
   add_title_question: ¿Te gustaría que la agregáramos?
   yes_asnwer: ¡Si!
   add_film_title: Solicitud para agregar film
   film_name: Nombre del film
-  year_aprox: Año aproximado
+  year_aprox: Año Aproximado
   film_comment: Comentarios
   send: Enviar
   my_profile: Mi Perfil
   logout: Salir
-  followed_collections: Mis colecciones
+  followed_collections: Mis Colecciones
   close: Cerrar
   director: Director
   starring: Elenco
@@ -181,7 +181,7 @@ es:
       update: "Update %{model}"
 
   report_a_problem: Reportar un problema
-  thanks_message: Gracias por ayudarnos a actualizar este Film. Porfavor se específico en el problema
+  thanks_message: Gracias por ayudarnos a actualizar esta película. Por favor, sé específico en el problema.
   author: Autor
   title: Titulo
   message: Mensaje
