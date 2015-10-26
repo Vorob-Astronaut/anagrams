@@ -13,7 +13,10 @@
     %a#addqueue_.btn.uk-button.myqueue.add_favourite.btn-action-title.btn-queue{"data-uk-tooltip" => "{pos:'top-right'}", :onclick => "return MyQueue(id)", :title => "Want To Watch"}=t('add_to_queue')
   -else
     =link_to t('add_to_queue'), new_user_registration_path, class: "btn uk-button add_favourite btn-action-title btn-queue"
-
+  
   -if show_view_button
     -if title
       =link_to t('view'), title, class: "btn uk-button add_favourite btn-action-title btn-eye", remote: true 
+  
+  -if current_user
+    %a.uk-button.btn.btn-action-title.btn-problem{"data-target" => "#myModal", "data-toggle" => "modal", :href => report_messages_path}=t('report_a_problem')
