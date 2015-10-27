@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
     get ':notification/mark_notifications_as_readed' => "user_activity_logs#mark_as_readed", as: :mark_notifications_as_readed
     get 'mark_all_notifications_as_readed' => "user_activity_logs#mark_all_as_readed", as: :mark_all_notifications_as_readed
-    root to: 'home#wellcome'
+    root to: 'home#welcome'
   end
   get 'about' => 'home#about', as: :about
   get 'search' => 'search#search', as: :search
