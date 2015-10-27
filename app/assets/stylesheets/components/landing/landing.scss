@@ -1,0 +1,46 @@
+@import 'merge';
+@import 'settings';
+
+.landing {
+	height: 100%;
+	position: relative;
+
+	overflow: auto;
+	}	
+
+.landing__section {
+	font-size: 0;
+	}
+
+.landing__section-top {
+	height: 1180px;
+	padding-top: $height--header;
+
+	background-image: asset_url('components/landing/background-top.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center
+	}
+
+.landing__section-top__item {
+	width: 500px;
+	height: 500px;
+	display: inline-block;
+
+	vertical-align: middle;
+
+	background-color: blue;
+	}
+
+.landing__section-middle {
+
+	}
+
+.landing__header {
+	width: 100%;
+	height: $height--header;
+	top: 0;
+	position: absolute;
+
+	background-color: lime;
+	}
