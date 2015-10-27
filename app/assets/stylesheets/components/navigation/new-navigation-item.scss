@@ -2,9 +2,10 @@
 
 .new-navigation-item {
 	margin-right: 50px;
-	display: inline-block;
 
 	vertical-align: middle;
+	text-decoration: none;
+	color: $color--text--gray;
 
 	&:last-of-type {
 		margin-right: 0;
