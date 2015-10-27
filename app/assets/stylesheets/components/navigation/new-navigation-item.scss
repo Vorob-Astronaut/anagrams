@@ -1,0 +1,16 @@
+@import 'merge';
+
+.new-navigation-item {
+	margin-right: 50px;
+	display: inline-block;
+
+	vertical-align: middle;
+
+	&:last-of-type {
+		margin-right: 0;
+		}
+
+	&--active {
+		color: $color--white;
+		}
+	}
