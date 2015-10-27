@@ -1,0 +1,10 @@
+@import 'settings';
+
+.landing__header {
+	width: 100%;
+	height: $height--header;
+	top: 0;
+	position: absolute;
+
+	background-color: lime;
+	}

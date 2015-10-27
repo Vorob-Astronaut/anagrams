@@ -1,0 +1,11 @@
+@import 'settings';
+
+.landing__section-top {
+	height: 1180px;
+	padding-top: $height--header;
+
+	background-image: asset_url('components/landing/background-top.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center
+	}
