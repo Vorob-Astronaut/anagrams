@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     @collections = Collection.all
   end
 
-  def welcome
+  def landing_page
     render layout: false
   end
 

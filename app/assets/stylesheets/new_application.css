@@ -1,0 +1,10 @@
+/*
+	Libs
+
+		= require frontrockets
+
+	Application
+
+		= require_tree ./components
+
+*/
