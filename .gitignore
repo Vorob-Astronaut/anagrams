@@ -18,8 +18,6 @@
 
 /public/system/users/*
 
-/vendor/assets/bower_components/*
-
 /config/database.yml
 
 /public/system/*
