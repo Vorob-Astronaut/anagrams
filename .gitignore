@@ -18,6 +18,8 @@
 
 /public/system/users/*
 
+/vendor/assets/*
+
 /config/database.yml
 
 /public/system/*
