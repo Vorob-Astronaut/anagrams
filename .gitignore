@@ -18,7 +18,7 @@
 
 /public/system/users/*
 
-/vendor/assets/*
+/vendor/assets/bower_components/*
 
 /config/database.yml
 
