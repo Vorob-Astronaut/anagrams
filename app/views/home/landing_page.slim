@@ -12,24 +12,98 @@ html lang="ru"
 
    = javascript_include_tag "new_application"
 
- body
-	.landing
-		.landing__header
-			.landing__container
-				.landing__header__content
-					.landing__header__content__logo
-						= render "components/logo"
+body
 
-					.landing__header__content__navigation
-						= render "components/navigation"
+  .landing
+    .landing__header
+      .landing__container
+        .landing__header__content
+          .landing__header__content__logo
+            = render "components/logo"
 
-		.landing__section.landing__section-top
-			.landing__section-top__item
+          .landing__header__content__navigation
+            = render "components/navigation"
 
-			.landing__section-top__item
+    .landing__section.landing__section-top
+      .landing__container
+        = link_to "", class: "promo"
+          = image_tag "components/landing/promo.png", class: "promo__image"
 
-		.landing__section.landing__section-middle
+        .welcome
+          .welcome__title
+            ' Discover.
+            span Enjoy
+            '
+            | It's free
 
-		.landing__section.landing__section-bottom
-		
-		.landing__footer
+          .welcome__description Butaca es tu portal al entretenimiento! Toma asiento y disfruta lo mejor del cine en español.
+
+          .welcome__social
+            = link_to "", class: "welcome__social__button welcome__social__button--facebook"
+              .welcome__social__button__inner
+                .welcome__social__button__icon
+
+                .welcome__social__button__text login with facebook
+
+            = link_to "", class: "welcome__social__button welcome__social__button--account"
+              .welcome__social__button__inner
+                .welcome__social__button__icon
+
+                .welcome__social__button__text login with account
+
+          = link_to "Or just continue", "", class: "welcome__continue"
+
+    .landing__section.landing__section-middle
+      .landing__container
+        .benefits
+          .benefits__item
+            .benefits__item__icon.benefits__item__icon--heart
+
+            .benefits__item__title Simple.
+
+            .benefits__item__text Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!
+
+          .benefits__item
+            .benefits__item__icon.benefits__item__icon--hand
+
+            .benefits__item__title Selecto.
+
+            .benefits__item__text Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!
+
+          .benefits__item
+            .benefits__item__icon.benefits__item__icon--dollar
+
+            .benefits__item__title Libre.
+
+            .benefits__item__text Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!
+
+          .benefits__item
+            .benefits__item__icon.benefits__item__icon--dollar
+
+            .benefits__item__title Gratis.
+
+            .benefits__item__text Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!
+
+    .landing__section.landing__section-bottom
+      .landing__container
+        .start
+          .start__text
+            ' El servicio de Butaca
+            span es absolutamente gratuito.
+            '
+            ' La empresa matriz Veranda Entertainment distribuye cine en español a los portales más importantes tales como
+            = link_to "Amazon", ""
+            ' ,
+            = link_to "Hulu", ""
+            ' ,
+            = link_to "Google", ""
+            '
+            | y Apple. Creamos este sitio para promover el cine en español de calidad. Entre más éxito tenga la industria, más cine tendremos para disfrutar. Esa es nuestra visión y nuestro compromiso.
+
+          = link_to "get started", "", class: "start__button"
+
+    .landing__footer
+      .landing__container
+        .landing__footer__content
+          .landing__footer__content__copyright
+            | © BUTACA.TV 2015

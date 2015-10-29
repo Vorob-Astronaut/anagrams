@@ -3,7 +3,11 @@
 html {
 	height: 100%;
 
-	font-size: 62.5%;
+	font-size: 52.5%;
+
+    @include respond_to('small') {
+        font-size: 62.5%;
+        }
 	}
 
 body {

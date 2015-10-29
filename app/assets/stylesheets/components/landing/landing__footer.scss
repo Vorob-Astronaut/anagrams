@@ -1,0 +1,21 @@
+@import 'merge';
+
+$height: 120px;
+
+.landing__footer {
+    height: $height;
+
+    background-color: $color--background--gray--dark;
+
+    line-height: $height;
+    }
+
+.landing__footer__content {
+    @include fs(14);
+
+    float: right;
+    }
+
+.landing__footer__content__copyright {
+    color: $color--text--blue;
+    }
