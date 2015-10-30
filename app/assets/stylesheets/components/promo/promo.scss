@@ -3,7 +3,7 @@
 .promo {
     display: none;
 
-    @include respond_to('small') {
+    @include respond_to('medium') {
         width: 40%;
         max-width: 675px;
         margin-bottom: 0;

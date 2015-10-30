@@ -26,6 +26,14 @@ body
           .landing__header__content__navigation
             = render "components/navigation"
 
+          .landing__header__content__menu-burger
+            = link_to "", class: "menu-burger js-menu-burger-toggle"
+              .menu-burger
+                .menu-burger__line
+
+    .landing__menu--mobile.menu-mobile
+      = render "components/navigation"
+
     .landing__section.landing__section-top
       .landing__container
         = link_to "", class: "promo"
@@ -124,3 +132,5 @@ body
       .landing__container
         .landing__footer__content
           .landing__footer__content__copyright © BUTACA.TV 2015
+
+    .layout__shadow

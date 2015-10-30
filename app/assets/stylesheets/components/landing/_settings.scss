@@ -1,3 +1,5 @@
+@import 'merge';
+
 $width--landing--max: 1860px;
 
-$height--header: 100px;
+$height--header: $height--landing--header;

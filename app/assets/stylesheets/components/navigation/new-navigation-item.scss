@@ -14,4 +14,12 @@
 	&--active {
 		color: $color--white;
 		}
+
+    .menu-mobile & {
+        padding: 20px;
+        margin-right: 0;
+        display: block;
+
+        text-align: center;
+        }
 	}

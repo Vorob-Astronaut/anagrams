@@ -3,9 +3,15 @@
 .welcome {
     @include fs(14);
 
-    max-width: 610px;
+    margin-top: 100px;
 
     @include respond_to('small') {
+        margin-top: 150px;
+        }
+
+    @include respond_to('medium') {
+        max-width: 610px;
+
         margin-top: 310px;
         }
     }
