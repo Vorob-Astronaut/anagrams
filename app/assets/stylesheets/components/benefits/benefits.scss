@@ -65,11 +65,14 @@
     margin-bottom: 20px;
 
     color: $color--white;
+    font-family: $font-ordinary;
+    text-transform: uppercase;
+    letter-spacing: 3px;
     }
 
 .benefits__item__text {
     @include fs(14);
 
     color: $color--text--blue--light;
-    line-height: 1.3;
+    line-height: 1.5;
     }

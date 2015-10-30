@@ -8,12 +8,14 @@ html lang="ru"
 
    title butaca
 
+   // TODO: need right loading
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600italic,600,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
    = stylesheet_link_tag "new_application"
 
    = javascript_include_tag "new_application"
 
 body
-
   .landing
     .landing__header
       .landing__container
@@ -31,27 +33,31 @@ body
 
         .welcome
           .welcome__title
-            ' Discover.
-            span Enjoy
+            = I18n.t("landing.welcome.title.discover")
             '
-            | It's free
+            span = I18n.t("landing.welcome.title.enjoy")
+            '
+            = I18n.t("landing.welcome.title.free")
 
-          .welcome__description Butaca es tu portal al entretenimiento! Toma asiento y disfruta lo mejor del cine en español.
+          .welcome__description
+            = I18n.t("landing.welcome.description")
 
           .welcome__social
             = link_to "", class: "welcome__social__button welcome__social__button--facebook"
               .welcome__social__button__inner
                 .welcome__social__button__icon
 
-                .welcome__social__button__text login with facebook
+                .welcome__social__button__text
+                  = I18n.t("landing.welcome.login.facebook")
 
             = link_to "", class: "welcome__social__button welcome__social__button--account"
               .welcome__social__button__inner
                 .welcome__social__button__icon
 
-                .welcome__social__button__text login with account
+                .welcome__social__button__text
+                  = I18n.t("landing.welcome.login.account")
 
-          = link_to "Or just continue", "", class: "welcome__continue"
+          = link_to I18n.t("landing.welcome.login.continue"), "", class: "welcome__continue"
 
     .landing__section.landing__section-middle
       .landing__container
@@ -59,51 +65,60 @@ body
           .benefits__item
             .benefits__item__icon.benefits__item__icon--heart
 
-            .benefits__item__title Simple.
+            .benefits__item__title
+              = I18n.t("landing.benefits.item1.title")
 
-            .benefits__item__text Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!
+            .benefits__item__text
+              = I18n.t("landing.benefits.item1.description")
 
           .benefits__item
             .benefits__item__icon.benefits__item__icon--hand
 
-            .benefits__item__title Selecto.
+            .benefits__item__title
+              = I18n.t("landing.benefits.item2.title")
 
-            .benefits__item__text Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!
-
-          .benefits__item
-            .benefits__item__icon.benefits__item__icon--dollar
-
-            .benefits__item__title Libre.
-
-            .benefits__item__text Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!
+            .benefits__item__text
+              = I18n.t("landing.benefits.item2.description")
 
           .benefits__item
             .benefits__item__icon.benefits__item__icon--dollar
 
-            .benefits__item__title Gratis.
+            .benefits__item__title
+              = I18n.t("landing.benefits.item3.title")
 
-            .benefits__item__text Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!
+            .benefits__item__text
+              = I18n.t("landing.benefits.item3.description")
+
+          .benefits__item
+            .benefits__item__icon.benefits__item__icon--dollar
+
+            .benefits__item__title
+              = I18n.t("landing.benefits.item4.title")
+
+            .benefits__item__text
+              = I18n.t("landing.benefits.item4.description")
 
     .landing__section.landing__section-bottom
       .landing__container
         .start
           .start__text
-            ' El servicio de Butaca
-            span es absolutamente gratuito.
+            = I18n.t("landing.start.service")
             '
-            ' La empresa matriz Veranda Entertainment distribuye cine en español a los portales más importantes tales como
+            span = I18n.t("landing.start.span")
+            '
+            = I18n.t("landing.start.text1")
+            '
             = link_to "Amazon", ""
             ' ,
             = link_to "Hulu", ""
             ' ,
             = link_to "Google", ""
             '
-            | y Apple. Creamos este sitio para promover el cine en español de calidad. Entre más éxito tenga la industria, más cine tendremos para disfrutar. Esa es nuestra visión y nuestro compromiso.
+            = I18n.t("landing.start.text2")
 
-          = link_to "get started", "", class: "start__button"
+          = link_to I18n.t("landing.start.get_start"), "", class: "start__button"
 
     .landing__footer
       .landing__container
         .landing__footer__content
-          .landing__footer__content__copyright
-            | © BUTACA.TV 2015
+          .landing__footer__content__copyright © BUTACA.TV 2015

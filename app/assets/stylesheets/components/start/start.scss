@@ -6,19 +6,26 @@
     max-width: 650px;
     margin-right: auto;
     margin-left: auto;
-    padding-top: 135px;
-    padding-bottom: 115px;
+    padding-top: 65px;
+    padding-bottom: 70px;
 
     text-align: center;
+
+    @include respond_to('small') {
+        padding-top: 135px;
+        padding-bottom: 115px;
+        }
     }
 
 .start__text {
     margin-bottom: 50px;
 
     color: $color--text--gray--light;
-    line-height: 1.3;
+    line-height: 1.5;
 
     span {
+        border-bottom: 1px solid;
+
         color: $color--text--gray--dark;
         }
 
@@ -38,4 +45,5 @@
     text-transform: uppercase;
     text-decoration: none;
     overflow: hidden;
+    font-weight: bold;
     }

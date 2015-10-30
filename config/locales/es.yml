@@ -186,3 +186,38 @@ es:
   title: Titulo
   message: Mensaje
   send: Enviar
+
+  navigation:
+    country: "By counry"
+    collections: "By collections"
+    genre: "By genre"
+  landing:
+    welcome:
+      title:
+        discover: "Discover."
+        enjoy: "Enjoy."
+        free: "It's free."
+      description: "Butaca es tu portal al entretenimiento! Toma asiento y disfruta lo mejor del cine en español."
+      login:
+        account: "login with account"
+        facebook: "login with facebook"
+        continue: "Or just continue"
+    benefits:
+      item1:
+        title: "Simple."
+        description: "Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!"
+      item2:
+        title: "Selecto."
+        description: "Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!"
+      item3:
+        title: "Libre."
+        description: "Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!"
+      item4:
+        title: "Gratis."
+        description: "Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!"
+    start:
+      service: "El servicio de Butaca"
+      span: "es absolutamente gratuito."
+      text1: "La empresa matriz Veranda Entertainment distribuye cine en español a los portales más importantes tales como"
+      text2: "y Apple. Creamos este sitio para promover el cine en español de calidad. Entre más éxito tenga la industria, más cine tendremos para disfrutar. Esa es nuestra visión y nuestro compromiso."
+      get_start: "get started"

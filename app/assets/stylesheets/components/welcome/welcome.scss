@@ -16,6 +16,9 @@
     margin-bottom: 50px;
 
     text-transform: uppercase;
+    font-family: $font-ordinary;
+    color: $color--white;
+    letter-spacing: 7px;
 
     span {
         color: $color--text--blue;
@@ -28,6 +31,7 @@
     margin-bottom: 50px;
 
     color: $color--text--gray;
+    line-height: 1.7;
     }
 
 .welcome__social {
@@ -44,6 +48,8 @@
     box-sizing: border-box;
 
     text-align: center;
+    font-weight: bold;
+    text-decoration: none;
 
     @include respond_to('small') {
         width: 50%;

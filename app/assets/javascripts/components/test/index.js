@@ -6,7 +6,7 @@ app.Modules.create({
            },
 
            init: function() {
-               console.log('lol')
+               // console.log('lol')
            },
        };
    },
