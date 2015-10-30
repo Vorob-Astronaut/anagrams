@@ -1,7 +1,8 @@
 @import 'helpers/merge';
 
 html {
-	height: 100%;
+    height: auto;
+	min-height: 100%;
 
 	font-size: 52.5%;
 
@@ -12,10 +13,9 @@ html {
 
 body {
 	min-width: 320px;
-	height: 100%;
+    height: auto;
+	min-height: 100%;
 
 	-webkit-font-smoothing: antialiased;
-	overflow: hidden;
-
     font-family: $font-main, $font-default;
 	}

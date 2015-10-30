@@ -59,7 +59,9 @@ body
 
           = link_to I18n.t("landing.welcome.login.continue"), "", class: "welcome__continue"
 
-    .landing__section.landing__section-middle
+        = link_to "", "", class: "landing__arrow-to-botom js-move-down", data: { target: "#js-scroll-target" }
+
+    .landing__section.landing__section-middle#js-scroll-target
       .landing__container
         .benefits
           .benefits__item
