@@ -71,10 +71,18 @@
 
     .welcome__social__button--facebook & {
         background-color: $color--background--blue;
+
+        &:hover {
+            background-color: $color--hover--blue;
+            }
         }
 
     .welcome__social__button--account & {
         background-color: $color--background--gray;
+
+        &:hover {
+            background-color: $color--hover--gray;
+            }
         }
 
     @include respond_to('small') {
