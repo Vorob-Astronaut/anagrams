@@ -1,6 +1,6 @@
 .new-navigation
-	= link_to I18n.t("navigation.country"), "", class: "new-navigation-item new-navigation-item--active"
+	= link_to I18n.t("navigation.country"), countries_path, class: "new-navigation-item new-navigation-item--active"
 
-	= link_to I18n.t("navigation.collections"), "", class: "new-navigation-item"
+	= link_to I18n.t("navigation.collections"), collections_path, class: "new-navigation-item"
 
-	= link_to I18n.t("navigation.genre"), "", class: "new-navigation-item"
+	= link_to I18n.t("navigation.genre"), genre_index_path, class: "new-navigation-item"

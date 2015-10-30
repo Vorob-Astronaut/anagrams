@@ -65,7 +65,7 @@ body
                 .welcome__social__button__text
                   = I18n.t("landing.welcome.login.account")
 
-          = link_to I18n.t("landing.welcome.login.continue"), "", class: "welcome__continue"
+          = link_to I18n.t("landing.welcome.login.continue"), home_index_path, class: "welcome__continue"
 
         = link_to "", "", class: "landing__arrow-to-botom js-move-down", data: { target: "#js-scroll-target" }
 
@@ -118,15 +118,18 @@ body
             '
             = I18n.t("landing.start.text1")
             '
-            = link_to "Amazon", ""
+            = link_to "Amazon", "http://www.amazon.com"
             ' ,
-            = link_to "Hulu", ""
+            = link_to "Hulu", "http://www.hulu.com/welcome"
             ' ,
-            = link_to "Google", ""
+            = link_to "Google", "https://www.google.com"
             '
+            ' y
+            = link_to "Apple", "http://www.apple.com"
+            ' .
             = I18n.t("landing.start.text2")
 
-          = link_to I18n.t("landing.start.get_start"), "", class: "start__button"
+          = link_to I18n.t("landing.start.get_start"), new_user_registration_path, class: "start__button"
 
     .landing__footer
       .landing__container
