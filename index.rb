@@ -47,9 +47,7 @@ class AnagramService
     end
 
     def fact(number)
-      return @@factorials_cache[number] if @@factorials_cache[number]
-
-      @@factorials_cache[number] = (1..number).reduce(1, :*)
+      @@factorials_cache[number] ||= (1..number).reduce(1, :*)
     end
 
     def raise_an_error_if_does_not_match_rules!(word)
